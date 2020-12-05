@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 import ute.DoAn1.DAO.GenericDAO;
 import ute.DoAn1.mapper.RowMapper;
+import ute.DoAn1.model.UserModel;
 
 public class AbstractDAO<T> implements GenericDAO<T>{
 	
@@ -158,4 +159,5 @@ public class AbstractDAO<T> implements GenericDAO<T>{
 		}
 		return null;
 	}
+
 }

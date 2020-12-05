@@ -2,6 +2,8 @@ package ute.DoAn1.service.impl;
 
 
 
+import javax.inject.Inject;
+
 import ute.DoAn1.DAO.IUserDAO;
 import ute.DoAn1.DAO.impl.UserDAO;
 import ute.DoAn1.model.UserModel;
@@ -16,10 +18,18 @@ public class UserService implements IUserService{
 	}
 
 
-
 	@Override
 	public UserModel findByUserEmailAndPasswordAndStatus(String email, String password, Integer status) {
 		return userDAO.findByUserEmailAndPasswordAndStatus(email, password, status);
 	}
+
+
+
+	@Override
+	public UserModel findOne(String email) {
+		return userDAO.findOne(email);
+	}
+
+
 	
 }

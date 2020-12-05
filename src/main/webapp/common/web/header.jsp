@@ -42,10 +42,9 @@
 								<div class="level-2 authenticated">
 									<a href="#" class="level-2 back"> My account </a>
 									<ul>
-										<li class=""><a href="#"> Account overview </a></li>
-										<li class="order-history "><a href="#"> Orders </a></li>
+										<li class=""><a href="${pageContext.request.contextPath}/views/web/accountoverview.jsp"> Account overview </a></li>
+										<li class="order-history "><a href="${pageContext.request.contextPath}/views/web/order.jsp"> Orders </a></li>
 										<li class=""><a href="${pageContext.request.contextPath}/views/web/userinf.jsp"> Personal details </a></li>
-										<li class=""><a href="#"> Addresses </a></li>
 										<li><a href='<c:url value="/login?action=logout"/>'>Logout</a>
 										</li>
 									</ul>

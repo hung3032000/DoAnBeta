@@ -1,7 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<% 
+String monthSelected = request.getParameter("birthdateMonth");
+if (monthSelected == null) {
+	monthSelected = "Month";
+}
+String yearSelected = request.getParameter("birthdateYear");
+if (yearSelected == null) {
+	yearSelected = "Year";
+}
+String daySelected = request.getParameter("birthdateDay");
+if (daySelected == null) {
+	daySelected = "Day";
+}
 
+
+
+%>
 <body>
 	<div class="pt_storefront" id="wrapper">
 		<div id="minicart-container" aria-hidden="true"></div>
@@ -13,13 +29,10 @@
 			<div class="container">
 				<nav class="account-navigation" aria-label="My account">
 					<ul>
-						<li class=""><a href="#"> Account overview </a></li>
-						<li class="order-history "><a href="#"> Orders </a></li>
-						<li class="active"><a
-							href="${pageContext.request.contextPath}/views/web/userinf.jsp"
-							title="Personal details (Active page)"> Personal details </a></li>
-						<li><a
-							href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
+						<li class=""><a href="${pageContext.request.contextPath}/views/web/accountoverview.jsp"> Account overview </a></li>
+						<li class="order-history "><a href="${pageContext.request.contextPath}/views/web/order.jsp"> Orders </a></li>
+						<li class=""><a href="${pageContext.request.contextPath}/views/web/userinf.jsp"> Personal details </a></li>
+						<li><a href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
 					</ul>
 				</nav>
 			</div>
@@ -54,7 +67,9 @@
 														name="dwfrm_profile_customer_title" data-dwname="title"
 														title="Title" autocomplete="honorific-prefix"
 														aria-required="true" aria-invalid="false"
-														aria-describedby="dwfrm_profile_customer_title-error"><option
+														aria-describedby="dwfrm_profile_customer_title-error"
+														value="dcm"
+														><option
 															class="form-selectOption" label="Title" value="">Title</option>
 														<option class="form-selectOption" label="Mr." value="010"
 															selected="selected">Mr.</option>
@@ -78,7 +93,7 @@
 												type="text"
 												id="dwfrm_profile_customer_firstname_d0hhfdpzzeru"
 												name="dwfrm_profile_customer_firstname_d0hhfdpzzeru"
-												value="Bindingdb" maxlength="13" data-dwname="firstname"
+												value="${USERMODEL.fName}" maxlength="13" data-dwname="firstname"
 												autocomplete="given-name" aria-required="true">
 										</div>
 
@@ -95,7 +110,7 @@
 												type="text"
 												id="dwfrm_profile_customer_lastname_d0nvjfwfdkjp"
 												name="dwfrm_profile_customer_lastname_d0nvjfwfdkjp"
-												value="Bindingdb" maxlength="13" data-dwname="lastname"
+												value="${USERMODEL.lName}" maxlength="13" data-dwname="lastname"
 												autocomplete="family-name" aria-required="true">
 										</div>
 
@@ -135,63 +150,23 @@
 															data-dwname="daybirthday" autocomplete="bday-day"
 															aria-label="Birthday Day"><option
 																class="form-selectOption" label="Day" value="">Day</option>
-															<option class="form-selectOption" label="01" value="01">01</option>
-															<option class="form-selectOption" label="02" value="02">02</option>
-															<option class="form-selectOption" label="03" value="03">03</option>
-															<option class="form-selectOption" label="04" value="04">04</option>
-															<option class="form-selectOption" label="05" value="05">05</option>
-															<option class="form-selectOption" label="06" value="06">06</option>
-															<option class="form-selectOption" label="07" value="07">07</option>
-															<option class="form-selectOption" label="08" value="08">08</option>
-															<option class="form-selectOption" label="09" value="09">09</option>
-															<option class="form-selectOption" label="10" value="10">10</option>
-															<option class="form-selectOption" label="11" value="11">11</option>
-															<option class="form-selectOption" label="12" value="12">12</option>
-															<option class="form-selectOption" label="13" value="13">13</option>
-															<option class="form-selectOption" label="14" value="14">14</option>
-															<option class="form-selectOption" label="15" value="15">15</option>
-															<option class="form-selectOption" label="16" value="16">16</option>
-															<option class="form-selectOption" label="17" value="17">17</option>
-															<option class="form-selectOption" label="18" value="18">18</option>
-															<option class="form-selectOption" label="19" value="19">19</option>
-															<option class="form-selectOption" label="20" value="20">20</option>
-															<option class="form-selectOption" label="21" value="21">21</option>
-															<option class="form-selectOption" label="22" value="22">22</option>
-															<option class="form-selectOption" label="23" value="23">23</option>
-															<option class="form-selectOption" label="24" value="24">24</option>
-															<option class="form-selectOption" label="25" value="25">25</option>
-															<option class="form-selectOption" label="26" value="26">26</option>
-															<option class="form-selectOption" label="27" value="27">27</option>
-															<option class="form-selectOption" label="28" value="28">28</option>
-															<option class="form-selectOption" label="29" value="29">29</option>
-															<option class="form-selectOption" label="30" value="30">30</option>
-															<option class="form-selectOption" label="31" value="31">31</option></select>
-													</div>
-												</div>
-											</div>
-										</div>
-			<!-- test -->
-										<div class="form-row  form-row-select" data-requiredtext=""
-											data-regexinvalidmessage="">
-											<div class="form-field-wrapper">
-												<label class="visually-hidden"
-													for="dwfrm_profile_customer_yearbirthday">Year</label>
-												<div class="form-field">
-													<div class="form-select-wrapper">
-														<select class="form-select yearbirthday"
-															id="dwfrm_profile_customer_yearbirthday"
-															name="dwfrm_profile_customer_yearbirthday"
-															data-dwname="yearbirthday" autocomplete="bday-month"
-															aria-label="Year"><option
-																class="form-selectOption" label="Year " value="">Year</option>
-															<option class="form-selectOption" label="01" value="01">01</option>
+															<%
+																for (int day = 1; day <= 31; day++) {
+															%>
+															<option class="form-selectOption" value="<%=day%>" label="<%= day %>"
+																<%if (daySelected.equals(day + "")) {%> selected <%}%>>
+																<%=day%></option>
+															<%
+																}
+															%>
 														</select>
 													</div>
 												</div>
 											</div>
 										</div>
-								
-										<!-- end test -->
+										</div>
+
+							<div class="selectbirthday"> 
 										<div class="form-row  form-row-select" data-requiredtext=""
 											data-regexinvalidmessage="">
 											<div class="form-field-wrapper">
@@ -206,23 +181,57 @@
 															aria-label="Month"><option
 																class="form-selectOption" label="Month" value="">Month</option>
 															<option class="form-selectOption" label="01" value="01">01</option>
-															<option class="form-selectOption" label="02" value="02">02</option>
-															<option class="form-selectOption" label="03" value="03">03</option>
-															<option class="form-selectOption" label="04" value="04">04</option>
-															<option class="form-selectOption" label="05" value="05">05</option>
-															<option class="form-selectOption" label="06" value="06">06</option>
-															<option class="form-selectOption" label="07" value="07">07</option>
-															<option class="form-selectOption" label="08" value="08">08</option>
-															<option class="form-selectOption" label="09" value="09">09</option>
-															<option class="form-selectOption" label="10" value="10">10</option>
-															<option class="form-selectOption" label="11" value="11">11</option>
-															<option class="form-selectOption" label="12" value="12">12</option></select>
+															<%
+																for (int month = 1; month <= 12; month++) {
+															%>
+															<option class="form-selectOption" value="<%=month%>"
+																<%if (monthSelected.equals(month + "")) {%> selected
+																<%}%>>
+																<%=month%></option>
+															<%
+																}
+															%>
+														</select>
 													</div>
 												</div>
 											</div>
 										</div>
 							
 									</div>
+												<!-- test -->
+					<div class="selectbirthday"> 
+										<div class="form-row  form-row-select" data-requiredtext=""
+											data-regexinvalidmessage="">
+											<div class="form-field-wrapper">
+												<label class="visually-hidden"
+													for="dwfrm_profile_customer_yearbirthday">Year</label>
+												<div class="form-field">
+													<div class="form-select-wrapper">
+														<select class="form-select yearbirthday"
+															id="dwfrm_profile_customer_yearbirthday"
+															name="dwfrm_profile_customer_yearbirthday"
+															data-dwname="yearbirthday" autocomplete="bday-month"
+															aria-label="Year"><option
+																class="form-selectOption" label="Year " value="">Year</option>
+															<%
+																for (int year = 1980; year <= 2020; year++) {
+															%>
+															<option class="form-selectOption" value="<%=year%>"
+																<%if (yearSelected.equals(year + "")) {%> selected <%}%>>
+																<%=year%></option>
+															<%
+																}
+															%>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+										<!-- end test -->
+									
+									
+									
 									<div class="form-row required"
 										data-requiredtext="Please enter your e-mail address (format: email@domain.fr)"
 										data-regexinvalidmessage="" aria-required="true">
@@ -232,7 +241,7 @@
 										<div class="form-field">
 											<input class="form-input email form-field required"
 												type="text" id="dwfrm_profile_customer_email"
-												name="dwfrm_profile_customer_email" value="Bindingdb"
+												name="dwfrm_profile_customer_email" value="${USERMODEL.email}"
 												maxlength="50" data-dwname="email" disabled="disabled"
 												aria-required="true">
 										</div>

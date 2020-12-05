@@ -4,4 +4,5 @@ import ute.DoAn1.model.UserModel;
 
 public interface IUserService {
 	UserModel findByUserEmailAndPasswordAndStatus(String userName, String password, Integer status);
+	UserModel findOne(String email);
 }

@@ -3024,8 +3024,7 @@ form.submitted .error-form {
 }
 .edit-account-form .selectbirthday .form-row {
     text-align: left;
-    display: inline-block;
-    width: 33%
+    display: inline-block
 }
 .edit-account-form .selectbirthday .form-row:first-child .form-field-wrapper:after {
     content: '';

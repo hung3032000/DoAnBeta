@@ -21,6 +21,7 @@ import ute.DoAn1.utils.SessionUtil;
 @WebServlet(urlPatterns = { "/trang-chu", "/login", "/logout" })
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Inject
 	UserService userService = new UserService();
 

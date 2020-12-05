@@ -5,10 +5,7 @@
 
 <body>
 	<div class="pt_storefront" id="wrapper">
-
 		<div id="minicart-container" aria-hidden="true"></div>
-
-
 		<main id="main" class="page-content clearfix"
 			style="margin-top: 128px;">
 			<a id="mainContent" tabindex="-1"></a>
@@ -26,7 +23,7 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-6 col-sm-offset-3">
-							<form action="${pageContext.request.contextPath}/register" method="get"
+							<form action="${pageContext.request.contextPath}/user-new" method="POST"
 								class="form-horizontal edit-account-form" id="RegistrationForm"
 								novalidate="novalidate">
 								<p class="required-msg">Please fill out all fields</p>
@@ -48,13 +45,13 @@
 														aria-required="true">
 														<option class="form-selectOption" label="Title" value="">Title
 														</option>
-														<option class="form-selectOption" label="Mr." value="010">Mr.
+														<option class="form-selectOption" label="Mr." value="Mr.">Mr.
 														</option>
-														<option class="form-selectOption" label="Mrs." value="020">Mrs.
+														<option class="form-selectOption" label="Mrs." value="Mrs.">Mrs.
 														</option>
-														<option class="form-selectOption" label="Ms." value="040">Ms.
+														<option class="form-selectOption" label="Ms." value="Ms.">Ms.
 														</option>
-														<option class="form-selectOption" label="-" value="160">-
+														<option class="form-selectOption" label="-" value="">-
 														</option>
 													</select>
 												</div>
