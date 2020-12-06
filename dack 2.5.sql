@@ -145,7 +145,7 @@ select * from users;
 insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','a1','1',1,3,now());
 insert into users(title,fname,lname,email,password,status,created_at) values('Mr.','pham1','hung1','a1','11','1',now());
 select * from role;
-delete from role where id=3;
+delete from users where role_id ='3';
 insert into role values('1','ADMIN','ADMIN',now(),null);
 insert into role  values(3,'USER','USER',now(),null);
 select * from users u inner join role r on r.id=u.role_id ;
