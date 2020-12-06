@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@include file="/common/taglib.jsp"%>	
 <% 
 String monthSelected = request.getParameter("birthdateMonth");
 if (monthSelected == null) {
@@ -38,6 +38,12 @@ if (daySelected == null) {
 			</div>
 			<div id="primary" class="primary-content">
 				<div class="registration container">
+				<c:if test="${not empty ready}">
+						<div class="account-edit-success">
+						<i class="icon_CheckMark">
+						</i> <span role="alert"> ${message} </span>
+					</div>
+					</c:if>
 					<div class="page-header">
 						<h1>
 							<span class="subtitle">Modify account</span> <span class="title">Personal
@@ -64,18 +70,18 @@ if (daySelected == null) {
 												<div class="form-select-wrapper">
 													<select class="form-select title form-field required"
 														id="dwfrm_profile_customer_title"
-														name="dwfrm_profile_customer_title" data-dwname="title"
+														name="cus_title" data-dwname="title"
 														title="Title" autocomplete="honorific-prefix"
 														aria-required="true" aria-invalid="false"
 														aria-describedby="dwfrm_profile_customer_title-error"
 														value="dcm"
 														><option
-															class="form-selectOption" label="Title" value="">Title</option>
-														<option class="form-selectOption" label="Mr." value="010"
+															class="form-selectOption" label="Title" value="Title">Title</option>
+														<option class="form-selectOption" label="Mr." value="Mr."
 															selected="selected">Mr.</option>
-														<option class="form-selectOption" label="Mrs." value="020">Mrs.</option>
-														<option class="form-selectOption" label="Ms." value="040">Ms.</option>
-														<option class="form-selectOption" label="-" value="160">-</option></select><span
+														<option class="form-selectOption" label="Mrs." value="Mrs.">Mrs.</option>
+														<option class="form-selectOption" label="Ms." value="Ms.">Ms.</option>
+														<option class="form-selectOption" label="-" value="">-</option></select><span
 														id="dwfrm_profile_customer_title-error" class="error"></span>
 												</div>
 											</div>
@@ -92,7 +98,7 @@ if (daySelected == null) {
 											<input class="form-input firstname form-field required"
 												type="text"
 												id="dwfrm_profile_customer_firstname_d0hhfdpzzeru"
-												name="dwfrm_profile_customer_firstname_d0hhfdpzzeru"
+												name="cus_fname"
 												value="${USERMODEL.fName}" maxlength="13" data-dwname="firstname"
 												autocomplete="given-name" aria-required="true">
 										</div>
@@ -109,7 +115,7 @@ if (daySelected == null) {
 											<input class="form-input lastname form-field required"
 												type="text"
 												id="dwfrm_profile_customer_lastname_d0nvjfwfdkjp"
-												name="dwfrm_profile_customer_lastname_d0nvjfwfdkjp"
+												name="cus_lname"
 												value="${USERMODEL.lName}" maxlength="13" data-dwname="lastname"
 												autocomplete="family-name" aria-required="true">
 										</div>
@@ -127,8 +133,8 @@ if (daySelected == null) {
 											<input class="form-input lastname form-field required"
 												type="text"
 												id="dwfrm_profile_customer_lastname_d0nvjfwfdkjp"
-												name="dwfrm_profile_customer_lastname_d0nvjfwfdkjp" value=""
-												maxlength="13" data-dwname="lastname"
+												name="cus_address" value=""
+												maxlength="50" data-dwname="lastname"
 												autocomplete="family-name" aria-required="true">
 										</div>
 
@@ -146,10 +152,10 @@ if (daySelected == null) {
 													<div class="form-select-wrapper">
 														<select class="form-select daybirthday"
 															id="dwfrm_profile_customer_daybirthday"
-															name="dwfrm_profile_customer_daybirthday"
+															name="cus_daybirthday"
 															data-dwname="daybirthday" autocomplete="bday-day"
 															aria-label="Birthday Day"><option
-																class="form-selectOption" label="Day" value="">Day</option>
+																class="form-selectOption" label="Day" value="Day">Day</option>
 															<%
 																for (int day = 1; day <= 31; day++) {
 															%>
@@ -176,11 +182,11 @@ if (daySelected == null) {
 													<div class="form-select-wrapper">
 														<select class="form-select monthbirthday"
 															id="dwfrm_profile_customer_monthbirthday"
-															name="dwfrm_profile_customer_monthbirthday"
+															name="cus_monthbirthday"
 															data-dwname="monthbirthday" autocomplete="bday-month"
 															aria-label="Month"><option
-																class="form-selectOption" label="Month" value="">Month</option>
-															<option class="form-selectOption" label="01" value="01">01</option>
+																class="form-selectOption" label="Month" value="Month">Month</option>
+											
 															<%
 																for (int month = 1; month <= 12; month++) {
 															%>
@@ -209,10 +215,10 @@ if (daySelected == null) {
 													<div class="form-select-wrapper">
 														<select class="form-select yearbirthday"
 															id="dwfrm_profile_customer_yearbirthday"
-															name="dwfrm_profile_customer_yearbirthday"
+															name="cus_yearbirthday"
 															data-dwname="yearbirthday" autocomplete="bday-month"
 															aria-label="Year"><option
-																class="form-selectOption" label="Year " value="">Year</option>
+																class="form-selectOption" label="Year " value="Year">Year</option>
 															<%
 																for (int year = 1980; year <= 2020; year++) {
 															%>
@@ -241,13 +247,16 @@ if (daySelected == null) {
 										<div class="form-field">
 											<input class="form-input email form-field required"
 												type="text" id="dwfrm_profile_customer_email"
-												name="dwfrm_profile_customer_email" value="${USERMODEL.email}"
+												name="cus_email" value="${USERMODEL.email}"
 												maxlength="50" data-dwname="email" disabled="disabled"
 												aria-required="true">
 										</div>
+										
 									</div>
 
 									<div class="form-row form-row-button">
+									<input type="hidden" value="update" name="action" />
+									<input type="hidden" value="${USERMODEL.email}" name="email" />
 										<button type="submit" value="Apply"
 											name="dwfrm_profile_confirm">Save changes</button>
 									</div>
@@ -256,22 +265,7 @@ if (daySelected == null) {
 											value="Delete account" name="dwfrm_profile_deleteaccount">
 											Delete account</button>
 									</div>
-									<input type="hidden" name="csrf_token"
-										value="9XUU1TjvOU4T2eO-e2SeXR0o6_El58rbAcbgBNWnn9Sp1in9VyWfLs80TdgPLw-BbXiB6jB0k0VCvTPvQzAVvdevwUFlKlok5A32upDSX0h7s3Ow3cBNTrcynU0-PLtxHgowDzi2nCt0dSeO6DYWoAzfLeYJ36SXlr1pdbRLD5kDNS8hgIU=">
-									<div class="form-row">
-										<div class="content-asset">
-											<!-- 											<p class="terms-conditions">GIVENCHY processes the data
-												collected above to create your account, process your order
-												and ensure a personalized customer relationship. Unless
-												otherwise noted, all fields are mandatory in order to
-												process your request. If you wish to be informed of GIVENCHY
-												news by telephone or SMS/MMS, tick the boxes under “My
-												contact preferences.” In any event, you have the right to to
-												access, amend, delete or object to the processing of your
-												personal data. You may exercise this right by writing to
-												contact.us@givenchy.com.</p> -->
-										</div>
-									</div>
+									
 								</fieldset>
 							</form>
 							<form action="#" method="post" class="form-horizontal"
@@ -288,7 +282,7 @@ if (daySelected == null) {
 											<input class="form-input currentpassword form-field required"
 												type="password"
 												id="dwfrm_profile_login_currentpassword_d0sdvmecjlfo"
-												name="dwfrm_profile_login_currentpassword_d0sdvmecjlfo"
+												name="cus_password"
 												value="" maxlength="14" data-dwname="currentpassword"
 												autocomplete="current-password" aria-required="true">
 										</div>
@@ -304,7 +298,7 @@ if (daySelected == null) {
 											<input class="form-input newpassword form-field required"
 												type="password"
 												id="dwfrm_profile_login_newpassword_d0pafajawcoo"
-												name="dwfrm_profile_login_newpassword_d0pafajawcoo" value=""
+												name="cus_newpass" value=""
 												maxlength="14" data-dwname="newpassword"
 												autocomplete="new-password"
 												aria-describedby="profile_login_password-instruction"
@@ -327,7 +321,7 @@ if (daySelected == null) {
 												class="form-input newpasswordconfirm form-field required"
 												type="password"
 												id="dwfrm_profile_login_newpasswordconfirm_d0xqdsptjeuw"
-												name="dwfrm_profile_login_newpasswordconfirm_d0xqdsptjeuw"
+												name="cus_confnewpass"
 												value="" maxlength="14" data-dwname="newpasswordconfirm"
 												data-rule-equalto=".newpassword" autocomplete="off"
 												aria-required="true">

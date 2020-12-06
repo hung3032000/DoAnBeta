@@ -2,7 +2,7 @@ package ute.DoAn1.service.impl;
 
 
 
-import javax.inject.Inject;
+import java.sql.Date;
 
 import ute.DoAn1.DAO.IUserDAO;
 import ute.DoAn1.DAO.impl.UserDAO;
@@ -29,6 +29,22 @@ public class UserService implements IUserService{
 	public UserModel findOne(String email) {
 		return userDAO.findOne(email);
 	}
+
+
+
+	@Override
+	public UserModel save(UserModel userModel) {
+		String newemail = userDAO.save(userModel);
+		return userDAO.findOne(newemail);
+	}
+
+
+	@Override
+	public void update(UserModel userModel) {	
+		userDAO.update(userModel);
+	}
+
+
 
 
 	

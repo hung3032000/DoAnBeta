@@ -1,8 +1,8 @@
-<%@include file="/common/taglib.jsp"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="context-eshop giv-style js infinite-scroll" lang="en">
-
+<%@include file="/common/taglib.jsp"%>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"

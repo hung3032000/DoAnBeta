@@ -141,7 +141,7 @@ insert into users(title,fname,lname,email,password,status,role_id,created_at) va
 
 select * from users where email='a' and password=1 and status=1;
 select * from users;
-
+update users set updated_at = now() where email ='assÄáº¥';
 insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','a1','1',1,3,now());
 insert into users(title,fname,lname,email,password,status,created_at) values('Mr.','pham1','hung1','a1','11','1',now());
 select * from role;

@@ -1,7 +1,9 @@
 package ute.DoAn1.DAO.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,42 +22,26 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 		return users.isEmpty() ? null : users.get(0);
 	}
 
-
-
 	@Override
 	public UserModel findOne(String email) {
-		String sql ="SELECT * FROM users where email =?";
-		List<UserModel> users = query(sql.toString(), new UserMapper(), email);	
+		String sql = "SELECT * FROM users where email =?";
+		List<UserModel> users = query(sql.toString(), new UserMapper(), email);
 		return users.isEmpty() ? null : users.get(0);
 	}
 
 
 
 	@Override
-	public boolean insert(Object obj) {
-		Connection conn = null;
-		String sql = "insert into users"
-				+ "(title,fname,lname,email,password,status,role_id,created_at) "
+	public String save(UserModel userModel) {
+		String sql = "insert into users (title,fname,lname,email,password,status,role_id,created_at) "
 				+ "values(?,?,?,?,?,1,3,now());";
-		UserModel user = (UserModel) obj;
-		try {
-			conn = getConnection();
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, user.getTitle());
-			pstm.setString(2, user.getfName());
-			pstm.setString(3, user.getlName());
-			pstm.setString(4, user.getEmail());
-			pstm.setString(5, user.getPassWord());
-			pstm.executeUpdate();
-			return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
+		return insertU(sql, userModel.getEmail(), userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getEmail(),userModel.getPassWord());
 	}
 
-
-
-
+	@Override
+	public void update(UserModel userModel) {
+		String sql = "update users set title= ? ,fname= ? ,lname= ?,address = ?, dayofbirth= ? ,updated_at = now() where email = ?;";
+		this.update(sql,userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getAddress(),userModel.getDateOfBirth(),userModel.getEmail());
+	}
 
 }

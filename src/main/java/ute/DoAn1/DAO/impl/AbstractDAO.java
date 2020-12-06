@@ -1,6 +1,7 @@
 package ute.DoAn1.DAO.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -76,6 +77,8 @@ public class AbstractDAO<T> implements GenericDAO<T>{
 					statement.setInt(index, (Integer) parameter);
 				} else if (parameter instanceof Timestamp) {
 					statement.setTimestamp(index, (Timestamp) parameter);
+				}else if (parameter instanceof Date) {
+					statement.setDate(index, (Date) parameter);
 				}
 			}
 		} catch (SQLException e) {
@@ -85,6 +88,7 @@ public class AbstractDAO<T> implements GenericDAO<T>{
 
 	@Override
 	public void update(String sql, Object... parameters) {
+		
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
@@ -134,6 +138,45 @@ public class AbstractDAO<T> implements GenericDAO<T>{
 			}
 			connection.commit();
 			return id;
+		} catch (SQLException e) {
+			if (connection != null) {
+				try {
+					connection.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+				if (resultSet != null) {
+					resultSet.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public String insertU(String sql, String email, Object... parameters) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = getConnection();
+			connection.setAutoCommit(false);
+			statement = connection.prepareStatement(sql);
+			setParameter(statement, parameters);
+			statement.executeUpdate();
+			connection.commit();
+			return email;
 		} catch (SQLException e) {
 			if (connection != null) {
 				try {
