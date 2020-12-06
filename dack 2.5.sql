@@ -151,3 +151,4 @@ insert into role  values(3,'USER','USER',now(),null);
 select * from users u inner join role r on r.id=u.role_id ;
 
 alter table users drop column dayofbirth;
+ALTER DATABASE dack CHARACTER SET utf8 COLLATE utf8_bin;
