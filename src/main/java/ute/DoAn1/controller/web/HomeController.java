@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ResourceBundle;
 
 import ute.DoAn1.model.UserModel;
 import ute.DoAn1.service.impl.UserService;
@@ -36,11 +37,17 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String action = request.getParameter("action");
+ 		String action = request.getParameter("action");
 		if (action != null && action.equals("login")) {
+			String alert = request.getParameter("alert");
+			String message = request.getParameter("message");
+			if (message != null && alert != null) {
+				request.setAttribute("message", resourceBundle.getString(message));
+				request.setAttribute("alert", alert);
+			}
 			RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 			rd.forward(request, response);
 		} else if (action != null && action.equals("logout")) {
@@ -74,7 +81,7 @@ public class HomeController extends HttpServlet {
 				}
 			} else {
 				response.sendRedirect(request.getContextPath()
-						+ "/login?action=login");
+						+ "/login?action=login&message=username_password_invalid&alert=error");
 			}
 		}
 

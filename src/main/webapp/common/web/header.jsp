@@ -70,7 +70,6 @@
 									<div class="form-row username form-auto required empty"
 										data-requiredtext="Please enter your e-mail address &lt;span class=&quot;format&gt;(format: email@domain.fr)&lt;/span&gt;"
 										data-regexinvalidmessage="">
-
 										<label class="form-label"
 											for="dwfrm_login_username_d0avwwudscur">E-mail
 											address *</label>
@@ -81,7 +80,7 @@
 										</div>
 
 									</div>
-									<div class="form-row password form-auto required empty"
+									<div class="form-row password form-auto required empty form-row--error"
 										data-requiredtext="Please enter your password"
 										data-regexinvalidmessage="">
 										<label class="form-label"
@@ -109,7 +108,7 @@
 										</div>
 										<a class="password-reset" href="#"> Forgotten password? </a> <a
 											class="create-account"
-											href="${pageContext.request.contextPath}/views/web/regester.jsp">
+											href="${pageContext.request.contextPath}/views/web/register.jsp">
 											Don&#39;t have an account? </a>
 									</div>
 								</fieldset>

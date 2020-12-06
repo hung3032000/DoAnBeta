@@ -3,7 +3,6 @@ package ute.DoAn1.filter;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -16,14 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import ute.DoAn1.constant.SystemConstant;
 import ute.DoAn1.model.UserModel;
-import ute.DoAn1.service.impl.UserService;
 import ute.DoAn1.utils.SessionUtil;
 
 public class AuthorizationFilter implements Filter {
 
 	private ServletContext context;
-	@Inject
-	UserService userService = new UserService();
+
 
 
 	@Override
@@ -45,10 +42,10 @@ public class AuthorizationFilter implements Filter {
                 if (model.getRole().getCode().equals(SystemConstant.ADMIN)) {
                     filterChain.doFilter(servletRequest, servletResponse);
                 } else if (model.getRole().getCode().equals(SystemConstant.USER)) {
-                    response.sendRedirect(request.getContextPath()+"/login?action=login&message=not_permission&alert=danger");
+                    response.sendRedirect(request.getContextPath()+"/login?action=login&message=not_permission&alert=error");
                 }
             } else {
-                response.sendRedirect(request.getContextPath()+"/login?action=login&message=not_login&alert=danger");
+                response.sendRedirect(request.getContextPath()+"/login?action=login&message=not_login&alert=error");
             }
         } else {
             filterChain.doFilter(servletRequest, servletResponse);

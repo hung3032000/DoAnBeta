@@ -2655,7 +2655,8 @@ a.form-button:link.back-to-order {
 }
 .error,
 .errorMsg {
-    color: #e61717
+    color: #e61717;
+    text-align: center
 }
 fieldset {
     border: 0;
@@ -12917,7 +12918,7 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 }
 .account-edit-success {
     padding: 20px 0 0;
-    color: #000;
+    color: green;
     text-align: center
 }
 .account-edit-success i {

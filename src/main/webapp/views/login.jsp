@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="/common/taglib.jsp"%>	
 <body>
 	<div class="pt_storefront" id="wrapper">
 		<div id="minicart-container" aria-hidden="true"></div>
@@ -8,6 +9,15 @@
 			<a id="mainContent" tabindex="-1"></a>
 			<div id="primary" class="primary-content">
 				<div class="login-page container">
+					<c:if test="${not empty ready}">
+						<div class="account-edit-success">
+						<i class="icon_CheckMark">
+						</i> <span role="alert"> ${message} </span>
+					</div>
+					</c:if>
+					
+					
+					
 					<div class="page-header">
 						<h1>
 							<span class="subtitle">My account</span> <span class="title">Login</span>
@@ -19,6 +29,11 @@
 								<h2>Homie Family Member</h2>
 								<p class="intro">If you are already a Homie Family member,
 									please enter your login information.</p>
+									<c:if test="${not empty error}">
+									<div class="error">${message}</div>	
+									</c:if>
+							
+								
 								<form action="${pageContext.request.contextPath}/login"
 									method="post" class="clearfix " id="dwfrm_login"
 									name="login-form" novalidate="novalidate">
@@ -79,7 +94,7 @@
 								<p class="intro">Create your personal account to join our
 									Homie family.</p>
 								<form
-									action="${pageContext.request.contextPath}/views/web/regester.jsp"
+									action="${pageContext.request.contextPath}/views/web/register.jsp"
 									class="form-row" method="get" id="dwfrm_login_register"
 									novalidate="novalidate">
 									<button type="submit" value="Create an account"
@@ -120,6 +135,7 @@
 							</div>
 						</div>
 					</div>
+				</div>
 				</div>
 		</main>
 	</div>

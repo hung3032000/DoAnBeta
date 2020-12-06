@@ -46,7 +46,7 @@ if (daySelected == null) {
 					</div>
 					<div class="row">
 						<div class="col-xs-6 col-sm-offset-3">
-							<form action="#update" method="post"
+							<form action="${pageContext.request.contextPath}/user-update" method="post"
 								class="form-horizontal edit-account-form" id="RegistrationForm"
 								novalidate="novalidate">
 								<p class="required-msg">All fields marked with an * are

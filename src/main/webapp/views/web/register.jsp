@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	<%@include file="/common/taglib.jsp"%>	
 
 
 <body>
@@ -23,9 +23,9 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-6 col-sm-offset-3">
-							<form action="${pageContext.request.contextPath}/user-new" method="POST"
-								class="form-horizontal edit-account-form" id="RegistrationForm"
-								novalidate="novalidate">
+							<form action="${pageContext.request.contextPath}/user-new"
+								method="POST" class="form-horizontal edit-account-form"
+								id="RegistrationForm" novalidate="novalidate">
 								<p class="required-msg">Please fill out all fields</p>
 								<div class="error-form global-error form-row" aria-live="polite"></div>
 								<fieldset>
@@ -39,16 +39,15 @@
 											<div class="form-field">
 												<div class="form-select-wrapper">
 													<select class="form-select title form-field required"
-														id="dwfrm_profile_customer_title"
-														name="cus_title" data-dwname="title"
-														title="Title" autocomplete="honorific-prefix"
-														aria-required="true">
+														id="dwfrm_profile_customer_title" name="cus_title"
+														data-dwname="title" title="Title"
+														autocomplete="honorific-prefix" aria-required="true">
 														<option class="form-selectOption" label="Title" value="">Title
 														</option>
 														<option class="form-selectOption" label="Mr." value="Mr.">Mr.
 														</option>
-														<option class="form-selectOption" label="Mrs." value="Mrs.">Mrs.
-														</option>
+														<option class="form-selectOption" label="Mrs."
+															value="Mrs.">Mrs.</option>
 														<option class="form-selectOption" label="Ms." value="Ms.">Ms.
 														</option>
 														<option class="form-selectOption" label="-" value="">-
@@ -68,9 +67,9 @@
 											<input class="form-input firstname form-field required"
 												type="text"
 												id="dwfrm_profile_customer_firstname_d0rewpwspxep"
-												name="cus_fname"
-												value="" maxlength="13" data-dwname="firstname"
-												autocomplete="given-name" aria-required="true">
+												name="cus_fname" value="" maxlength="13"
+												data-dwname="firstname" autocomplete="given-name"
+												aria-required="true">
 										</div>
 									</div>
 									<div class="form-row lastname required empty"
@@ -83,11 +82,14 @@
 											<input class="form-input lastname form-field required"
 												type="text"
 												id="dwfrm_profile_customer_lastname_d0jfiuibdzot"
-												name="cus_lname" value=""
-												maxlength="13" data-dwname="lastname"
-												autocomplete="family-name" aria-required="true">
+												name="cus_lname" value="" maxlength="13"
+												data-dwname="lastname" autocomplete="family-name"
+												aria-required="true">
 										</div>
 									</div>
+									<c:if test="${not empty message}">
+										<div class="error">${message}</div>
+									</c:if>
 									<div class="form-row form-auto required empty"
 										data-requiredtext="Please enter your e-mail address (format: email@domain.fr)"
 										data-regexinvalidmessage="" aria-required="true">
@@ -96,29 +98,29 @@
 										<div class="form-field">
 											<input class="form-input email form-field required"
 												type="text" id="dwfrm_profile_customer_email"
-												name="cus_email" value="" maxlength="50"
-												data-dwname="email" autocomplete="email"
-												aria-required="true" aria-invalid="false"
+												name="cus_email" value="" maxlength="50" data-dwname="email"
+												autocomplete="email" aria-required="true"
+												aria-invalid="false"
 												aria-describedby="dwfrm_profile_customer_email-error"><span
 												id="dwfrm_profile_customer_email-error" class="error"></span>
 										</div>
 									</div>
-                                        <div class="form-row password form-auto required empty"
-                                            data-requiredtext="Please enter your password" data-regexinvalidmessage=""
-                                            aria-required="true">
-                                            
-                                                <label class="form-label"
-                                                    for="dwfrm_login_password_d0vayssxmnwj">Password *</label>
-                                                <div class="form-field">
-                                                    <input class="form-input password form-field required"
-                                                        type="password" id="password"
-                                                        name="cus_password" value="" maxlength="14"
-                                                        data-dwname="password" autocomplete="current-password"
-                                                        aria-required="true" aria-invalid="false"
-                                                        aria-describedby="dwfrm_login_password_d0vayssxmnwj-error">
-                                          
-                                                </div>
-                                        </div>
+									<div class="form-row password form-auto required empty"
+										data-requiredtext="Please enter your password"
+										data-regexinvalidmessage="" aria-required="true">
+
+										<label class="form-label"
+											for="dwfrm_login_password_d0vayssxmnwj">Password *</label>
+										<div class="form-field">
+											<input class="form-input password form-field required"
+												type="password" id="password" name="cus_password" value=""
+												maxlength="14" data-dwname="password"
+												autocomplete="current-password" aria-required="true"
+												aria-invalid="false"
+												aria-describedby="dwfrm_login_password_d0vayssxmnwj-error">
+
+										</div>
+									</div>
 									<div
 										class="form-row form-secondaryCheckbox form-customCheckbox"
 										data-requiredtext="" data-regexinvalidmessage="">
@@ -133,16 +135,24 @@
 										</div>
 									</div>
 									<div class="form-row form-row-button">
+
+
+										<input type="hidden" value="new" name="action" />
+
 										<button type="submit" value="Apply"
 											name="dwfrm_profile_confirm">Create an account</button>
 									</div>
+
+
+
+
 									<div class="form-row form-row-button">
 										<button>Have Account? To Sign In Page</button>
-										<div class="content-asset">
+										<!-- 										<div class="content-asset">
 											<p class="terms-conditions">
-												<!-- <a href="#">Privacy  Policy</a>  -->
+												<a href="#">Privacy  Policy</a> 
 											</p>
-										</div>
+										</div> -->
 									</div>
 								</fieldset>
 							</form>
