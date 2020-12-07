@@ -68,7 +68,6 @@ public class UpdateUController extends HttpServlet {
 		String email = request.getParameter("email");
 		if(action != null && action.equals("update")){
 			UserModel model = FormUtil.toModel(UserModel.class, request);
-		
 			String title = request.getParameter("cus_title").trim();
 			String fname = request.getParameter("cus_fname").trim();
 			String lname = request.getParameter("cus_lname").trim();

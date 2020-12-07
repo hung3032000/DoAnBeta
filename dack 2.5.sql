@@ -113,7 +113,8 @@ CREATE TABLE `users` (
   `role_id` int NOT NULL,
 
   `created_at` timestamp,
-  `updated_at` timestamp
+  `updated_at` timestamp,
+  `image`blob
 );
 
 ALTER TABLE `product_tag` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
@@ -135,20 +136,43 @@ ALTER TABLE `users` ADD FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 ALTER TABLE `orders` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
 ALTER TABLE `product` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
+
+ALTER TABLE `categories` ADD FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`);
 -- querry +test querry 
 use dack;
-insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','hung1','a','1',1,1,now());
+-- category
+select * from categories;
+insert into categories(name,parent_id,created_at) values('Women',0,now());
+insert into categories(name,parent_id,created_at) values('Men',0,now());
+insert into categories(name,parent_id,created_at) values('Collection',0,now());
 
+-- select * from product_image;
+
+select * from product;
+insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
+														smooth leather','245000','test','image/BB50F2B0WD630-01-02.jpg','1',now());
+alter table product add column  `image`  varchar(255) after `content`;
+
+alter table product drop foreign key product_ibfk_3;
+alter table product drop column user_email;
+
+
+
+
+
+
+
+-- users done
+insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','hung1','a','1',1,1,now());
 select * from users where email='a' and password=1 and status=1;
 select * from users;
-update users set updated_at = now() where email ='assÄáº¥';
 insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','a1','1',1,3,now());
-insert into users(title,fname,lname,email,password,status,created_at) values('Mr.','pham1','hung1','a1','11','1',now());
+
 select * from role;
 delete from users where role_id ='3';
 insert into role values('1','ADMIN','ADMIN',now(),null);
 insert into role  values(3,'USER','USER',now(),null);
 select * from users u inner join role r on r.id=u.role_id ;
 
-alter table users drop column dayofbirth;
-ALTER DATABASE dack CHARACTER SET utf8 COLLATE utf8_bin;
+
+

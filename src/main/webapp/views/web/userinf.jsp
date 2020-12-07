@@ -2,15 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>	
 <% 
-String monthSelected = request.getParameter("birthdateMonth");
+String monthSelected = request.getParameter("cus_monthbirthday");
 if (monthSelected == null) {
 	monthSelected = "Month";
 }
-String yearSelected = request.getParameter("birthdateYear");
+String yearSelected = request.getParameter("cus_yearbirthday");
 if (yearSelected == null) {
 	yearSelected = "Year";
 }
-String daySelected = request.getParameter("birthdateDay");
+String daySelected = request.getParameter("cus_daybirthday");
 if (daySelected == null) {
 	daySelected = "Day";
 }
@@ -122,7 +122,7 @@ if (daySelected == null) {
 
 									</div>
 
-									<div class="form-row lastname required empty"
+									<div class="form-row lastname required empty focus"
 										data-requiredtext="Please enter your last name (A-Z, a-z, dash, apostrophe and space accepted)"
 										data-regexinvalidmessage="" aria-required="true">
 
@@ -133,7 +133,7 @@ if (daySelected == null) {
 											<input class="form-input lastname form-field required"
 												type="text"
 												id="dwfrm_profile_customer_lastname_d0nvjfwfdkjp"
-												name="cus_address" value=""
+												name="cus_address" value="${USERMODEL.address}"
 												maxlength="50" data-dwname="lastname"
 												autocomplete="family-name" aria-required="true">
 										</div>
@@ -218,7 +218,7 @@ if (daySelected == null) {
 															name="cus_yearbirthday"
 															data-dwname="yearbirthday" autocomplete="bday-month"
 															aria-label="Year"><option
-																class="form-selectOption" label="Year " value="Year">Year</option>
+																class="form-selectOption" label="Year" value="Year">Year</option>
 															<%
 																for (int year = 1980; year <= 2020; year++) {
 															%>

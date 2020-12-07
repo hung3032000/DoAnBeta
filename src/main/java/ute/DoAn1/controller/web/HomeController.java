@@ -1,6 +1,7 @@
 package ute.DoAn1.controller.web;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -9,10 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ResourceBundle;
 
 import ute.DoAn1.model.UserModel;
-import ute.DoAn1.service.impl.UserService;
+import ute.DoAn1.service.ICategoriesService;
+import ute.DoAn1.service.IUserService;
 import ute.DoAn1.utils.FormUtil;
 import ute.DoAn1.utils.SessionUtil;
 
@@ -22,9 +23,12 @@ import ute.DoAn1.utils.SessionUtil;
 @WebServlet(urlPatterns = { "/trang-chu", "/login", "/logout" })
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
-	UserService userService = new UserService();
+	private IUserService userService;
+
+	@Inject
+	private ICategoriesService cateS;
 
 	/**
 	 * Default constructor.
@@ -38,9 +42,11 @@ public class HomeController extends HttpServlet {
 	 *      response)
 	 */
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
- 		String action = request.getParameter("action");
+
+		String action = request.getParameter("action");
 		if (action != null && action.equals("login")) {
 			String alert = request.getParameter("alert");
 			String message = request.getParameter("message");
@@ -54,9 +60,11 @@ public class HomeController extends HttpServlet {
 			SessionUtil.getInstance().removeValue(request, "USERMODEL");
 			response.sendRedirect(request.getContextPath() + "/trang-chu");
 		} else {
+			request.setAttribute("category", cateS.findAll());
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
 		}
+
 	}
 
 	/**
@@ -80,8 +88,8 @@ public class HomeController extends HttpServlet {
 					response.sendRedirect(request.getContextPath() + "/admin-home");
 				}
 			} else {
-				response.sendRedirect(request.getContextPath()
-						+ "/login?action=login&message=username_password_invalid&alert=error");
+				response.sendRedirect(
+						request.getContextPath() + "/login?action=login&message=username_password_invalid&alert=error");
 			}
 		}
 

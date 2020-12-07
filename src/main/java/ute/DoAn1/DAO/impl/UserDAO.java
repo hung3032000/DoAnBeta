@@ -1,10 +1,5 @@
 package ute.DoAn1.DAO.impl;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import ute.DoAn1.DAO.IUserDAO;

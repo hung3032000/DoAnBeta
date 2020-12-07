@@ -2,8 +2,6 @@ package ute.DoAn1.service.impl;
 
 
 
-import java.sql.Date;
-
 import ute.DoAn1.DAO.IUserDAO;
 import ute.DoAn1.DAO.impl.UserDAO;
 import ute.DoAn1.model.UserModel;
