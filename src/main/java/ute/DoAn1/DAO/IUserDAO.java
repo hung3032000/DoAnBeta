@@ -1,7 +1,5 @@
 package ute.DoAn1.DAO;
 
-import java.sql.Date;
-
 import ute.DoAn1.model.UserModel;
 
 public interface IUserDAO extends GenericDAO<UserModel>{

@@ -19,11 +19,12 @@
 		</ul>
 		<div class="logo">
 			<h1 class="logo-title">
-				<a href="${pageContext.request.contextPath}/index.jsp"
+				<a href="${pageContext.request.contextPath}/trang-chu"
 					class="logo-link"> <img
 					src="${pageContext.request.contextPath}/image/logo.svg"
 					alt="HomieReal" />
 				</a>
+				
 			</h1>
 		</div>
 		<div class="header-right-container">
@@ -33,18 +34,24 @@
 					<li class="level-1 account-nav header-link" id="signin">
 						<ul class="header-links" role="presentation">
 							<li class="level-1 account-nav header-link"><a
-								class="level-1 authenticated navigation-hasSubMenu" href="${pageContext.request.contextPath}/views/web/userinf.jsp">
-									My account<span>:</span> <span class="name"> 
-									<strong>${USERMODEL.title}</strong>
-									<strong>${USERMODEL.lName} </strong>
+								class="level-1 authenticated navigation-hasSubMenu"
+								href="${pageContext.request.contextPath}/views/web/userinf.jsp">
+									My account<span>:</span> <span class="name"> <strong>${USERMODEL.title}</strong>
+										<strong>${USERMODEL.lName} </strong>
 								</span>
 							</a>
 								<div class="level-2 authenticated">
 									<a href="#" class="level-2 back"> My account </a>
 									<ul>
-										<li class=""><a href="${pageContext.request.contextPath}/views/web/accountoverview.jsp"> Account overview </a></li>
-										<li class="order-history "><a href="${pageContext.request.contextPath}/views/web/order.jsp"> Orders </a></li>
-										<li class=""><a href="${pageContext.request.contextPath}/views/web/userinf.jsp"> Personal details </a></li>
+										<li class=""><a
+											href="${pageContext.request.contextPath}/views/web/accountoverview.jsp">
+												Account overview </a></li>
+										<li class="order-history "><a
+											href="${pageContext.request.contextPath}/views/web/order.jsp">
+												Orders </a></li>
+										<li class=""><a
+											href="${pageContext.request.contextPath}/views/web/userinf.jsp">
+												Personal details </a></li>
 										<li><a href='<c:url value="/login?action=logout"/>'>Logout</a>
 										</li>
 									</ul>
@@ -80,7 +87,8 @@
 										</div>
 
 									</div>
-									<div class="form-row password form-auto required empty form-row--error"
+									<div
+										class="form-row password form-auto required empty form-row--error"
 										data-requiredtext="Please enter your password"
 										data-regexinvalidmessage="">
 										<label class="form-label"
@@ -190,6 +198,7 @@
 
 				<div class="level-2">
 					<div class="container">
+
 						<a href="" class="level-2 back">Women</a>
 						<ul class="level-2 row">
 							<li class="first-col col-xs-6 col-sm-12 col-md-3 col-md-margin-1">
@@ -441,6 +450,11 @@
 						</ul>
 					</div>
 				</div></li>
+			<li class="level-1 collections" id="Collections"><a
+				class="level-1 navigation-hasSubMenu"
+				href="${pageContext.request.contextPath}/user-product">
+					<span>Test</span>
+			</a></li>
 		</ul>
 	</nav>
 </header>

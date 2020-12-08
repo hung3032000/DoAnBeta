@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <body>
     <div class="pt_storefront" id="wrapper">
         <div id="minicart-container" aria-hidden="true"></div>
@@ -83,8 +84,78 @@
                 <div class="category-browse row tags-area">
                     <div class="col col-xs-6">
                         <a class="browse-header" href="#">
-                            <h2>browse WOMEN</h2>
+                            <h2>browse WOMEN</h2> 
+                            
+						</a>
+                        <ul>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    New Arrivals
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Ready-to-wear
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Bags
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Shoes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Accessories
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col col-xs-6">
+                        <a class="browse-header" href="#">
+                            <h2>BROWSE MEN</h2>
                         </a>
+                        <ul>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    New Arrivals
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Ready-to-wear
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Bags
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Shoes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tag-link">
+                                    Accessories
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                     <div class="category-slot category-browse-slot container">
+                <div class="category-browse row tags-area">
+                    <div class="col col-xs-6">
+                        <a class="browse-header" href="#">
+                            <h2>browse WOMEN</h2> 
+                            
+						</a>
                         <ul>
                             <li>
                                 <a href="#" class="tag-link">

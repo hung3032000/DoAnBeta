@@ -145,18 +145,16 @@ select * from categories;
 insert into categories(name,parent_id,created_at) values('Women',0,now());
 insert into categories(name,parent_id,created_at) values('Men',0,now());
 insert into categories(name,parent_id,created_at) values('Collection',0,now());
-
+insert into categories(name,parent_id,created_at) values('Children',0,now());
+insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','1','image/BK507PK0ZY027-01-02.jpg',now());
 -- select * from product_image;
 
 select * from product;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
-														smooth leather','245000','test','image/BB50F2B0WD630-01-02.jpg','1',now());
-alter table product add column  `image`  varchar(255) after `content`;
+														smooth leather','245000','test','image/BK507PK0ZY027-01-02.jpg','1',now());
 
-alter table product drop foreign key product_ibfk_3;
-alter table product drop column user_email;
-
-
+select * from categories where parent_id ='1';
+alter table categories add column image varchar(255) after parent_id;
 
 
 

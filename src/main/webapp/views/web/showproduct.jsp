@@ -467,8 +467,7 @@
 									</figure>
 								</div>
 							</li>
-							<li
-								class="grid-tile js-slv-elements col-xs-6 col-sm-12 col-lg-6 double">
+							<li class="grid-tile js-slv-elements col-xs-6 col-sm-12 col-lg-6 double">
 								<div class="product-tile" id="cbfffcb3ebddc3247cab14dba5"
 									data-itemid="BB50F2B0WD-630" data-gtmproductid="BB50F2B0WD"
 									data-availability="IN_STOCK">
@@ -506,8 +505,7 @@
 									</figure>
 								</div>
 							</li>
-							<li
-								class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3 reset-left">
+							<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3 reset-left">
 								<div class="product-tile" id="757dbbeb14710be062b8e6e376"
 									data-itemid="BW50P812JF-001" data-gtmproductid="BW50P812JF"
 									data-availability="IN_STOCK">

@@ -3,6 +3,13 @@ package ute.DoAn1.model;
 public class CategoriesModel extends AbstractModel<CategoriesModel> {
 	private String name;
 	private int parent_id;
+	private String image;
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getName() {
 		return name;
 	}
