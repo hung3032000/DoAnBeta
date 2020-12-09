@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@include file="/common/taglib.jsp"%>
 
 <body>
 	<div class="pt_storefront" id="wrapper">
@@ -387,213 +387,70 @@
 					<div class="category-box">
 						<div class="search-result-content productgrid">
 							<div class="inf-scroll-products">
-								<p>29 Products</p>
+					
+								<p>${totalItems} Products</p>
+							
+					
 							</div>
 							<div class="productListInfos hidden"></div>
 						</div>
-						<ul
-							class="search-result-items tiles-container js-slv-product-grid row"
-							data-columns="">
-							<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3">
-								<div class="product-tile" id="ba4564e1245eb83bda68d0faa6"
-									data-itemid="BWC08N13FP-001" data-gtmproductid="BWC08N13FP"
-									data-availability="IN_STOCK">
-									<figure class="product-image">
-										<a class="thumb-link" href="#ss"> <picture
-												class="thumb-img"> <img
-												src="${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg"/>
-											 </picture> <span class="flag"> New </span>
-											<figcaption class="thumb-caption">
-												<div class="product-infos">
-													<div class="product-name">Coat in wool and cashmere
-														with 4G buttons and chain</div>
-													<div class="product-pricing">
-														<div class="product-price" itemprop="offers" itemscope=""
-															itemtype="#">
-															<span class="price-sales"> $2,560.00 </span>
+						<ul class="search-result-items tiles-container js-slv-product-grid row" data-columns="">
 
+							<c:forEach var="item" items="${model.listResult}">
+								<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3">
+									<div class="product-tile" id="${item.id}"
+										data-itemid="BWC08N13FP-001" data-gtmproductid="BWC08N13FP"
+										data-availability="IN_STOCK">
+										<figure class="product-image">
+											<a class="thumb-link" href="#ss"> <picture
+													class="thumb-img"> <img
+													src="${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg" />
+												</picture> <span class="flag"> ${item.content} </span>
+												<figcaption class="thumb-caption">
+													<div class="product-infos">
+														<div class="product-name">${item.name}</div>
+														<div class="product-pricing">
+															<div class="product-price" itemprop="offers" itemscope=""
+																itemtype="#">
+																<span class="price-sales"> ${item.price} </span>
+															</div>
 														</div>
+														<div class="product-promo"></div>
 													</div>
-													<div class="product-promo"></div>
-												</div>
-											</figcaption>
-										</a>
-										<a href=""
-											data-pname="Coat in wool and cashmere with 4G buttons and chain"
-											data-pid="BWC08N13FP-001" class="add-to-wishlist"> <i
-											class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
-											<span class="visually-hidden">Add to your wishlist
-												Coat in wool and cashmere with 4G buttons and chain</span>
-										</a>
-									</figure>
-								</div>
-							</li>
-							<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3">
-								<div class="product-tile" id="e79d8ae93554d893bc7e24b10e"
-									data-itemid="BW908N4Z8W-002" data-gtmproductid="BW908N4Z8W"
-									data-availability="IN_STOCK">
-									<figure class="product-image">
-										<a class="thumb-link"
-											href="#sweater-in-two-tone-cashmere-with-4g-emblem/BW908N4Z8W-002.html?cgid=New_In_W">
-											<picture class="thumb-img">
-											
-											<img
-												src=""
-                                  
-												alt="" /> </picture> <span class="flag"> New </span>
-											<figcaption class="thumb-caption">
-												<div class="product-infos">
-													<div class="product-name">Sweater in two tone
-														cashmere with 4G emblem</div>
-													<div class="product-pricing">
-														<div class="product-price" itemprop="offers" itemscope=""
-															itemtype="http://schema.org/Offer">
-															<span class="price-sales"> $1,275.00 </span>
-															<meta itemprop="price" content="1275.0" />
-															<meta itemprop="priceCurrency" content="USD" />
-														</div>
-													</div>
-													<div class="product-promo"></div>
-												</div>
-											</figcaption>
-										</a>
-										<a href=""
-											data-pname="Sweater in two tone cashmere with 4G emblem"
-											data-pid="BW908N4Z8W-002" class="add-to-wishlist"> <i
-											class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
-											<span class="visually-hidden">Add to your wishlist
-												Sweater in two tone cashmere with 4G emblem</span>
-										</a>
-									</figure>
-								</div>
-							</li>
-							<li class="grid-tile js-slv-elements col-xs-6 col-sm-12 col-lg-6 double">
-								<div class="product-tile" id="cbfffcb3ebddc3247cab14dba5"
-									data-itemid="BB50F2B0WD-630" data-gtmproductid="BB50F2B0WD"
-									data-availability="IN_STOCK">
-									<figure class="product-image">
-										<a class="thumb-link"
-											href="#medium-antigona-soft-bag-in-smooth-leather/BB50F2B0WD-630.html?cgid=New_In_W">
-											<picture class="thumb-img">
-											
-											<img
-												src=" ${pageContext.request.contextPath}/images/BB50F2B0WD630-01-02.jpg"
-												alt="" /> </picture> <span class="flag"> New </span>
-											<figcaption class="thumb-caption">
-												<div class="product-infos">
-													<div class="product-name">Medium Antigona Soft bag in
-														smooth leather</div>
-													<div class="product-pricing">
-														<div class="product-price" itemprop="offers" itemscope=""
-															itemtype="http://schema.org/Offer">
-															<span class="price-sales"> $2,450.00 </span>
-															<meta itemprop="price" content="2450.0" />
-															<meta itemprop="priceCurrency" content="USD" />
-														</div>
-													</div>
-													<div class="product-promo"></div>
-												</div>
-											</figcaption>
-										</a>
-										<a href=""
-											data-pname="Medium Antigona Soft bag in smooth leather"
-											data-pid="BB50F2B0WD-630" class="add-to-wishlist"> <i
-											class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
-											<span class="visually-hidden">Add to your wishlist
-												Medium Antigona Soft bag in smooth leather</span>
-										</a>
-									</figure>
-								</div>
-							</li>
-							<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3 reset-left">
-								<div class="product-tile" id="757dbbeb14710be062b8e6e376"
-									data-itemid="BW50P812JF-001" data-gtmproductid="BW50P812JF"
-									data-availability="IN_STOCK">
-									<figure class="product-image">
-										<a class="thumb-link"
-											href="#cigarette-pants-with-chain-and-4g-buttons/BW50P812JF-001.html?cgid=New_In_W">
-											<picture class="thumb-img">
-											
-											<img
-												srcset="
-                                  https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw4f62edd0/images/BW50P812JF001/BW50P812JF001-01-02.JPG?sw=466
-                                "
-												alt="" /> </picture> <span class="flag"> New </span>
-											<figcaption class="thumb-caption">
-												<div class="product-infos">
-													<div class="product-name">Cigarette pants with chain
-														and 4G buttons</div>
-													<div class="product-pricing">
-														<div class="product-price" itemprop="offers" itemscope=""
-															itemtype="http://schema.org/Offer">
-															<span class="price-sales"> $1,095.00 </span>
-															<meta itemprop="price" content="1095.0" />
-															<meta itemprop="priceCurrency" content="USD" />
-														</div>
-													</div>
-													<div class="product-promo"></div>
-												</div>
-											</figcaption>
-										</a>
-										<a href=""
-											data-pname="Cigarette pants with chain and 4G buttons"
-											data-pid="BW50P812JF-001" class="add-to-wishlist"> <i
-											class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
-											<span class="visually-hidden">Add to your wishlist
-												Cigarette pants with chain and 4G buttons</span>
-										</a>
-									</figure>
-								</div>
-							</li>
-							<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3">
-								<div class="product-tile" id="d6bd12d8830eee3237376e2f1c"
-									data-itemid="BE602ME0XP-001" data-gtmproductid="BE602ME0XP"
-									data-availability="IN_STOCK">
-									<figure class="product-image">
-										<a class="thumb-link"
-											href="#carene-boots-in-leather/BE602ME0XP-001.html?cgid=New_In_W">
-											<picture class="thumb-img">
-											
-											<img
-												srcset="
-                                  https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwca2fc432/images/BE602ME0XP001/BE602ME0XP001-01-02.jpg?sw=466
-                                "
-												alt="" /> </picture> <span class="flag"> New </span>
-											<figcaption class="thumb-caption">
-												<div class="product-infos">
-													<div class="product-name">Carène boots in leather</div>
-													<div class="product-pricing">
-														<div class="product-price" itemprop="offers" itemscope=""
-															itemtype="http://schema.org/Offer">
-															<span class="price-sales"> $995.00 </span>
-															<meta itemprop="price" content="995.0" />
-															<meta itemprop="priceCurrency" content="USD" />
-														</div>
-													</div>
-													<div class="product-promo"></div>
-												</div>
-											</figcaption>
-										</a>
-										<a href="" data-pname="Carène boots in leather"
-											data-pid="BE602ME0XP-001" class="add-to-wishlist"> <i
-											class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
-											<span class="visually-hidden">Add to your wishlist
-												Carène boots in leather</span>
-										</a>
-									</figure>
-								</div>
-							</li>
+												</figcaption>
+											</a>
+											<a href=""
+												data-pname="Coat in wool and cashmere with 4G buttons and chain"
+												data-pid="BWC08N13FP-001" class="add-to-wishlist"> <i
+												class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
+												<span class="visually-hidden">Add to your wishlist
+													Coat in wool and cashmere with 4G buttons and chain</span>
+											</a>
+										</figure>
+									</div>
+								</li>
+
+							</c:forEach>
+				<c:forEach var="item" items="${category.listResult}">
+					<p>item.name</p>
+				</c:forEach>
 						</ul>
 					</div>
 				</div>
 			</div>
+
+		</main>
 	</div>
 	<div class="search-promo"></div>
-
-
-	</main>
-	</div>
-
+	<c:forEach var="item" items="${model.listResult}">
+<script type="text/javascript">
+	    $("#${item.id}").hover(function () {
+	        if ($("#${item.id}").hasClass("hover")) {
+	          $("#${item.id}").removeClass("hover");
+	        } else {
+	          $("#${item.id}").addClass("hover");
+	        }
+	      });
+</script>
+</c:forEach>
 </body>
-
-</html>

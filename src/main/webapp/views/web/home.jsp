@@ -149,75 +149,7 @@
                     </div>
                 </div>
             </div>
-                     <div class="category-slot category-browse-slot container">
-                <div class="category-browse row tags-area">
-                    <div class="col col-xs-6">
-                        <a class="browse-header" href="#">
-                            <h2>browse WOMEN</h2> 
-                            
-						</a>
-                        <ul>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    New Arrivals
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Ready-to-wear
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Bags
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Shoes
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Accessories
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col col-xs-6">
-                        <a class="browse-header" href="#">
-                            <h2>BROWSE MEN</h2>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    New Arrivals
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Ready-to-wear
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Bags
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Shoes
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tag-link">
-                                    Accessories
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                    
             <div class="category-slot container flatshot-3">
                 <h2 class="slot-header">shop now</h2>
                 <div class="row">

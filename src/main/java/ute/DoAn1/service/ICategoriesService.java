@@ -7,5 +7,5 @@ import ute.DoAn1.model.CategoriesModel;
 
 
 public interface ICategoriesService {
-	List<CategoriesModel> findAll();
+	List<CategoriesModel> findAllP();
 }

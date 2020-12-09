@@ -9,8 +9,8 @@ import ute.DoAn1.model.CategoriesModel;
 public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICategoriesDAO {
 
 	@Override
-	public List<CategoriesModel> findAll() {
-		String sql = "SELECT * FROM categories";
+	public List<CategoriesModel> findAllP() {
+		String sql = "SELECT * FROM categories where parent_id=0;";
 		return query(sql, new CategoriesMapper());
 	}
 

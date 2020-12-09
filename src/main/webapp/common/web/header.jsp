@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <header class="header" id="header">
-
 	<!-- phần 1 của header -->
 	<div class="header-container">
 		<ul class="header-links">
@@ -116,7 +115,7 @@
 										</div>
 										<a class="password-reset" href="#"> Forgotten password? </a> <a
 											class="create-account"
-											href="${pageContext.request.contextPath}/views/web/register.jsp">
+											href="${pageContext.request.contextPath}/user-new">
 											Don&#39;t have an account? </a>
 									</div>
 								</fieldset>
@@ -124,26 +123,6 @@
 						</div></li>
 				</ul>
 			</c:if>
-
-			<!--    <div class="miniwishlist">
-                        <a href="#" aria-label="See your wishlist (0)" class="empty">
-                            <i class="icon_Wishlist"></i>
-                            <i class="icon_Wishlist_Active" title="See your wishlist (0)"></i>
-                            <span class="miniwishlist-quantity" data-quantity="0">
-                                0
-                            </span>
-                        </a>
-                        <div class="miniwishlist-content">
-                            You have no items on your wishlist.
-                            <div class="miniwishlist-buttons">
-                                <div class="form-row-button">
-                                    <a href="#" class="form-button">
-                                        See my wishlist
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
 			<div class="minicart empty-cart">
 				<a class="minicart-link empty-cart" href=""
 					aria-label="View Your Cart"> <span class="icon_Bag"
@@ -188,12 +167,15 @@
 			<span class="icon_Menu"></span> <span class="sr-only visually-hidden">Menu</span>
 		</button>
 	</div>
+
 	<!-- Navigation -->
 	<nav class="navigation">
-		<ul class="level-1">
-			<li class="level-1  " id="WOMEN"><a
+		<ul class="level-1">	
+		<c:forEach var="item" items="${category.listResult}">
+
+			<li class="level-1 " id="${item.name}"><a
 				class="level-1 navigation-hasSubMenu"
-				href="${pageContext.request.contextPath}/views/web/women.jsp"> <span>Women</span>
+				href="${pageContext.request.contextPath}/views/web/women.jsp"> <span>${item.name}</span>
 			</a>
 
 				<div class="level-2">
@@ -296,165 +278,19 @@
 						</ul>
 					</div>
 				</div></li>
-			<li class="level-1  " id="MEN"><a
-				class="level-1 navigation-hasSubMenu" href="#"> <span>Men</span>
-			</a>
-				<div class="level-2">
-					<div class="container">
-						<a href="" class="level-2 back">Men</a>
-						<ul class="level-2 row">
-							<li class="first-col col-xs-6 col-sm-12 col-md-3 col-md-margin-1">
-								<p>
-									<span> <a href="#"
-										style="padding: 0; border-bottom: 0; line-height: 1;"> <img
-											alt="Givenchy Men Bags"
-											src="${pageContext.request.contextPath}/image/Winter20_FlyOut_Men.jpg"
-											title="" />
-									</a>
-									</span>
-								</p>
-							</li>
-							<li class="level-2 col-sm-3 col-md-2 " id="NEW_ARRIVALS_M">
-								<a class="level-2 navigation-hasSubMenu" href="#"> <span>New
-										Arrivals</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">New Arrivals</a>
-									<ul class="level-3">
-										<li class="level-3 " id="Gift_selection_M"><a
-											class="level-3" href="shop.jsp"> Gifts for Him </a></li>
-										<li class="level-3 " id="New_In_M"><a class="level-3"
-											href="#"> New In </a></li>
-										<li class="level-3 " id="ANTIGONA_SOFT_M"><a
-											class="level-3" href="#"> The Antigona Line </a></li>
-										<li class="level-3 " id="GIVPARIS_M"><a class="level-3"
-											href="#"> Givenchy Paris </a></li>
-									</ul>
-								</div>
-							</li>
-							<li class="level-2 col-sm-3 col-md-2 " id="RTW_M"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Ready-to-wear</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Ready-to-wear</a>
-									<ul class="level-3">
-										<li class="level-3 " id="COATS_M"><a class="level-3"
-											href="#"> Outerwear </a></li>
-										<li class="level-3 " id="BLOU_M"><a class="level-3"
-											href="#"> Bombers &amp; Blousons </a></li>
-										<li class="level-3 " id="SWEATS_M"><a class="level-3"
-											href="#"> Sweatshirts </a></li>
-									</ul>
-								</div></li>
-							<li class="level-2 col-sm-3 col-md-2 " id="BAGS_M"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Bags</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Bags</a>
-									<ul class="level-3">
-										<li class="level-3 " id="CROSS_M"><a class="level-3"
-											href="#"> Cross-body Bags </a></li>
-									</ul>
-
-								</div></li>
-							<li class="level-2 col-sm-3 col-md-2 " id="SHOES_M"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Shoes</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Shoes</a>
-									<ul class="level-3">
-										<li class="level-3 " id="SNEAKERS_M"><a class="level-3"
-											href="#"> Sneakers </a></li>
-										<li class="level-3 " id="BOOTS_M"><a class="level-3"
-											href="#"> Boots &amp; Derbies </a></li>
-										<li class="level-3 " id="CSHOES_M"><a class="level-3"
-											href="#"> Casual shoes </a></li>
-										<li class="level-3 " id="M_SPECTRE"><a class="level-3"
-											href="#"> The Spectre Sneakers </a></li>
-										<li class="level-3 " id="WING_M"><a class="level-3"
-											href="#"> The Wing Sneakers </a></li>
-									</ul>
-								</div></li>
-							<li class="level-2 col-sm-3 col-md-2 " id="ACC_M"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Accessories</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Accessories</a>
-									<ul class="level-3">
-										<li class="level-3 " id="POUCH_M"><a class="level-3"
-											href="#"> Pouches </a></li>
-
-										<li class="level-3 " id="TechOther_M"><a class="level-3"
-											href="#"> Other Accessories </a></li>
-									</ul>
-								</div></li>
-						</ul>
-					</div>
-				</div></li>
-			<li class="level-1 collections" id="Collections"><a
-				class="level-1 navigation-hasSubMenu"
-				href="${pageContext.request.contextPath}/views/web/collection.jsp">
-					<span>Collections</span>
-			</a>
-				<div class="level-2">
-					<div class="container">
-						<a href="" class="level-2 back"> Collections </a>
-						<ul class="level-2 row">
-							<li class="first-col col-xs-6 col-sm-12 col-md-3 col-md-margin-1">
-								<div class="folder-flyout-level-2 image-content">
-									<a class="content promotion-impression" href="#"
-										data-promotion-id="Collection_Menu"
-										data-promotion-name="Collection menu"
-										data-promotion-creative="mega_menu"
-										data-promotion-position="mega_menu">
-										<div class="background">
-											<picture class=""> <img
-												src="image/Home_Menu_Collection_Flyout.jpg"
-												alt="All Givenchy collections"> </picture>
-										</div>
-										<div class="content">
-											<span class="primary"> </span>
-										</div>
-									</a>
-								</div>
-								<ul>
-								</ul>
-							</li>
-							<li class="level-2 col-sm-3 col-md-2" id="FW2020"><a
-								class="level-2 navigation-hasSubMenu"> <span>Fall
-										Winter 2020</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Fall Winter 2020</a>
-									<ul class="level-3">
-										<li class="level-3 " id="Fall2020"><a class="level-3"
-											href="#"> Fall 2020 </a></li>
-										<li class="level-3 " id="Men_Winter2020"><a
-											class="level-3" href="#"> Men Winter </a></li>
-										<li class="level-3 " id="Women_Winter2020"><a
-											class="level-3" href="#"> Women Winter </a></li>
-									</ul>
-								</div></li>
-
-							<li class="level-2 col-sm-3 col-md-2" id="SS2021"><a
-								class="level-2 navigation-hasSubMenu"> <span>Spring
-										Summer 2021</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Spring Summer 2021</a>
-									<ul class="level-3">
-										<li class="level-3 " id="Summer2021"><a class="level-3"
-											href="#"> Summer 2021 </a></li>
-									</ul>
-								</div></li>
-						</ul>
-					</div>
-				</div></li>
-			<li class="level-1 collections" id="Collections"><a
-				class="level-1 navigation-hasSubMenu"
-				href="${pageContext.request.contextPath}/user-product">
-					<span>Test</span>
-			</a></li>
+			</c:forEach>
 		</ul>
 	</nav>
+		
+	<c:forEach var="item" items="${category.listResult}">
+			<script type="text/javascript">
+		  $("#${item.name}").hover(function () {
+			    if ($("#${item.name}").hasClass("hover")) {
+			      $("#${item.name}").removeClass("hover");
+			    } else {
+			      $("#${item.name}").addClass("hover");
+			    }
+			  });
+		</script>
+	</c:forEach>
 </header>

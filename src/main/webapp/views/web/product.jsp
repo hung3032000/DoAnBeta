@@ -10,9 +10,7 @@
 		<main id="main" class="clearfix" style="margin-top: 128px;">
 			<a id="mainContent" tabindex="-1"> </a>
 								<div><c:forEach var="item" items="${model.listResult}">
-							<p>${item.name}</p>
-							<br>
-							<p>${item.price}</p>
+
 							<a class="thumb-link" href="#ss"> <picture
 												class="thumb-img"> <img
 												src="${pageContext.request.contextPath}/${item.image}"/>
@@ -45,11 +43,10 @@
 						</c:forEach>
 						</div>
 		
-			
+
 
 		</main>
 
+
 	</div>
 </body>
-
-</html>

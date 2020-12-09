@@ -145,19 +145,19 @@ select * from categories;
 insert into categories(name,parent_id,created_at) values('Women',0,now());
 insert into categories(name,parent_id,created_at) values('Men',0,now());
 insert into categories(name,parent_id,created_at) values('Collection',0,now());
-insert into categories(name,parent_id,created_at) values('Children',0,now());
+insert into categories(name,parent_id,created_at) values('Test',0,now());
+update categories set name='MEN' where id =1;
 insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','1','image/BK507PK0ZY027-01-02.jpg',now());
 -- select * from product_image;
-
+SELECT * FROM categories where parent_id=0;
 select * from product;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
 														smooth leather','245000','test','image/BK507PK0ZY027-01-02.jpg','1',now());
-
+update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
 select * from categories where parent_id ='1';
 alter table categories add column image varchar(255) after parent_id;
-
-
-
+select count(*) from product where categorie_id = 2;
+update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
 
 
 -- users done

@@ -61,7 +61,7 @@ public class RegisterController extends HttpServlet {
 				rd.forward(request, response);
 			}
 		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/views/web/register.jsp");
 			rd.forward(request, response);
 		}
 	}

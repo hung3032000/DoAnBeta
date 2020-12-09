@@ -1,0 +1,74 @@
+Product cắt
+<%-- 								<c:if test="${item.content == 'SS' }">
+									<li class="grid-tile js-slv-elements col-xs-6 col-sm-12 col-lg-6 double">
+										<div class="product-tile" id="cbfffcb3ebddc3247cab14dba5"
+											data-itemid="BB50F2B0WD-630" data-gtmproductid="BB50F2B0WD"
+											data-availability="IN_STOCK">
+											<figure class="product-image">
+												<a class="thumb-link"
+													href="#">
+													<picture class="thumb-img"> <img
+														src=" ${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg"
+														alt="" /> </picture> <span class="flag"> New </span>
+													<figcaption class="thumb-caption">
+														<div class="product-infos">
+															<div class="product-name">Medium Antigona Soft bag
+																in smooth leather</div>
+															<div class="product-pricing">
+																<div class="product-price" itemprop="offers"
+																	itemscope="" itemtype="http://schema.org/Offer">
+																	<span class="price-sales"> $2,450.00 </span>
+																</div>
+															</div>
+															<div class="product-promo"></div>
+														</div>
+													</figcaption>
+												</a>
+												<a href=""
+													data-pname="Medium Antigona Soft bag in smooth leather"
+													data-pid="BB50F2B0WD-630" class="add-to-wishlist"> <i
+													class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
+													<span class="visually-hidden">Add to your wishlist
+														Medium Antigona Soft bag in smooth leather</span>
+												</a>
+											</figure>
+										</div>
+									</li>
+								</c:if>
+										<li
+											class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3 reset-left">
+											<div class="product-tile" id="757dbbeb14710be062b8e6e376"
+												data-itemid="BW50P812JF-001" data-gtmproductid="BW50P812JF"
+												data-availability="IN_STOCK">
+												<figure class="product-image">
+													<a class="thumb-link"
+														href="#cigarette-pants-with-chain-and-4g-buttons/BW50P812JF-001.html?cgid=New_In_W">
+														<picture class="thumb-img"> <img
+															src="
+                                 ${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg"
+															alt="" /> </picture> <span class="flag"> New </span>
+														<figcaption class="thumb-caption">
+															<div class="product-infos">
+																<div class="product-name">Cigarette pantssss with
+																	chain and 4G buttons</div>
+																<div class="product-pricing">
+																	<div class="product-price" itemprop="offers"
+																		itemscope="" itemtype="http://schema.org/Offer">
+																		<span class="price-sales"> $1,095.00 </span>
+																	</div>
+																</div>
+																<div class="product-promo"></div>
+															</div>
+														</figcaption>
+													</a>
+													<a href=""
+														data-pname="Cigarette pants with chain and 4G buttons"
+														data-pid="BW50P812JF-001" class="add-to-wishlist"> <i
+														class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
+														<span class="visually-hidden">Add to your wishlist
+															Cigarette pants with chain and 4G buttons</span>
+													</a>
+												</figure>
+											</div>
+										</li>
+ --%>

@@ -1,19 +1,7 @@
 $(document).ready(function () {
   // hover
-  $("#WOMEN").hover(function () {
-    if ($("#WOMEN").hasClass("hover")) {
-      $("#WOMEN").removeClass("hover");
-    } else {
-      $("#WOMEN").addClass("hover");
-    }
-  });
-  $("#MEN").hover(function () {
-    if ($("#MEN").hasClass("hover")) {
-      $("#MEN").removeClass("hover");
-    } else {
-      $("#MEN").addClass("hover");
-    }
-  });
+
+
   $("#signin").hover(function () {
     if ($("#signin").hasClass("hover")) {
       $("#signin").removeClass("hover");
@@ -33,21 +21,6 @@ $(document).ready(function () {
       $(".minicart").removeClass("hover");
     } else {
       $(".minicart").addClass("hover");
-    }
-  });
-  $("#Collections").hover(function () {
-    if ($("#Collections").hasClass("hover")) {
-      $("#Collections").removeClass("hover");
-    } else {
-      $("#Collections").addClass("hover");
-    }
-  });
-  //dang test
-    $(".product-tile").hover(function () {
-    if ($(".product-tile").hasClass("hover")) {
-      $(".product-tile").removeClass("hover");
-    } else {
-      $(".product-tile").addClass("hover");
     }
   });
   // click
@@ -102,3 +75,7 @@ $(document).ready(function () {
     position = scroll;
   });
 });
+
+function newFunction() {
+	
+}

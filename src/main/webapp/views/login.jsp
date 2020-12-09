@@ -94,7 +94,7 @@
 								<p class="intro">Create your personal account to join our
 									Homie family.</p>
 								<form
-									action="${pageContext.request.contextPath}/views/web/register.jsp"
+									action="${pageContext.request.contextPath}/user-new"
 									class="form-row" method="get" id="dwfrm_login_register"
 									novalidate="novalidate">
 									<button type="submit" value="Create an account"

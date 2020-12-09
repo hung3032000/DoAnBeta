@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ute.DoAn1.model.CategoriesModel;
 import ute.DoAn1.model.UserModel;
 import ute.DoAn1.service.ICategoriesService;
 import ute.DoAn1.service.IUserService;
@@ -27,7 +28,8 @@ public class HomeController extends HttpServlet {
 	@Inject
 	private IUserService userService;
 
-
+	@Inject
+	private ICategoriesService Icategory;
 	/**
 	 * Default constructor.
 	 */
@@ -42,6 +44,12 @@ public class HomeController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//load categories
+		CategoriesModel category = new CategoriesModel();
+		category.setListResult(Icategory.findAllP());
+		request.setAttribute("category", category);
+		
+		
 		String action = request.getParameter("action");
 		if (action != null && action.equals("login")) {
 			String alert = request.getParameter("alert");
@@ -74,7 +82,7 @@ public class HomeController extends HttpServlet {
 			String email = request.getParameter("email").trim();
 			String password = request.getParameter("password").trim();
 			model = userService.findByUserEmailAndPasswordAndStatus(email, password, 1);
-
+		
 			if (model != null) {
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
 				if (model.getRole().getCode().equals("USER")) {

@@ -19,47 +19,61 @@ import ute.DoAn1.service.IProductService;
 /**
  * Servlet implementation class ProductController
  */
-@WebServlet(urlPatterns = { "/user-product" })
+@WebServlet(urlPatterns = { "/user-product","/user-loadcategories" })
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
 	@Inject
 	private ICategoriesService Icategory;
 	@Inject
 	private IProductService Iproduct;
-    public ProductController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//Tra ve toan bo danh muc
-		CategoriesModel category = new CategoriesModel();
-		category.setListResult(Icategory.findAll());
-		request.setAttribute("category", category);
-		//Tra ve toan bo san pham
-		
-		  ProductModel product = new ProductModel();
-		  product.setListResult(Iproduct.findAll());
-		  request.setAttribute(SystemConstant.MODEL, product); RequestDispatcher rd =
-		  request.getRequestDispatcher("/views/web/product.jsp"); rd.forward(request,
-		  response);
-		 
+	public ProductController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Tra ve toan bo danh muc
+		//doPost(request, response);
+		CategoriesModel category = new CategoriesModel();
+		category.setListResult(Icategory.findAllP());
+		request.setAttribute("category", category);
+		// Tra ve toan bo san pham
+
+		ProductModel product = new ProductModel();
+		product.setListResult(Iproduct.findAll());
+		request.setAttribute(SystemConstant.MODEL, product);
+		// trả về tổng số hàng
+		int totalItems = 0;
+		totalItems = totalItems + product.getListResult().size();
+
+		request.setAttribute("totalItems", totalItems);
+		RequestDispatcher rd = request.getRequestDispatcher("/views/web/showproduct.jsp");
+		rd.forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+		if (action != null && action.equals("Women")) {
+			
+		}
+		response.sendRedirect(
+				request.getContextPath() + "/user-product");
 	}
 
 }
