@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ute.DoAn1.DAO.impl.UserDAO;
+import ute.DoAn1.model.CategoriesModel;
 import ute.DoAn1.model.UserModel;
+import ute.DoAn1.service.ICategoriesService;
 import ute.DoAn1.service.impl.UserService;
 import ute.DoAn1.utils.FormUtil;
 
@@ -32,6 +34,8 @@ public class RegisterController extends HttpServlet {
 	}
 
 	@Inject
+	private ICategoriesService Icategory;
+	@Inject
 	UserService userService = new UserService();
 
 	/**
@@ -43,6 +47,9 @@ public class RegisterController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		CategoriesModel category = new CategoriesModel();
+		category.setListResult(Icategory.findAllP());
+		request.setAttribute("category", category);
 		String action = request.getParameter("action");
 		if (action != null && action.equals("new")) {
 			String alert = request.getParameter("alert");
@@ -60,7 +67,11 @@ public class RegisterController extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 				rd.forward(request, response);
 			}
-		}else {
+		}else if(action != null && action.equals("login")){
+			RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
+			rd.forward(request, response);
+		}
+		else {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/register.jsp");
 			rd.forward(request, response);
 		}

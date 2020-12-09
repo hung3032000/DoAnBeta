@@ -34,16 +34,16 @@
 						<ul class="header-links" role="presentation">
 							<li class="level-1 account-nav header-link"><a
 								class="level-1 authenticated navigation-hasSubMenu"
-								href="${pageContext.request.contextPath}/views/web/userinf.jsp">
+								href="${pageContext.request.contextPath}/user-update?action=show">
 									My account<span>:</span> <span class="name"> <strong>${USERMODEL.title}</strong>
 										<strong>${USERMODEL.lName} </strong>
 								</span>
 							</a>
 								<div class="level-2 authenticated">
-									<a href="#" class="level-2 back"> My account </a>
+									<a href="#hello" class="level-2 back"> My account </a>
 									<ul>
 										<li class=""><a
-											href="${pageContext.request.contextPath}/views/web/accountoverview.jsp">
+											href="${pageContext.request.contextPath}/user-update?action=show">
 												Account overview </a></li>
 										<li class="order-history "><a
 											href="${pageContext.request.contextPath}/views/web/order.jsp">
@@ -63,7 +63,7 @@
 				<ul class="header-links" role="presentation">
 					<li class="level-1 account-nav header-link" id="signin"><a
 						class="level-1"
-						href="${pageContext.request.contextPath}/views/login.jsp">
+						href="${pageContext.request.contextPath}/user-new?action=login">
 							Sign in </a>
 						<div class="level-2">
 							<a href='<c:url value="/login?action=login"/>'
