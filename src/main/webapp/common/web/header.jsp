@@ -43,13 +43,13 @@
 									<a href="#hello" class="level-2 back"> My account </a>
 									<ul>
 										<li class=""><a
-											href="${pageContext.request.contextPath}/user-update?action=show">
+											href="${pageContext.request.contextPath}/views/web/accountoverview">
 												Account overview </a></li>
 										<li class="order-history "><a
 											href="${pageContext.request.contextPath}/views/web/order.jsp">
 												Orders </a></li>
 										<li class=""><a
-											href="${pageContext.request.contextPath}/views/web/userinf.jsp">
+											href="${pageContext.request.contextPath}/user-update?action=show">
 												Personal details </a></li>
 										<li><a href='<c:url value="/login?action=logout"/>'>Logout</a>
 										</li>
@@ -59,6 +59,7 @@
 					</li>
 				</ul>
 			</c:if>
+			
 			<c:if test="${empty USERMODEL}">
 				<ul class="header-links" role="presentation">
 					<li class="level-1 account-nav header-link" id="signin"><a
@@ -126,7 +127,7 @@
 			<div class="minicart empty-cart">
 				<a class="minicart-link empty-cart" href=""
 					aria-label="View Your Cart"> <span class="icon_Bag"
-					title="View Your Cart"></span>
+					title="View Your Cart">${item.id}</span>
 				</a>
 				<div class="minicart-content">
 					<p>Your cart is empty</p>
@@ -173,15 +174,16 @@
 		<ul class="level-1">	
 		<c:forEach var="item" items="${category.listResult}">
 
-			<li class="level-1 " id="${item.name}"><a
+			<li class="level-1 " id="${item.name}">
+			
+			<a
 				class="level-1 navigation-hasSubMenu"
-				href="${pageContext.request.contextPath}/views/web/women.jsp"> <span>${item.name}</span>
+				href="${pageContext.request.contextPath}/user-category?parent_id=${item.id}"> <span>${item.name} ${item.id}</span>
 			</a>
-
 				<div class="level-2">
 					<div class="container">
 
-						<a href="" class="level-2 back">Women</a>
+						<a href="" class="level-2 back">${item.id}</a>
 						<ul class="level-2 row">
 							<li class="first-col col-xs-6 col-sm-12 col-md-3 col-md-margin-1">
 								<p>
@@ -195,8 +197,7 @@
 								</p>
 							</li>
 							<li class="level-2 col-sm-3 col-md-2 " id="NEW_ARRIVALS_W">
-								<a class="level-2 navigation-hasSubMenu" href="#"> <span>New
-										Arrivals</span>
+								<a class="level-2 navigation-hasSubMenu" href="#"> <span>${item.id}</span>
 							</a>
 								<div class="level-3">
 									<a href="" class="level-3 back">New Arrivals</a>

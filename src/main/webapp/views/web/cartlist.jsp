@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
+	
 <body>
 	<div class="pt_storefront" id="wrapper">
 
@@ -20,8 +19,8 @@
 						<li class="order-history "><a
 							href="Order-History.jsp">
 								Orders </a></li>
-						<li class=" wishlist-menu-item"><a href="wishlist.jsp">
-								Wishlist (0) </a></li>
+						<li class=" wishlist-menu-item"><a href="#">
+								cartlist (0) </a></li>
 						<li class=""><a href=".jspeditaccount"> Personal
 								details </a></li>
 						<li><a href="/us/en-US/logout"> Logout </a></li>
@@ -68,5 +67,3 @@
 		</main>
 	</div>
 </body>
-
-</html>

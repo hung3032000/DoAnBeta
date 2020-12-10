@@ -15,7 +15,7 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
 	}
 
 	@Override
-	public List<CategoriesModel> findAllC(int category_id) {
+	public List<CategoriesModel> findAllC(String category_id) {
 		String sql = "SELECT * FROM categories where parent_id= ?;";
 		return query(sql, new CategoriesMapper(), category_id);
 	}

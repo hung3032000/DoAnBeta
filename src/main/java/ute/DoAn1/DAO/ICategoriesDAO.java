@@ -6,5 +6,5 @@ import ute.DoAn1.model.CategoriesModel;
 
 public interface ICategoriesDAO extends GenericDAO<CategoriesModel> {
 	List<CategoriesModel> findAllP();
-	List<CategoriesModel> findAllC(int category_id);
+	List<CategoriesModel> findAllC(String category_id);
 }

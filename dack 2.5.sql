@@ -136,8 +136,6 @@ ALTER TABLE `users` ADD FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 ALTER TABLE `orders` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
 ALTER TABLE `product` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
-
-ALTER TABLE `categories` ADD FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`);
 -- querry +test querry 
 use dack;
 -- category
@@ -146,7 +144,7 @@ insert into categories(name,parent_id,created_at) values('Women',0,now());
 insert into categories(name,parent_id,created_at) values('Men',0,now());
 insert into categories(name,parent_id,created_at) values('Collection',0,now());
 insert into categories(name,parent_id,created_at) values('Test',0,now());
-update categories set name='MEN' where id =1;
+update categories set name='Men' where id =1;
 insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','1','image/BK507PK0ZY027-01-02.jpg',now());
 -- select * from product_image;
 SELECT * FROM categories where parent_id=0;

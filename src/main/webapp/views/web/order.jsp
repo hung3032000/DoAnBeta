@@ -15,7 +15,7 @@
 							Account overview </a></li>
 					<li class="order-history "><a href="${pageContext.request.contextPath}/views/web/order.jsp"> Orders </a></li>
 					<li class=""><a
-						href="${pageContext.request.contextPath}/views/web/userinf.jsp"
+						href="${pageContext.request.contextPath}/user-update?action=show"
 						title="Personal details (Active page)"> Personal details </a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/login?action=logout">Logout</a>

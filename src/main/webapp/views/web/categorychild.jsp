@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@include file="/common/taglib.jsp"%>
 <body>
 	<div class="pt_storefront" id="wrapper">
 
@@ -16,14 +16,21 @@
 			<div id="primary" class="primary-content">
 				<div class="page-header">
 					<h1>
-						<span class="title">Women</span>
+						<c:forEach var="item" items="${category.listResult}">
+							<c:if test="${item.id == parent_id}">
+								<span class="title">${item.name}</span>
+							</c:if>
+						</c:forEach>
 					</h1>
 				</div>
 				<div class="subcategory-container">
-					<a class="merchandised-level-2" href="${pageContext.request.contextPath}/user-product"> <img alt=""
-						src="${pageContext.request.contextPath}/image/LandingPage-Desktop_Winter20 (8).jpg">
-						<div class="text">New Arrivals</div>
-					</a>
+					<c:forEach var="item" items="${categoryC.listResult}">
+						<a class="merchandised-level-2"
+							href="${pageContext.request.contextPath}/user-product"> <img
+							alt="" src="${pageContext.request.contextPath}/${item.image}">
+							<div class="text">${item.name}</div>
+						</a>
+					</c:forEach>
 				</div>
 
 			</div>

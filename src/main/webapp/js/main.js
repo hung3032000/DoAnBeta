@@ -34,6 +34,13 @@ $(document).ready(function () {
   $(".close-search").click(function () {
     $("#search").removeClass("open");
   });
+  $(".product-description").click(function () {
+    if ($(".product-description").hasClass("open")) {
+      $(".product-description").removeClass("open");
+    } else {
+      $(".product-description").addClass("open");
+    }
+  });
 //   $("#1").click(function () {
 //     if ($(".form-field-wrapper").hasClass("focus")) {
 //         $("#2").addClass("red");

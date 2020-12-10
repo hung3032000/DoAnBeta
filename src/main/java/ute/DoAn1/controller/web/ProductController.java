@@ -19,7 +19,7 @@ import ute.DoAn1.service.IProductService;
 /**
  * Servlet implementation class ProductController
  */
-@WebServlet(urlPatterns = { "/user-product","/user-loadcategories" })
+@WebServlet(urlPatterns = { "/user-product" })
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -43,7 +43,6 @@ public class ProductController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Tra ve toan bo danh muc
-		//doPost(request, response);
 		CategoriesModel category = new CategoriesModel();
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
@@ -68,12 +67,6 @@ public class ProductController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String action = request.getParameter("action");
-		if (action != null && action.equals("Women")) {
-			
-		}
-		response.sendRedirect(
-				request.getContextPath() + "/user-product");
 	}
 
 }

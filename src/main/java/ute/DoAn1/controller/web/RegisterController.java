@@ -50,6 +50,9 @@ public class RegisterController extends HttpServlet {
 		CategoriesModel category = new CategoriesModel();
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
+		
+		
+		
 		String action = request.getParameter("action");
 		if (action != null && action.equals("new")) {
 			String alert = request.getParameter("alert");

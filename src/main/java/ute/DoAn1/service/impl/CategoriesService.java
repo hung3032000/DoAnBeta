@@ -19,7 +19,7 @@ public class CategoriesService implements ICategoriesService {
 	}
 
 	@Override
-	public List<CategoriesModel> findAllC(int category_id) {
+	public List<CategoriesModel> findAllC(String category_id) {
 		return categoryDao.findAllC(category_id);
 	}
 
