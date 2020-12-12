@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
-<html class="context-eshop giv-style js infinite-scroll" lang="en">
+<html class="context-eshop giv-style js infinite-scroll" lang="en" data-scroll-position="0" style="top: 0px;">
 <%@include file="/common/taglib.jsp"%>
 <head>
     <meta charset="UTF-8">
@@ -23,6 +23,7 @@
 	<!-- header -->
 
 	<!-- Body -->
+	<%@ include file ="/common/web/body.jsp"%>
 	<dec:body />
 	<!-- End Body -->
 

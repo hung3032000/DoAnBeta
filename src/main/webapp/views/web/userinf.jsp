@@ -19,8 +19,6 @@ if (daySelected == null) {
 
 %>
 <body>
-	<div class="pt_storefront" id="wrapper">
-		<div id="minicart-container" aria-hidden="true"></div>
 		<main id="main" class="page-content clearfix"
 			style="margin-top: 128px;">
 			<a id="mainContent" tabindex="-1"></a>
@@ -355,10 +353,6 @@ if (daySelected == null) {
 				</div>
 			</div>
 		</main>
-
-
-	</div>
-
 </body>
 
 </html>

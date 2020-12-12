@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <body>
-	<div class="pt_storefront" id="wrapper">
-
-		<div id="minicart-container" aria-hidden="true"></div>
 
 		<main id="main" class="clearfix" style="margin-top: 128px;">
 			<a id="mainContent" tabindex="-1"></a>
@@ -35,7 +32,6 @@
 
 			</div>
 		</main>
-	</div>
 </body>
 
 </html>

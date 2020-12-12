@@ -1,116 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <body>
 	<div id="wrapper" class="pt_product-details">
-		<div id="minicart-container" aria-hidden="true"></div>
-		<main id="main" role="main" class="full-width clearfix">
+		<main id="main" role="main" class="full-width clearfix"
+			style="margin-top: 128px;">
 			<a id="mainContent" tabindex="-1"></a>
-
 			<div id="primary" class="primary-content">
 					<div class="container" id="product-container">
 						<div class="row">
 							<div class="product-col-image col-sm-6">
 								<section class="product-image-container"
 									aria-roledescription="carousel">
-									<img class="hidden" itemprop="image"
-										src="https://www.givenchy.com/on/demandware.static/-/Sites-Givenchy_master/default/dw74121f69/images/BB50GJB00D001/BB50GJB00D001-02-01.jpg"
-										alt="Medium Antigona lock bag in box leather" />
-									<div class="product-primary-image">
-										<button class="swiper-button-prev">
-											<span class="icon_BackL"></span><span class="visually-hidden">Previous
-												photo</span>
-										</button>
-										<button class="swiper-button-next">
-											<span class="icon_NextL"></span><span class="visually-hidden">Next
-												photo</span>
-										</button>
-										<div class="swiper-container">
-											<div class="swiper-wrapper">
-												<div class="swiper-slide" aria-roledescription="slide">
-													<a class="fullscreen" target="_blank"> <picture
-															class="">
-														
-														<img
-															srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw74121f69/images/BB50GJB00D001/BB50GJB00D001-02-01.jpg?sw=530"
-															alt="Medium Antigona lock bag in box leather View-1, Display in full screen">
-														</picture>
-													</a>
-												</div>
-												<div class="swiper-slide" aria-roledescription="slide">
-													<a class="fullscreen" target="_blank"> <picture
-															class="">
-														
-														<img
-															srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwb727bcba/images/BB50GJB00D001/BB50GJB00D001-02-02.jpg?sw=530"
-															alt="Medium Antigona lock bag in box leather View-2, Display in full screen">
-														</picture>
-													</a>
-												</div>
-												<div class="swiper-slide" aria-roledescription="slide">
-													<a class="fullscreen" target="_blank"> <picture
-															class="">
-													
-														<img
-															srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw43667c7f/images/BB50GJB00D001/BB50GJB00D001-02-03.jpg?sw=530"
-															alt="Medium Antigona lock bag in box leather View-3, Display in full screen">
-														</picture>
-													</a>
-												</div>
-												<div class="swiper-slide" aria-roledescription="slide">
-													<a class="fullscreen" target="_blank"> <picture
-															class="">
-														
-														<img
-															srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw5a06a928/images/BB50GJB00D001/BB50GJB00D001-02-04.jpg?sw=530"
-															alt="Medium Antigona lock bag in box leather View-4, Display in full screen">
-														</picture>
-													</a>
-												</div>
-												<div class="swiper-slide" aria-roledescription="slide">
-													<a class="fullscreen" target="_blank"> <picture
-															class="">
-														
-														<img
-															srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw449afe91/images/BB50GJB00D001/BB50GJB00D001-02-05.jpg?sw=530"
-															alt="Medium Antigona lock bag in box leather View-5, Display in full screen">
-														</picture>
-													</a>
-												</div>
-											</div>
-											<a href=""
-												data-pname="Medium Antigona lock bag in box leather"
-												data-pid="BB50GJB00D-001" class="add-to-wishlist "> <i
-												class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
-											</a>
-										</div>
-									</div>
-
-									<div class="visible-xs-block addtowhishlist-btn">
-										<a href=""
-											data-pname="Medium Antigona lock bag in box leather"
-											data-pid="BB50GJB00D-001" class="add-to-wishlist "> <span
-											class="visible-xs-block">Add to wishlist</span> <span
-											class="hidden-xs">Wishlist</span> <span class="heart-icon">
-												<i class="icon_Wishlist"></i> <i
-												class="icon_Wishlist_Active"></i>
-										</span> <span class="visually-hidden">Add to your wishlist
-												Medium Antigona lock bag in box leather</span>
-										</a>
-									</div>
+									<img  itemprop="image"
+										src="https://www.givenchy.com/on/demandware.static/-/Sites-Givenchy_master/default/dwd555d42b/images/BM710P3002055/BM710P3002055-02-01.jpg"
+										alt="GIVENCHY Schematics oversized T-shirt">
+									
 								</section>
 							</div>
 							<div
 								class="product-col-details col-md-4 col-md-offset-1 col-sm-6">
 								<div class="product-detail">
-									<div class="product-label">{item.content}</div>
+									<span  itemprop="brand"> {item.Nhacungcap}cái này vứt đc
+								    </span>
+									<div class="product-label">{item.title} </div>
 									<div id="product-content" class="not-downgraded">
-										<h1 class="product-name" itemprop="name">{item.name}</h1>
-										<div class="product-price">
-											<span class="price-sales"> {item.price} </span>
+										<h1 class="product-name" itemprop="name">{item.name} </h1>
+										<div class="product-price" itemprop="offers" itemscope=""
+											itemtype="http://schema.org/Offer">
+											<span class="price-sales">{item.price} </span>
 
 										</div>
-										<span class="visually-hidden" itemprop="url">https://www.givenchy.com/us/en-US/3666082201895.html</span>
+										
 										<div class="product-description">
 											<div class="double-form-button">
 												<div class="left">
@@ -130,261 +50,230 @@
 												<div class="right hidden-xs">
 													<div class="form-button secondary addtowhishlist-btn">
 														<a href=""
-															data-pname="Medium Antigona lock bag in box leather"
-															data-pid="BB50GJB00D-001" class="add-to-wishlist "> <span
+															data-pname="GIVENCHY Schematics oversized T-shirt"
+															data-pid="BM710P3002-055" class="add-to-wishlist "> <span
 															class="visible-xs-block">Add to wishlist</span> <span
 															class="hidden-xs">Wishlist</span> <span
 															class="heart-icon"> <i class="icon_Wishlist"></i>
 																<i class="icon_Wishlist_Active"></i>
 														</span> <span class="visually-hidden">Add to your wishlist
-																Medium Antigona lock bag in box leather</span>
+																GIVENCHY Schematics oversized T-shirt</span>
 														</a>
 													</div>
 												</div>
 											</div>
 											<div id="description-tab" class="long-description">
-												<div class="short-description">
-													<div style="text-align: left;">
-														&bull;Shoulder bag.<br /> &bull;Color: black.<br />
-														&bull;Zipper closure.<br /> &bull;Silver metal details.<br />
-														&bull;Removable lock.<br /> &bull;Two high handles.<br />
-														&bull;One flat pockets and one zippered pocket inside.<br />
-														&bull;Lining in canvas.<br />
-													</div>
-												</div>
+												<div class="short-description">Long-sleeved T-shirt in
+													light heather gray jersey with red GIVENCHY signature on
+													the chest, and black Schematics prints on the front and
+													sleeves.</div>
 												<p class="sku">
-													Product code: <span class="pid" itemprop="sku">BB50GJB00D-001</span>
+													Product code: <span class="pid" itemprop="sku">BM710P3002-055</span>
 												</p>
 
-												Composition: 100% calfskin leather. Lining: 80% viscose, 20%
-												polyamide. Metal pieces: 100% brass.
+												Composition: 100% cotton.
 
-												<div class="product-description-subtitle">Size & Fit</div>
-												<p>Dimensions: 33 x 19 x 28 cm.</p>
 
 												<div class="product-description-subtitle">Other</div>
-												<p>Country of origin: Italy.</p>
+												<p>Country of origin: Portugal.</p>
+												<p>Maximum wash 30°C, delicate cycle</p>
+												<p>Iron at maximum soleplate temperature (110°C) without
+													steam</p>
+												<p>Do not tumble dry</p>
+												<p>Do not bleach</p>
+												<p>Do not dry clean</p>
 											</div>
 										</div>
-										<form
-											action="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Detail"
-											method="post" id="dwfrm_product_addtocart_d0uauumuqqwy"
-											class="pdpForm">
+						<!-- 				<form
+											action="#"
+											method="post" id="dwfrm_product_addtocart_d0qkkdksealn"
+											class="pdpForm" novalidate="novalidate"> -->
 											<div class="product-add-to-cart">
 												<div class="inventory">
 													<input type="hidden" name="pid" id="pid"
-														value="3666082201895" />
+														value="BM710P3002-055">
 													<div class="quantity">
 														<input type="hidden" name="Quantity" id="Quantity"
-															value="1" />
+															value="1">
 													</div>
 												</div>
-												<input type="hidden" name="uuid" id="uuid" value="" /> <input
-													type="hidden" name="cartAction" id="cartAction"
-													value="update" />
-												<script>
-													var currentProduct = {
-														"name" : "Medium Antigona lock bag in box leather",
-														"id" : "BB50GJB00D",
-														"sku" : "BB50GJB00D-001",
-														"img" : "https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw82594eeb/images/BB50GJB00D001/BB50GJB00D001-01-01.jpg",
-														"list" : "DO NOT REMOVE",
-														"price" : "2650",
-														"brand" : "Givenchy",
-														"category" : "",
-														"variant" : "BLACK",
-														"quantity" : "1",
-														"dimension1" : "IN_STOCK",
-														"dimension2" : "",
-														"metric1" : "0",
-														"metric2" : "2650"
-													};
-													var uniqueID = "3666082201895";
-												</script>
+												<input type="hidden" name="uuid" id="uuid" value="">
+												<input type="hidden" name="cartAction" id="cartAction"
+													value="update">
 
 
-
-
+												<div id="product-variations" class="product-variations"
+													
+													tabindex="-1">
+													<h2 class="visually-hidden">Other options</h2>
+													<div class="tab-headers">
+														<button id="variation-Size-header"
+															data-target="#variation-Size" class="tab-header"
+															aria-expanded="false" aria-controls="variation-Size">
+															<h2>Size</h2>
+															<i class="icon_DownL"></i>
+														</button>
+													</div>
+													<div class="tab-content">
+														<div class="tab-pane" id="variation-Size">
+															<section class="attribute variation-swiper-container"
+																aria-roledescription="carousel">
+																<button class="swiper-button-prev"
+																	aria-label="Previous Size" style="">
+																	<i class="icon_BackL"></i>
+																</button>
+																<button class="swiper-button-next"
+																	aria-label="Next Size" style="">
+																	<i class="icon_NextL"></i>
+																</button>
+																<div
+																	class="value swiper-container swiper-container-horizontal">
+																	<div class="swatches size swiper-wrapper"
+																		style="transition-duration: 0ms;">
+																		<div class="selectable attrvalue swiper-slide"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=XXS&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: XXS (Unavailable)"> <span
+																				class="unavailable-size"
+																				title="Select Size: XXS (Unavailable)">XXS</span>
+																			</a> <span class="unavailable">Find in store</span>
+																		</div>
+																		<div class="selectable attrvalue swiper-slide"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=XS&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: XS (Unavailable)"> <span
+																				class="unavailable-size"
+																				title="Select Size: XS (Unavailable)">XS</span>
+																			</a> <span class="unavailable">Find in store</span>
+																		</div>
+																		<div class="selectable attrvalue swiper-slide"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=S&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: S"> <span class=""
+																				title="Select Size: S">S</span>
+																			</a>
+																		</div>
+																		<div
+																			class="selectable attrvalue swiper-slide swiper-slide-prev"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=M&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: M"> <span class=""
+																				title="Select Size: M">M</span>
+																			</a>
+																		</div>
+																		<div
+																			class="selectable attrvalue swiper-slide swiper-slide-active"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=L&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: L"> <span class=""
+																				title="Select Size: L">L</span>
+																			</a>
+																		</div>
+																		<div
+																			class="selectable attrvalue swiper-slide swiper-slide-next"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=XL&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: XL"> <span class=""
+																				title="Select Size: XL">XL</span>
+																			</a>
+																		</div>
+																		<div class="selectable attrvalue swiper-slide"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=XXL&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: XXL"> <span class=""
+																				title="Select Size: XXL">XXL</span>
+																			</a>
+																		</div>
+																		<div class="selectable attrvalue swiper-slide"
+																			aria-roledescription="slide">
+																			<a class="swatchanchor"
+																				href="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Product-Variation?pid=BM710P3002-055&amp;dwvar_BM710P3002-055_Shared_size=3XL&amp;dwvar_BM710P3002-055_Shared_color=055"
+																				data-lgimg="{&quot;url&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-detail.png&quot;,&quot;title&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;alt&quot;:&quot;GIVENCHY Schematics oversized T-shirt&quot;,&quot;hires&quot;:&quot;/on/demandware.static/Sites-GIV_US-Site/-/en/v1607604959073/images/noimage-product-zoom.png&quot;}&quot;}"
+																				aria-label="Select Size: 3XL"> <span class=""
+																				title="Select Size: 3XL">3XL</span>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+																<div class="swiper-pagination" style="display: block;"></div>
+															</section>
+														</div>
+													</div>
+												</div>
+												<div class="error-message">
+													<i class="icon_Warning"></i> <span>Please select a
+														size</span>
+												</div>
 												<button id="add-to-cart" type="submit" title="Add to cart"
 													value="Add to cart"
-													class="form-button button--full add-to-cart ">Add
-													to cart</button>
+													class="form-button button--full add-to-cart disabled">
+													Add to cart</button>
 
 												<div class="product-sticky">
 													<div class="container">
 														<div
 															class="row justify-content-between align-items-center">
 															<h2 class="product-name col-sm-6" itemprop="name">
-																Medium Antigona lock bag in box leather</h2>
+																GIVENCHY Schematics oversized T-shirt</h2>
+															<a href="#variation-Size-header"
+																class="product-variation-link col-sm-2 col-xs-4"> <span>Size</span>
+															</a>
 															<div class="product-add col-xs-2">
 																<button id="add-to-cart" type="submit" title="Add"
 																	value="Add"
-																	class="form-button button--full add-to-cart ">
+																	class="form-button button--full add-to-cart disabled">
 																	Add</button>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-
-										</form>
-
+								<!-- 		</form> -->
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="product-block-images container">
-					<a href="" class="fullscreen full-mobile" data-index="1.0"
-						target="_blank"> <picture class="">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwb727bcba/images/BB50GJB00D001/BB50GJB00D001-02-02.jpg?sw=850, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwb727bcba/images/BB50GJB00D001/BB50GJB00D001-02-02.jpg?sw=1700 2x"
-							media="(min-width: 1800px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwb727bcba/images/BB50GJB00D001/BB50GJB00D001-02-02.jpg?sw=530, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwb727bcba/images/BB50GJB00D001/BB50GJB00D001-02-02.jpg?sw=1700 2x"
-							media="(min-width: 769px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwb727bcba/images/BB50GJB00D001/BB50GJB00D001-02-02.jpg?sw=530"
-							media="(min-width: 640px)">
-						<img
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwb727bcba/images/BB50GJB00D001/BB50GJB00D001-02-02.jpg?sw=530"
-							alt="Medium Antigona lock bag in box leather View-2, Display in full screen">
-						</picture>
-					</a> <a href="" class="fullscreen " data-index="2.0" target="_blank">
-						<picture class="">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw43667c7f/images/BB50GJB00D001/BB50GJB00D001-02-03.jpg?sw=850, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw43667c7f/images/BB50GJB00D001/BB50GJB00D001-02-03.jpg?sw=1700 2x"
-							media="(min-width: 1800px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw43667c7f/images/BB50GJB00D001/BB50GJB00D001-02-03.jpg?sw=530, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw43667c7f/images/BB50GJB00D001/BB50GJB00D001-02-03.jpg?sw=1700 2x"
-							media="(min-width: 769px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw43667c7f/images/BB50GJB00D001/BB50GJB00D001-02-03.jpg?sw=530"
-							media="(min-width: 640px)">
-						<img
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw43667c7f/images/BB50GJB00D001/BB50GJB00D001-02-03.jpg?sw=530"
-							alt="Medium Antigona lock bag in box leather View-3, Display in full screen">
-						</picture>
-					</a> <a href="" class="fullscreen " data-index="3.0" target="_blank">
-						<picture class="">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw5a06a928/images/BB50GJB00D001/BB50GJB00D001-02-04.jpg?sw=850, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw5a06a928/images/BB50GJB00D001/BB50GJB00D001-02-04.jpg?sw=1700 2x"
-							media="(min-width: 1800px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw5a06a928/images/BB50GJB00D001/BB50GJB00D001-02-04.jpg?sw=530, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw5a06a928/images/BB50GJB00D001/BB50GJB00D001-02-04.jpg?sw=1700 2x"
-							media="(min-width: 769px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw5a06a928/images/BB50GJB00D001/BB50GJB00D001-02-04.jpg?sw=530"
-							media="(min-width: 640px)">
-						<img
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw5a06a928/images/BB50GJB00D001/BB50GJB00D001-02-04.jpg?sw=530"
-							alt="Medium Antigona lock bag in box leather View-4, Display in full screen">
-						</picture>
-					</a> <a href="" class="fullscreen full-mobile" data-index="4.0"
-						target="_blank"> <picture class="">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw449afe91/images/BB50GJB00D001/BB50GJB00D001-02-05.jpg?sw=850, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw449afe91/images/BB50GJB00D001/BB50GJB00D001-02-05.jpg?sw=1700 2x"
-							media="(min-width: 1800px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw449afe91/images/BB50GJB00D001/BB50GJB00D001-02-05.jpg?sw=530, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw449afe91/images/BB50GJB00D001/BB50GJB00D001-02-05.jpg?sw=1700 2x"
-							media="(min-width: 769px)">
-						<source
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw449afe91/images/BB50GJB00D001/BB50GJB00D001-02-05.jpg?sw=530"
-							media="(min-width: 640px)">
-						<img
-							srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw449afe91/images/BB50GJB00D001/BB50GJB00D001-02-05.jpg?sw=530"
-							alt="Medium Antigona lock bag in box leather View-5, Display in full screen">
-						</picture>
-					</a>
-				</div>
-				<div class="custom-message-container"></div>	</main>
-			</div>
-			<!-- <div id="product-recommendations">
+						<div class="product-block-images container">
+							<a href="" class="fullscreen full-mobile" data-index="1.0"
+								target="_blank">
+								<img
+									src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw158bc979/images/BM710P3002055/BM710P3002055-02-02.jpg?sw=530"
+									alt="GIVENCHY Schematics oversized T-shirt View-2, Display in full screen">
+				
+							</a> <a href="" class="fullscreen " data-index="2.0" target="_blank">
+								<img
+								src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw0f946f84/images/BM710P3002055/BM710P3002055-02-04.jpg?sw=530"
+								alt="GIVENCHY Schematics oversized T-shirt View-3, Display in full screen">
 
+							</a> <a href="" class="fullscreen " data-index="3.0" target="_blank">
 
-				<div class="related-product">
-					<div class="product-related-container container tiles-container">
-						<h3 class="related-product-header">Similar</h3>
-						<div class="grid-tile col-sm-offset-3 col-xs-6">
-							<div class="product-tile " id="2360eb66b335c4cda9cc0fd531"
-								data-itemid="BB50GWB00D-001" data-gtmproductid=BB50GWB00D>
-								<figure class="product-image ">
-									<a class="thumb-link  "
-										href="/us/en-US/mini-antigona-lock-bag-in-box-leather/BB50GWB00D-001.html">
-										<picture class="thumb-img">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwedc6697b/images/BB50GWB00D001/BB50GWB00D001-01-01.jpg?sw=850, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwedc6697b/images/BB50GWB00D001/BB50GWB00D001-01-01.jpg?sw=1700 2x"
-											media="(min-width: 1800px)">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwedc6697b/images/BB50GWB00D001/BB50GWB00D001-01-01.jpg?sw=1060"
-											media="(min-width: 1600px)">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwedc6697b/images/BB50GWB00D001/BB50GWB00D001-01-01.jpg?sw=1000, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwedc6697b/images/BB50GWB00D001/BB50GWB00D001-01-01.jpg?sw=1060 2x"
-											media="(min-width: 769px)">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwedc6697b/images/BB50GWB00D001/BB50GWB00D001-01-01.jpg?sw=1000"
-											media="(min-width: 640px)">
-										<img
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwedc6697b/images/BB50GWB00D001/BB50GWB00D001-01-01.jpg?sw=1000"
-											alt=""> </picture> <picture class="alt-img">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw31f1f529/images/BB50GWB00D001/BB50GWB00D001-01-02.jpg?sw=850, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw31f1f529/images/BB50GWB00D001/BB50GWB00D001-01-02.jpg?sw=1700 2x"
-											media="(min-width: 1800px)">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw31f1f529/images/BB50GWB00D001/BB50GWB00D001-01-02.jpg?sw=1060"
-											media="(min-width: 1600px)">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw31f1f529/images/BB50GWB00D001/BB50GWB00D001-01-02.jpg?sw=1000, https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw31f1f529/images/BB50GWB00D001/BB50GWB00D001-01-02.jpg?sw=1060 2x"
-											media="(min-width: 769px)">
-										<source
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw31f1f529/images/BB50GWB00D001/BB50GWB00D001-01-02.jpg?sw=1000"
-											media="(min-width: 640px)">
-										<img
-											srcset="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw31f1f529/images/BB50GWB00D001/BB50GWB00D001-01-02.jpg?sw=1000"
-											alt=""> </picture>
-										<figcaption class="thumb-caption">
-											<div class="product-infos">
-												<div class="product-name">Mini Antigona lock bag in
-													box leather</div>
-												<div class="product-pricing">
-													<div class="product-price" itemprop="offers" itemscope
-														itemtype="http://schema.org/Offer">
-														<span class="price-sales"> $1,990.00 </span>
-														<meta itemprop="price" content="1990.0">
-														<meta itemprop="priceCurrency" content="USD">
-													</div>
-												</div>
-												<div class="product-promo"></div>
-											</div>
-										</figcaption>
-									</a>
-									<a href="" data-pname="Mini Antigona lock bag in box leather"
-										data-pid="BB50GWB00D-001" class="add-to-wishlist "> <i
-										class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
-										<span class="visually-hidden">Add to your wishlist Mini
-											Antigona lock bag in box leather</span>
-									</a>
-								</figure>
-							</div>
+								<img
+								src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwc543111d/images/BM710P3002055/BM710P3002055-02-05.jpg?sw=530"
+								alt="GIVENCHY Schematics oversized T-shirt View-4, Display in full screen">
+
+							</a> <a href="" class="fullscreen full-mobile" data-index="4.0"
+								target="_blank"> <img
+								src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw8cc1a72c/images/BM710P3002055/BM710P3002055-02-07.jpg?sw=530"
+								alt="GIVENCHY Schematics oversized T-shirt View-5, Display in full screen">
+							</a>
 						</div>
 					</div>
-				</div>
- -->
-
-
 			</div>
-<script type="text/javascript">
-$(".product-description").click(function () {
-    if ($(".product-description").hasClass("open")) {
-      $(".product-description").removeClass("open");
-    } else {
-      $(".product-description").addClass("open");
-    }
-  });
-</script>
-
+		</main>
+	</div>
 </body>
-
-

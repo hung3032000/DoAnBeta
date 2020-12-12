@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <body>
-    <div class="pt_storefront" id="wrapper">
-        <div id="minicart-container" aria-hidden="true"></div>
-        
-    
         <main id="main">
             <div class="cart-live-region" aria-live="polite" role="status">
             </div>
@@ -214,5 +210,4 @@
                 </div>
             </div>
         </main>
-    </div>
 </body>

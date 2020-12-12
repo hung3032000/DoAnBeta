@@ -124,12 +124,12 @@
 						</div></li>
 				</ul>
 			</c:if>
-			<div class="minicart empty-cart">
-				<a class="minicart-link empty-cart" href=""
+			<div class="minicart empty-cart" id="test">
+				<a class="minicart-link empty-cart" href="#"
 					aria-label="View Your Cart"> <span class="icon_Bag"
-					title="View Your Cart">${item.id}</span>
+					title="View Your Cart">${item.id}100</span>
 				</a>
-				<div class="minicart-content">
+				<div class="minicart-content">		
 					<p>Your cart is empty</p>
 				</div>
 			</div>
@@ -282,6 +282,7 @@
 			</c:forEach>
 		</ul>
 	</nav>
+
 		
 	<c:forEach var="item" items="${category.listResult}">
 			<script type="text/javascript">
@@ -294,4 +295,7 @@
 			  });
 		</script>
 	</c:forEach>
+	<script type="text/javascript">
+
+		</script>
 </header>

@@ -3,9 +3,6 @@
 <%@include file="/common/taglib.jsp"%>
 
 <body>
-	<div class="pt_storefront" id="wrapper">
-
-
 		<main id="main" class="clearfix" style="margin-top: 128px">
 			<a id="mainContent" tabindex="-1"></a>
 
@@ -402,7 +399,7 @@
 										data-itemid="BWC08N13FP-001" data-gtmproductid="BWC08N13FP"
 										data-availability="IN_STOCK">
 										<figure class="product-image">
-											<a class="thumb-link" href="#ss"> <picture
+											<a class="thumb-link" href="${pageContext.request.contextPath}/views/web/producin4.jsp"> <picture
 													class="thumb-img"> <img
 													src="${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg" />
 												</picture> <span class="flag"> ${item.content} </span>
@@ -429,7 +426,6 @@
 										</figure>
 									</div>
 								</li>
-
 							</c:forEach>
 				<c:forEach var="item" items="${category.listResult}">
 					<p>item.name</p>
@@ -438,9 +434,7 @@
 					</div>
 				</div>
 			</div>
-
 		</main>
-	</div>
 	<div class="search-promo"></div>
 	<c:forEach var="item" items="${model.listResult}">
 <script type="text/javascript">
