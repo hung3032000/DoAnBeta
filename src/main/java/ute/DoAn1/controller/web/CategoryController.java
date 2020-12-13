@@ -10,11 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ute.DoAn1.constant.SystemConstant;
 import ute.DoAn1.model.CategoriesModel;
-import ute.DoAn1.model.ProductModel;
 import ute.DoAn1.service.ICategoriesService;
-import ute.DoAn1.service.IProductService;
 
 /**
  * Servlet implementation class CategoryController

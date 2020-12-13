@@ -2,6 +2,9 @@ package ute.DoAn1.service.impl;
 
 
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import ute.DoAn1.DAO.IUserDAO;
 import ute.DoAn1.DAO.impl.UserDAO;
 import ute.DoAn1.model.UserModel;
@@ -42,6 +45,23 @@ public class UserService implements IUserService{
 		userDAO.update(userModel);
 	}
 
+	@Override
+	public boolean checkRegister(String fName,String lName,String email,String passWord){
+		String cusfName = fName;
+		String cuslName = lName;
+		String cusemail = email;
+		String cusPassWord = passWord;
+		Pattern mailPattern = Pattern.compile("\\w+@\\w+(.\\w+)*");
+		Matcher cusMatcher= mailPattern.matcher(cusemail);
+		if (cusfName.equals("") || cuslName.equals("")||cusPassWord.equals("")) {
+			return false;
+		}
+		else if(!cusMatcher.matches()) {
+				return false;
+		}
+		return true;
+		
+	}
 
 
 

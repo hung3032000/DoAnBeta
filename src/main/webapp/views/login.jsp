@@ -12,7 +12,7 @@
 					<c:if test="${not empty ready}">
 						<div class="account-edit-success">
 						<i class="icon_CheckMark">
-						</i> <span role="alert"> ${message} </span>
+						</i> <span role="alert"> ${message2} </span>
 					</div>
 					</c:if>
 					
@@ -26,14 +26,13 @@
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="login-box">
+
 								<h2>Homie Family Member</h2>
 								<p class="intro">If you are already a Homie Family member,
 									please enter your login information.</p>
-									<c:if test="${not empty error}">
-									<div class="error">${message}</div>	
+									<c:if test="${not empty message}">
+										<div class="error">${message}</div>
 									</c:if>
-							
-								
 								<form action="${pageContext.request.contextPath}/login"
 									method="post" class="clearfix " id="dwfrm_login"
 									name="login-form" novalidate="novalidate">

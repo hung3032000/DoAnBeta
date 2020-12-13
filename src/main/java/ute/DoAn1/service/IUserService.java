@@ -6,6 +6,6 @@ public interface IUserService {
 	UserModel findByUserEmailAndPasswordAndStatus(String userName, String password, Integer status);
 	UserModel findOne(String email);
 	UserModel save(UserModel userModel);
-	
+	public boolean checkRegister(String fName,String lName,String email,String passWord);
 	void update(UserModel userModel);
 }

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ute.DoAn1.DAO.impl.UserDAO;
 import ute.DoAn1.model.CategoriesModel;
 import ute.DoAn1.model.UserModel;
 import ute.DoAn1.service.ICategoriesService;
@@ -30,11 +29,11 @@ public class RegisterController extends HttpServlet {
 	 */
 	public RegisterController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Inject
 	private ICategoriesService Icategory;
+
 	@Inject
 	UserService userService = new UserService();
 
@@ -50,31 +49,29 @@ public class RegisterController extends HttpServlet {
 		CategoriesModel category = new CategoriesModel();
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
-		
-		
-		
+
 		String action = request.getParameter("action");
 		if (action != null && action.equals("new")) {
 			String alert = request.getParameter("alert");
 			String message = request.getParameter("message");
+			String message2 = request.getParameter("message2");
 			String ready = request.getParameter("ready");
-			if (message!=null && alert != null && ready == null) {	
+			if (message != null && alert != null && ready == null) {
 				request.setAttribute("message", resourceBundle.getString(message));
 				request.setAttribute("alert", alert);
 				RequestDispatcher rd = request.getRequestDispatcher("/views/web/register.jsp");
 				rd.forward(request, response);
 			}
-			if(message!=null && alert == null && ready != null && ready.equals("success")) {
-				request.setAttribute("message", resourceBundle.getString(message));
+			if (message2 != null && alert == null && ready != null && ready.equals("success")) {
+				request.setAttribute("message2", resourceBundle.getString(message2));
 				request.setAttribute("ready", ready);
 				RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 				rd.forward(request, response);
 			}
-		}else if(action != null && action.equals("login")){
+		} else if (action != null && action.equals("login")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 			rd.forward(request, response);
-		}
-		else {
+		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/register.jsp");
 			rd.forward(request, response);
 		}
@@ -96,32 +93,35 @@ public class RegisterController extends HttpServlet {
 			String fname = request.getParameter("cus_fname").trim();
 			String lname = request.getParameter("cus_lname").trim();
 			String password = request.getParameter("cus_password").trim();
-			//đã tồn tại trong db
-			if (model != null) {
-				response.sendRedirect(request.getContextPath() + "/user-new?action=new&message=user_exist&alert=error");
-			} 
-			//thêm mới user
-			else {
-				UserModel model2 = FormUtil.toModel(UserModel.class, request);
-				model2.setTitle(title);
-				model2.setfName(fname);
-				model2.setlName(lname);
-				model2.setEmail(email);
-				model2.setPassWord(password);
-				model2 = userService.save(model2);
-				if (model2 != null) {
-					response.sendRedirect(
-							request.getContextPath() + "/user-new?action=new&message=user_new&ready=success");
-				} else {
+			if (userService.checkRegister(fname, lname, email, password)) {
+				// đã tồn tại trong db
+				if (model != null) {
 					response.sendRedirect(
 							request.getContextPath() + "/user-new?action=new&message=user_exist&alert=error");
 				}
+				// thêm mới user
+				else {
+					UserModel model2 = FormUtil.toModel(UserModel.class, request);
+					model2.setTitle(title);
+					model2.setfName(fname);
+					model2.setlName(lname);
+					model2.setEmail(email);
+					model2.setPassWord(password);
+					model2 = userService.save(model2);
+					if (model2 != null) {
+						response.sendRedirect(
+								request.getContextPath() + "/user-new?action=new&message2=user_new&ready=success");
+					} else {
+						response.sendRedirect(
+								request.getContextPath() + "/user-new?action=new&message=user_exist&alert=error");
+					}
+				}
+			} else {
+				response.sendRedirect(
+						request.getContextPath() + "/user-new?action=new&message=user_empty_fill&alert=error");
 			}
-		} 
-		else {
-			response.sendRedirect(
-					request.getContextPath() + "/user-new?action=new");
+		} else {
+			response.sendRedirect(request.getContextPath() + "/user-new?action=new");
 		}
 	}
-
 }

@@ -77,6 +77,9 @@
 									<div class="form-row username form-auto required empty"
 										data-requiredtext="Please enter your e-mail address &lt;span class=&quot;format&gt;(format: email@domain.fr)&lt;/span&gt;"
 										data-regexinvalidmessage="">
+										<c:if test="${not empty message}">
+										<div class="error">${message}</div>
+									</c:if>
 										<label class="form-label"
 											for="dwfrm_login_username_d0avwwudscur">E-mail
 											address *</label>
@@ -87,8 +90,9 @@
 										</div>
 
 									</div>
+									<!--  form-row--error -->
 									<div
-										class="form-row password form-auto required empty form-row--error"
+										class="form-row password form-auto required empty"
 										data-requiredtext="Please enter your password"
 										data-regexinvalidmessage="">
 										<label class="form-label"

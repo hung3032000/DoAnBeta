@@ -47,11 +47,11 @@ $(document).ready(function() {
 		e.stopPropagation();
 	});
 
-	$(".minicart-close").click(function(e) {
+	$(".minicart-close").click(function() {
 		$("html").removeClass("minicart-active");
 		$("#minicart-container").removeClass("minicart-active");
 	});
-	$(document).click(function() {
+	$("#js-overlay").click(function() {
 		$("html").removeClass("minicart-active");
 		$("#minicart-container").removeClass("minicart-active");
 
