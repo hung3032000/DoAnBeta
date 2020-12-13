@@ -10,7 +10,7 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
 
 	@Override
 	public List<CategoriesModel> findAllP() {
-		String sql = "SELECT * FROM categories where parent_id=0;";
+		String sql = "SELECT * FROM categories where parent_id = 0;";
 		return query(sql, new CategoriesMapper());
 	}
 

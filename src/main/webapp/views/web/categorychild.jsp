@@ -14,8 +14,9 @@
 				<div class="page-header">
 					<h1>
 						<c:forEach var="item" items="${category.listResult}">
+						<!-- Nếu mà cái id = parent id thì xuất ra cái tên danh mục cha -->
 							<c:if test="${item.id == parent_id}">
-								<span class="title">${item.name}</span>
+								<span class="title">${item.name} </span>
 							</c:if>
 						</c:forEach>
 					</h1>
@@ -23,7 +24,7 @@
 				<div class="subcategory-container">
 					<c:forEach var="item" items="${categoryC.listResult}">
 						<a class="merchandised-level-2"
-							href="${pageContext.request.contextPath}/user-product"> <img
+							href="${pageContext.request.contextPath}/user-product?categoryC=${item.id}"> <img
 							alt="" src="${pageContext.request.contextPath}/${item.image}">
 							<div class="text">${item.name}</div>
 						</a>

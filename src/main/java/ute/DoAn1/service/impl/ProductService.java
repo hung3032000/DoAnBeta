@@ -13,8 +13,14 @@ public class ProductService implements IProductService {
 	private IProductDAO productDAO;
 
 	@Override
-	public List<ProductModel> findAll() {
-		return productDAO.findAll();
+	public List<ProductModel> findAllC(String category_id) {
+		return productDAO.findAllC(category_id);
+	}
+
+	@Override
+	public ProductModel totalProductC(String category_id) {
+		
+		return productDAO.totalProductC(category_id);
 	}
 	
 }

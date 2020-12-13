@@ -69,7 +69,7 @@
 
 						</div>
 					</div>
-			
+
 				</div>
 			</div>
 			<div id="filters-overlay"></div>
@@ -130,18 +130,25 @@
 				</div>
 			</div>
 		</div>
-		<div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">1</a>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">&raquo;</a>
+		<!--  -->
+		<div class="wrapper">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>jQuery Pagination</h1>
+        <p>Simple pagination using the TWBS pagination JS library. Click the buttons below to navigate to the appropriate content</p>
+        <ul id="pagination-demo" class="pagination-sm"></ul>
+      </div>
+    </div>
+
+    <div id="page-content" class="page-content">Page 1</div>
+  </div>
 </div>
+<!--  -->
 	</main>
-	<div class="search-promo"></div>
+	
+	
 	<c:forEach var="item" items="${model.listResult}">
 		<script type="text/javascript">
 	    $("#${item.id}").hover(function () {

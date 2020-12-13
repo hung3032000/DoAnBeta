@@ -100,7 +100,31 @@
 		</form>
 		</div>
 		<!-- /.main-content -->
-		<script>
+	<script>
+			var totalPages = 10;
+			var currentPage = 2;
+			var limit = 2;
+			$(function () {
+				window.pagObj = $('#pagination').twbsPagination({
+					totalPages: totalPages,
+					visiblePages: 10,
+					startPage: currentPage,
+					onPageClick: function (event, page) {
+						/* if (currentPage != page) {
+							$('#maxPageItem').val(limit);
+							$('#page').val(page);
+							$('#sortName').val('title');
+							$('#sortBy').val('desc');
+							$('#type').val('list');
+							$('#formSubmit').submit(); */
+						}
+					}
+				});
+			});
+	</script>
+		
+		
+		<!-- <script>
 			var totalPages = ${model.totalPage};
 			var currentPage = ${model.page};
 			var limit = 2;
@@ -145,7 +169,7 @@
 		            }
 		        });
 		    }
-		</script>
+		</script> -->
 	</body>
 
 	</html>

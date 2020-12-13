@@ -47,10 +47,11 @@ public class ProductController extends HttpServlet {
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
 		// Tra ve toan bo san pham
-
+		String productChild = request.getParameter("categoryC");
 		ProductModel product = new ProductModel();
-		product.setListResult(Iproduct.findAll());
+		product.setListResult(Iproduct.findAllC(productChild));
 		request.setAttribute(SystemConstant.MODEL, product);
+		
 		// trả về tổng số hàng
 		int totalItems = 0;
 		totalItems = totalItems + product.getListResult().size();

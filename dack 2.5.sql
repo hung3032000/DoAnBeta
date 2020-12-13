@@ -144,11 +144,25 @@ insert into categories(name,parent_id,created_at) values('Women',0,now());
 insert into categories(name,parent_id,created_at) values('Men',0,now());
 insert into categories(name,parent_id,created_at) values('Collection',0,now());
 insert into categories(name,parent_id,created_at) values('Test',0,now());
-update categories set name='Men' where id =1;
-insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','1','image/BK507PK0ZY027-01-02.jpg',now());
+insert into categories(name,parent_id,created_at) values('Themmoiday',0,now());
+insert into categories(name,parent_id,created_at) values('Themmoiday2',4,now());
+update categories set parent_id='0' where id =8;
+insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','1','image/Collection-Land-Desktop.jpg',now());
+insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','2','image/Collection-Land-Desktop.jpg',now());
+update categories set image='image/Full_WFW20show_Desktop.jpg' where id =7;
 -- select * from product_image;
-SELECT * FROM categories where parent_id=0;
-select * from product;
+SELECT * FROM categories where parent_id= '2';
+select *,row_number() over (order by product.id asc) as r from product;
+select * from (select *, row_number() over (order by id asc) as r from product)as x where r between 1 and 6;
+
+
+
+
+
+
+
+-- product
+use dack;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
 														smooth leather','245000','test','image/BK507PK0ZY027-01-02.jpg','1',now());
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
@@ -156,6 +170,21 @@ select * from categories where parent_id ='1';
 alter table categories add column image varchar(255) after parent_id;
 select count(*) from product where categorie_id = 2;
 update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- users done
