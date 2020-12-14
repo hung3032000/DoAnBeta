@@ -14,24 +14,12 @@ CREATE TABLE `categories` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
   `parent_id` int,
+  `image` varchar(255),
   `created_at` timestamp,
   `updated_at` timestamp
 );
 
-CREATE TABLE `product_tag` (
-  `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `product_id` bigint NOT NULL,
-  `tag_id` bigint NOT NULL,
-  `created_at` timestamp,
-  `updated_at` timestamp
-);
 
-CREATE TABLE `tags` (
-  `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` varchar(255),
-  `created_at` timestamp,
-  `updated_at` timestamp
-);
 
 CREATE TABLE `menus` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -41,19 +29,13 @@ CREATE TABLE `menus` (
   `updated_at` timestamp
 );
 
-CREATE TABLE `customers` (
-  `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` varchar(255),
-  `address` text,
-  `created_at` timestamp,
-  `updated_at` timestamp
-);
-
 CREATE TABLE `product` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
   `price` int,
-  `feature` varchar(255),
+  `quantity` int,
+  `origin` varchar(255),
+  `shortdecription` text,
   `content` varchar(255),
   `user_email` varchar(255) NOT NULL,
   `categorie_id` bigint NOT NULL,
@@ -71,7 +53,6 @@ CREATE TABLE `order_items` (
 CREATE TABLE `orders` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `user_email` varchar(255) NOT NULL,
-  `customer_id` bigint NOT NULL,
   `status` varchar(255),
   `created_at` timestamp
 );
@@ -113,21 +94,14 @@ CREATE TABLE `users` (
   `role_id` int NOT NULL,
 
   `created_at` timestamp,
-  `updated_at` timestamp,
-  `image`blob
+  `updated_at` timestamp
 );
-
-ALTER TABLE `product_tag` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
-
-ALTER TABLE `product_tag` ADD FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`);
-
 ALTER TABLE `order_items` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 ALTER TABLE `order_items` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 ALTER TABLE `product_image` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
-ALTER TABLE `orders` ADD FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`);
 
 ALTER TABLE `product` ADD FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`);
 
@@ -136,11 +110,13 @@ ALTER TABLE `users` ADD FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 ALTER TABLE `orders` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
 ALTER TABLE `product` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
+
+
 -- querry +test querry 
 use dack;
 -- category
 select * from categories;
-insert into categories(name,parent_id,created_at) values('Women',0,now());
+insert into categories(name,parent_id,created_at) values('HungMoiThem',0,now());
 insert into categories(name,parent_id,created_at) values('Men',0,now());
 insert into categories(name,parent_id,created_at) values('Collection',0,now());
 insert into categories(name,parent_id,created_at) values('Test',0,now());
@@ -170,7 +146,10 @@ insert into product (name, price,content,image,categorie_id,created_at) values('
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
 update product set categorie_id = 10 where id=4;
 select * from categories where parent_id ='1';
-alter table categories add column image varchar(255) after parent_id;
+alter table product add column quantity integer after price;
+update product set origin = 'VietNam',shortdecription='Long-sleeved T-shirt in
+												light heather gray jersey with red GIVENCHY signature on the
+												chest, and black Schematics prints on the front and sleeves.' where id=4;
 select count(*) from product where categorie_id = 5;
 update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
 select * from product where categorie_id =5  limit 0,2;
@@ -179,7 +158,7 @@ select * from product where categorie_id =5  limit 0,2;
 
 
 
-select * from users
+select * from users;
 
 
 

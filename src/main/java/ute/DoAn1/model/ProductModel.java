@@ -6,6 +6,28 @@ public class ProductModel extends AbstractModel<ProductModel>{
 	private String content;
 	private String image;
 	private long categorie_id;
+	private int quantity;
+	private String origin;
+	private String shortdecription;
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public String getOrigin() {
+		return origin;
+	}
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+	public String getShortdecription() {
+		return shortdecription;
+	}
+	public void setShortdecription(String shortdecription) {
+		this.shortdecription = shortdecription;
+	}
 	public String getName() {
 		return name;
 	}
