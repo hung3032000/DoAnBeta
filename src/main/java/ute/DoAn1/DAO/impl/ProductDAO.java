@@ -10,8 +10,13 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
 
 	@Override
 	public List<ProductModel> findAllC(String category_id, Integer offset, Integer limit) {
+		if(offset == null && limit == null) {
+			String sql = "SELECT * FROM product where categorie_id =?;";
+			return query(sql, new ProductMapper(),category_id);
+		}else {
 		String sql = "SELECT * FROM product where categorie_id =? limit ?,?;";
 		return query(sql, new ProductMapper(),category_id,offset,limit);
+		}
 	}
 
 	@Override

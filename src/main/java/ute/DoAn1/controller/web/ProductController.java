@@ -46,18 +46,19 @@ public class ProductController extends HttpServlet {
 		CategoriesModel category = new CategoriesModel();
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
-		// Tra ve toan bo san pham
-		
+		//danh muc con
 		String parent_id = request.getParameter("parent_id");
 		//load child category
 		CategoriesModel categoryC = new CategoriesModel();
 		categoryC.setListResult(Icategory.findAllC(parent_id));
 		request.setAttribute("categoryC", categoryC);
-		request.setAttribute("parent_id", parent_id);
-
 		
-		String productChild = request.getParameter("categoryChild");//null ngay day
-		request.setAttribute("test", productChild);
+		
+		
+		// Tra ve toan bo san pham
+		
+		String productChild = request.getParameter("categoryChild");
+		request.setAttribute("cateC", productChild);
 		
 		
 		//phaan trang

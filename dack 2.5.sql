@@ -163,17 +163,17 @@ select * from (select *, row_number() over (order by id asc) as r from product)a
 
 -- product
 use dack;
--- 5 6 7 10
-select * from product where categorie_id =7 ;
+
+select * from product where categorie_id =5 ;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
-														smooth leather','245000','test','image/BK507PK0ZY027-01-02.jpg','1',now());
+														smooth leather','245000','New','image/BK507PK0ZY027-01-02.jpg','5',now());
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
 update product set categorie_id = 10 where id=4;
 select * from categories where parent_id ='1';
 alter table categories add column image varchar(255) after parent_id;
-select count(*) from product where categorie_id = 2;
+select count(*) from product where categorie_id = 5;
 update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
-
+select * from product where categorie_id =5  limit 0,2;
 
 
 

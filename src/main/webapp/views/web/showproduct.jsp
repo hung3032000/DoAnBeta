@@ -14,7 +14,7 @@
 					<h1>
 						<c:forEach var="item" items="${categoryC.listResult}">
 							<!-- Nếu mà cái id = parent id thì xuất ra cái tên danh mục cha -->
-							<c:if test="${item.id == test}">
+							<c:if test="${item.id == cateC}">
 								<span class="title">${item.name} </span>
 							</c:if>
 						</c:forEach>
@@ -115,7 +115,7 @@
 													</div>
 												</figcaption>
 											</a>
-											<a href="#cocaidb"
+											<a href="#"
 												data-pname="Coat in wool and cashmere with 4G buttons and chain"
 												data-pid="BWC08N13FP-001" class="add-to-wishlist"> <i
 												class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>
@@ -135,9 +135,7 @@
 						</div>
 						<input type="hidden" value="" id="page" name="page" /> 
 						<input type="hidden" value="" id="maxPageItem" name="maxPageItem" />
-						<input type="hidden" value="${test}" name="categoryChild"/>
-										<!-- 			<input type="hidden" value="" id="sortBy" name="sortBy"/> 
-											<input type="hidden" value="" id="type" name="type"/>-->
+						<input type="hidden" value="${cateC}" name="categoryChild"/>
 					</div>
 				</div>
 			</div>
@@ -165,6 +163,7 @@
 			});
 		});
 	</script>
+	
 	<c:forEach var="item" items="${model.listResult}">
 		<script type="text/javascript">
 			$("#${item.id}").hover(function() {
