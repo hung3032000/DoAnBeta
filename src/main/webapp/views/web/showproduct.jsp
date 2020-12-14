@@ -98,7 +98,7 @@
 										data-availability="IN_STOCK">
 										<figure class="product-image">
 											<a class="thumb-link"
-												href="${pageContext.request.contextPath}/views/web/producin4.jsp">
+												href="${pageContext.request.contextPath}/user-productin4">
 												<picture class="thumb-img"> <img
 													src="${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg" />
 												</picture> <span class="flag"> ${item.content} </span>
@@ -115,7 +115,7 @@
 													</div>
 												</figcaption>
 											</a>
-											<a href=""
+											<a href="#cocaidb"
 												data-pname="Coat in wool and cashmere with 4G buttons and chain"
 												data-pid="BWC08N13FP-001" class="add-to-wishlist"> <i
 												class="icon_Wishlist"></i> <i class="icon_Wishlist_Active"></i>

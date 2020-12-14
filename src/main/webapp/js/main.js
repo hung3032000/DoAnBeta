@@ -56,13 +56,12 @@ $(document).ready(function() {
 		$("#minicart-container").removeClass("minicart-active");
 
 	});
-	$(".moredetails-btn").click(function() {
-		if ($(".product-description").hasClass("open")) {
-			$(".product-description").removeClass("open");
-		} else {
+	$("#more-details").click(function() {
 			$(".product-description").addClass("open");
-		}
 	});
+	$("#less-details").click(function() {
+		$(".product-description").removeClass("open");
+});
 	$("#variation-Size-header").click(function() {
 		if ($(".tab-pane").hasClass("active") || $(".tab-header").hasClass("active")) {
 			$(".tab-pane").removeClass("active");

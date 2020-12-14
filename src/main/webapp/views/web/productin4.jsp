@@ -19,8 +19,8 @@
 						</div>
 						<div class="product-col-details col-md-4 col-md-offset-1 col-sm-6">
 							<div class="product-detail">
-								<span itemprop="brand"> {item.Nhacungcap}cái này vứt đc </span>
-								<div class="product-label">{item.title}</div>
+							<!-- 	<span itemprop="brand"> {item.Nhacungcap}cái này vứt đc </span> -->
+								<div class="product-label">{item.content}</div>
 								<div id="product-content" class="not-downgraded">
 									<h1 class="product-name" itemprop="name">{item.name}</h1>
 									<div class="product-price" itemprop="offers" itemscope=""
