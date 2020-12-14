@@ -13,8 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <title>Đồ án cuối kì web</title>
+    <script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>	
+    <title><dec:title default="Trang chủ" /></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">  
+
 </head>
 <body>
 

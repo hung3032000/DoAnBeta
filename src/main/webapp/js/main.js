@@ -73,8 +73,9 @@ $(document).ready(function() {
 			$(".tab-header").addClass("active");
 		}
 	});
+/**/
 
-
+/**/
 	// login
 	const inputs = document.querySelectorAll(".form-field");
 	function addcl() {

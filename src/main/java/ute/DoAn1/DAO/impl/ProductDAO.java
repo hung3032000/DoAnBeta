@@ -9,16 +9,15 @@ import ute.DoAn1.model.ProductModel;
 public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO {
 
 	@Override
-	public List<ProductModel> findAllC(String category_id) {
-		String sql = "SELECT * FROM product where categorie_id =?;";
-		return query(sql, new ProductMapper(),category_id);
+	public List<ProductModel> findAllC(String category_id, Integer offset, Integer limit) {
+		String sql = "SELECT * FROM product where categorie_id =? limit ?,?;";
+		return query(sql, new ProductMapper(),category_id,offset,limit);
 	}
 
 	@Override
-	public ProductModel totalProductC(String category_id) {
+	public int getTotalItem(String category_id) {
 		String sql = "SELECT count(*) FROM product where categorie_id = ?;";
-		List<ProductModel> totalProduct = query(sql.toString(), new ProductMapper(),category_id);
-		return totalProduct.isEmpty() ? null : totalProduct.get(0);
+		return count(sql,category_id);
 	}
 	
 }

@@ -13,14 +13,13 @@ public class ProductService implements IProductService {
 	private IProductDAO productDAO;
 
 	@Override
-	public List<ProductModel> findAllC(String category_id) {
-		return productDAO.findAllC(category_id);
+	public List<ProductModel> findAllC(String category_id, Integer offset, Integer limit) {
+		return productDAO.findAllC(category_id,offset,limit);
 	}
 
 	@Override
-	public ProductModel totalProductC(String category_id) {
-		
-		return productDAO.totalProductC(category_id);
+	public int getTotalItem(String category_id) {
+		return productDAO.getTotalItem(category_id);
 	}
 	
 }

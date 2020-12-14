@@ -13,4 +13,6 @@ public interface GenericDAO<T> {
 	Long insert (String sql, Object... parameters);
 	//insert voi key = string
 	String insertU(String sql,String email, Object... parameters );
+	//
+	int count(String sql, Object... parameters);
 }

@@ -45,7 +45,6 @@ public class CategoryController extends HttpServlet {
 		CategoriesModel categoryC = new CategoriesModel();
 		categoryC.setListResult(Icategory.findAllC(parent_id));
 		request.setAttribute("categoryC", categoryC);
-		
 		request.setAttribute("parent_id", parent_id);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/categorychild.jsp");

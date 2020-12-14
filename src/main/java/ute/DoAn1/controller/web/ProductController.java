@@ -47,16 +47,49 @@ public class ProductController extends HttpServlet {
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
 		// Tra ve toan bo san pham
-		String productChild = request.getParameter("categoryC");
+		
+		String parent_id = request.getParameter("parent_id");
+		//load child category
+		CategoriesModel categoryC = new CategoriesModel();
+		categoryC.setListResult(Icategory.findAllC(parent_id));
+		request.setAttribute("categoryC", categoryC);
+		request.setAttribute("parent_id", parent_id);
+
+		
+		String productChild = request.getParameter("categoryChild");//null ngay day
+		request.setAttribute("test", productChild);
+		
+		
+		//phaan trang
 		ProductModel product = new ProductModel();
-		product.setListResult(Iproduct.findAllC(productChild));
-		request.setAttribute(SystemConstant.MODEL, product);
+		String pageStr = request.getParameter("page");
+		String maxPageItemStr = request.getParameter("maxPageItem");
+		if (pageStr != null) {
+			product.setPage(Integer.parseInt(pageStr));
+		}
+		else {
+			product.setPage(1);
+		}
+		if (maxPageItemStr != null) {
+			product.setMaxPageItem(Integer.parseInt(maxPageItemStr));
+		}
+		Integer offset = (product.getPage()-1 )*product.getMaxPageItem();
+		product.setListResult(Iproduct.findAllC(productChild,offset,product.getMaxPageItem()));
+		
+		
+		product.setTotalItem(Iproduct.getTotalItem(productChild));
+		
+		product.setTotalPage((int) Math.ceil((double) product.getTotalItem() / product.getMaxPageItem()));
+		
 		
 		// trả về tổng số hàng
 		int totalItems = 0;
 		totalItems = totalItems + product.getListResult().size();
 
 		request.setAttribute("totalItems", totalItems);
+		
+		request.setAttribute(SystemConstant.MODEL, product);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/showproduct.jsp");
 		rd.forward(request, response);
 

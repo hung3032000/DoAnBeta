@@ -3,18 +3,15 @@
 <%@include file="/common/taglib.jsp"%>
 <body>
 
-		<main id="main" class="clearfix" style="margin-top: 128px;">
-			<a id="mainContent" tabindex="-1"></a>
-			<div class="cart-live-region" aria-live="polite" role="status">
-			</div>
-			<div class="wishlist-live-region" aria-live="polite" role="status">
-			</div>
+	<main id="main" class="clearfix" style="margin-top: 128px;">
+		<a id="mainContent" tabindex="-1"></a>
+		
 			<div class="content-slot slot-grid-header"></div>
 			<div id="primary" class="primary-content">
 				<div class="page-header">
 					<h1>
 						<c:forEach var="item" items="${category.listResult}">
-						<!-- Nếu mà cái id = parent id thì xuất ra cái tên danh mục cha -->
+							<!-- Nếu mà cái id = parent id thì xuất ra cái tên danh mục cha -->
 							<c:if test="${item.id == parent_id}">
 								<span class="title">${item.name} </span>
 							</c:if>
@@ -23,16 +20,20 @@
 				</div>
 				<div class="subcategory-container">
 					<c:forEach var="item" items="${categoryC.listResult}">
-						<a class="merchandised-level-2"
-							href="${pageContext.request.contextPath}/user-product?categoryC=${item.id}"> <img
-							alt="" src="${pageContext.request.contextPath}/${item.image}">
-							<div class="text">${item.name}</div>
-						</a>
+						<c:forEach var="item2" items="${category.listResult}">
+							<c:if test="${item2.id == parent_id}">
+								<a class="merchandised-level-2"
+									href="${pageContext.request.contextPath}/user-product?categoryChild=${item.id}&parent_id=${item2.id}&maxPageItem=6">
+									<img alt=""
+									src="${pageContext.request.contextPath}/${item.image}">
+									<div class="text">${item.name}</div>
+								</a>
+							</c:if>
+						</c:forEach>
 					</c:forEach>
 				</div>
-
 			</div>
-		</main>
-</body>
 
-</html>
+
+	</main>
+</body>
