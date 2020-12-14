@@ -78,7 +78,7 @@
 						<div class="search-result-content productgrid">
 							<div class="inf-scroll-products">
 
-								<p>${totalItems}Products</p>
+								<p>${totalItems} Products</p>
 							</div>
 							<div class="productListInfos hidden"></div>
 						</div>
@@ -87,7 +87,8 @@
 							data-columns="">
 
 							<c:forEach var="item" items="${model.listResult}">
-	<%-- 						<c:if test="${item.content != 'SS' }">  --%>
+							
+							
 								<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3">
 				
 									<div class="product-tile" id="${item.id}"
@@ -95,7 +96,7 @@
 										data-availability="IN_STOCK">
 										<figure class="product-image">
 											<a class="thumb-link"
-												href="${pageContext.request.contextPath}/user-productin4">
+												href="${pageContext.request.contextPath}/user-productin4?product_id=${item.id}">
 												<picture class="thumb-img"> 
 												<img src="${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg" />
 												</picture> <span class="flag"> ${item.content} </span>
@@ -122,7 +123,7 @@
 										</figure>
 									</div>
 								</li>
-					<%-- 			</c:if> --%>
+			
 							</c:forEach>
 
 						</ul>

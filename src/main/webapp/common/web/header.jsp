@@ -131,7 +131,7 @@
 			<div class="minicart empty-cart" id="test">
 				<a class="minicart-link empty-cart" href="#"
 					aria-label="View Your Cart"> <span class="icon_Bag"
-					title="View Your Cart">${item.id}100</span>
+					title="View Your Cart">${item.id} 100</span>
 				</a>
 				<div class="minicart-content">		
 					<p>Your cart is empty</p>

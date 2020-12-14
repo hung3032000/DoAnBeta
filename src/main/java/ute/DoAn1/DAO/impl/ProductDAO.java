@@ -24,5 +24,12 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
 		String sql = "SELECT count(*) FROM product where categorie_id = ?;";
 		return count(sql,category_id);
 	}
+
+	@Override
+	public ProductModel findOne(String product_id) {
+		String sql = "select * from product where id = ? ;";
+		List<ProductModel> product = query(sql.toString(), new ProductMapper(), product_id);
+		return product.isEmpty() ? null : product.get(0);
+	}
 	
 }

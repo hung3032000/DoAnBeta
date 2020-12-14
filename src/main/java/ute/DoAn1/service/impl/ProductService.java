@@ -21,5 +21,10 @@ public class ProductService implements IProductService {
 	public int getTotalItem(String category_id) {
 		return productDAO.getTotalItem(category_id);
 	}
+
+	@Override
+	public ProductModel findOne(String product_id) {
+		return productDAO.findOne(product_id);
+	}
 	
 }

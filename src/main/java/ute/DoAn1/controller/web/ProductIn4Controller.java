@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ute.DoAn1.constant.SystemConstant;
 import ute.DoAn1.model.CategoriesModel;
 import ute.DoAn1.model.ProductModel;
 import ute.DoAn1.service.ICategoriesService;
 import ute.DoAn1.service.IProductService;
+import ute.DoAn1.utils.FormUtil;
 
 /**
  * Servlet implementation class ProductIn4Controller
@@ -31,7 +31,6 @@ public class ProductIn4Controller extends HttpServlet {
      */
     public ProductIn4Controller() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -39,18 +38,16 @@ public class ProductIn4Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Tra ve toan bo danh muc
-		CategoriesModel category = new CategoriesModel();
+		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
 
 		
 		//load toan bo san pham
-		String productChild = request.getParameter("categoryChild");
-		ProductModel product = new ProductModel();
-		product.setListResult(Iproduct.findAllC(productChild,null,null));
-		request.setAttribute(SystemConstant.MODEL, product);
-		
-		
+		String product_id = request.getParameter("product_id");
+		ProductModel product = FormUtil.toModel(ProductModel.class, request);
+		product = Iproduct.findOne(product_id);
+		request.setAttribute("item", product);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/productin4.jsp");
 		rd.forward(request, response);
 	}

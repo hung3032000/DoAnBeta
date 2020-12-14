@@ -46,7 +46,7 @@ public class UpdateUController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		CategoriesModel category = new CategoriesModel();
+		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
 		String action = request.getParameter("action");

@@ -19,13 +19,13 @@
 						</div>
 						<div class="product-col-details col-md-4 col-md-offset-1 col-sm-6">
 							<div class="product-detail">
-							<!-- 	<span itemprop="brand"> {item.Nhacungcap}cái này vứt đc </span> -->
-								<div class="product-label">{item.content}</div>
+						
+								<div class="product-label">${item.content}</div>
 								<div id="product-content" class="not-downgraded">
-									<h1 class="product-name" itemprop="name">{item.name}</h1>
+									<h1 class="product-name" itemprop="name">${item.name}</h1>
 									<div class="product-price" itemprop="offers" itemscope=""
 										itemtype="http://schema.org/Offer">
-										<span class="price-sales">{item.price} </span>
+										<span class="price-sales">${item.price}$ </span>
 
 									</div>
 
@@ -61,9 +61,7 @@
 											</div>
 										</div>
 										<div id="description-tab" class="long-description">
-											<div class="short-description">Long-sleeved T-shirt in
-												light heather gray jersey with red GIVENCHY signature on the
-												chest, and black Schematics prints on the front and sleeves.</div>
+											<div class="short-description">${item.shortdecription }</div>
 											<p class="sku">
 												Product code: <span class="pid" itemprop="sku">BM710P3002-055</span>
 											</p>
@@ -72,13 +70,8 @@
 
 
 											<div class="product-description-subtitle">Other</div>
-											<p>Country of origin: Portugal.</p>
-											<p>Maximum wash 30°C, delicate cycle</p>
-											<p>Iron at maximum soleplate temperature (110°C) without
-												steam</p>
-											<p>Do not tumble dry</p>
-											<p>Do not bleach</p>
-											<p>Do not dry clean</p>
+											<p>Country of origin: ${item.origin }.</p>
+								
 										</div>
 									</div>
 

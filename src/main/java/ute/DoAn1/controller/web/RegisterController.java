@@ -46,7 +46,7 @@ public class RegisterController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		CategoriesModel category = new CategoriesModel();
+		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
 

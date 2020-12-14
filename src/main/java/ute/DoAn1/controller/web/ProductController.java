@@ -15,6 +15,7 @@ import ute.DoAn1.model.CategoriesModel;
 import ute.DoAn1.model.ProductModel;
 import ute.DoAn1.service.ICategoriesService;
 import ute.DoAn1.service.IProductService;
+import ute.DoAn1.utils.FormUtil;
 
 /**
  * Servlet implementation class ProductController
@@ -43,13 +44,13 @@ public class ProductController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Tra ve toan bo danh muc
-		CategoriesModel category = new CategoriesModel();
+		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
 		//danh muc con
 		String parent_id = request.getParameter("parent_id");
 		//load child category
-		CategoriesModel categoryC = new CategoriesModel();
+		CategoriesModel categoryC = FormUtil.toModel(CategoriesModel.class, request);
 		categoryC.setListResult(Icategory.findAllC(parent_id));
 		request.setAttribute("categoryC", categoryC);
 		//Luu ten danh muc con
@@ -61,7 +62,7 @@ public class ProductController extends HttpServlet {
 		request.setAttribute("cateC", productChild);
 
 		//phaan trang
-		ProductModel product = new ProductModel();
+		ProductModel product = FormUtil.toModel(ProductModel.class, request);
 		String pageStr = request.getParameter("page");
 		String maxPageItemStr = request.getParameter("maxPageItem");
 		if (pageStr != null) {
