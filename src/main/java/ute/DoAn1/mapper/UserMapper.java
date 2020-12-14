@@ -20,6 +20,7 @@ public class UserMapper implements RowMapper<UserModel> {
 			user.setAddress(resultSet.getString("address"));
 			user.setPassWord(resultSet.getString("password"));
 			user.setStatus(resultSet.getInt("status"));
+			user.setRoleId(resultSet.getInt("role_id"));
 			user.setCreated_at(resultSet.getTimestamp("created_at"));
 			user.setUpdated_at(resultSet.getTimestamp("updated_at"));
 			try {

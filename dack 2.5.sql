@@ -179,7 +179,7 @@ select * from product where categorie_id =5  limit 0,2;
 
 
 
-
+select * from users
 
 
 

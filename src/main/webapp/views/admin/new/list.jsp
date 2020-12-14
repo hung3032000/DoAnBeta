@@ -1,6 +1,5 @@
 <%@include file="/common/taglib.jsp"%>
-<c:url var="APIurl" value="/api-admin-new" />
-<c:url var="NewURL" value="/admin-new" />
+<c:url var="NewURL" value="/admin-New" />
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,7 +12,7 @@
 
 <body>
 	<div class="main-content">
-		<form action="<c:url value='/admin-new'/>" id="formSubmit"
+		<form action="<c:url value='/admin-New'/>" id="formSubmit"
 			method="get">
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -26,6 +25,14 @@
 				<div class="page-content">
 					<div class="row">
 						<div class="col-xs-12">
+						<c:forEach var="item" items="${USER.listResult}">
+							<p>${item.fName} </p>
+							<p>${item.lName} </p>
+						</c:forEach>
+						
+						
+						
+						
 							<c:if test="${not empty messageResponse}">
 								<div class="alert alert-${alert}">${messageResponse}</div>
 							</c:if>
@@ -59,12 +66,12 @@
 													<th><input type="checkbox" id="checkAll"></th>
 													<th>Tên bài viết</th>
 													<th>Mô tả ngắn</th>
-													<th>Thao tác</th>
+													<th>Thao tssác</th>
 												</tr>
 											</thead>
 											<tbody>
 												<c:forEach var="item" items="${model.listResult}">
-													<tr>
+		<%-- 											<tr>
 														<td><input type="checkbox" id="checkbox_${item.id}"
 															value="${item.id}"></td>
 														<td>${item.title}</td>
@@ -76,7 +83,8 @@
 															data-toggle="tooltip" title="Cập nhật bài viết"
 															href='${editURL}'><i class="fa fa-pencil-square-o"
 																aria-hidden="true"></i> </a></td>
-													</tr>
+													</tr> --%>
+													
 												</c:forEach>
 											</tbody>
 										</table>
@@ -96,7 +104,7 @@
 		</form>
 	</div>
 	<!-- /.main-content -->
-<!-- 	<script>
+	<!-- <script>
 		var totalPages = 10;
 		var currentPage = 2;
 		var limit = 2;

@@ -1,5 +1,7 @@
 package ute.DoAn1.DAO;
 
+import java.util.List;
+
 import ute.DoAn1.model.UserModel;
 
 public interface IUserDAO extends GenericDAO<UserModel>{
@@ -8,4 +10,5 @@ public interface IUserDAO extends GenericDAO<UserModel>{
 	UserModel findOne(String email);
 	String save(UserModel userModel);
 	void update(UserModel userModel);
+	List<UserModel> findAll();
 }

@@ -2,6 +2,7 @@ package ute.DoAn1.service.impl;
 
 
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,6 +62,12 @@ public class UserService implements IUserService{
 		}
 		return true;
 		
+	}
+
+
+	@Override
+	public List<UserModel> findAll() {
+		 return userDAO.findAll(); 
 	}
 
 

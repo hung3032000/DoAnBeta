@@ -39,4 +39,10 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 		this.update(sql,userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getAddress(),userModel.getDateOfBirth(),userModel.getEmail());
 	}
 
+	@Override
+	public List<UserModel> findAll() {
+		String sql = "SELECT * FROM users;";
+		return query(sql, new UserMapper());
+	}
+
 }
