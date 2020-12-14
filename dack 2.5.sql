@@ -128,8 +128,7 @@ insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','
 update categories set image='image/Full_WFW20show_Desktop.jpg' where id =7;
 -- select * from product_image;
 SELECT * FROM categories where parent_id= '2';
-select *,row_number() over (order by product.id asc) as r from product;
-select * from (select *, row_number() over (order by id asc) as r from product)as x where r between 1 and 6;
+
 
 
 
@@ -147,9 +146,12 @@ update product set name='Món hàng 12',price='10',content='BigNew',image='image
 update product set categorie_id = 10 where id=4;
 select * from categories where parent_id ='1';
 alter table product add column quantity integer after price;
-update product set origin = 'VietNam',shortdecription='Long-sleeved T-shirt in
-												light heather gray jersey with red GIVENCHY signature on the
-												chest, and black Schematics prints on the front and sleeves.' where id=4;
+update product set origin = 'VietNam6',shortdecription='6 Long-sleeved T-shirt in
+												light heather gray jersey with red Homieeeeee signature on the
+												chest, and black Schematics prints on the front and sleeves.' where id=1;
+                                                
+ALTER TABLE product
+MODIFY COLUMN origin varchar(255);
 select count(*) from product where categorie_id = 5;
 update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
 select * from product where categorie_id =5  limit 0,2;
