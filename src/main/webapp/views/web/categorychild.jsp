@@ -23,7 +23,7 @@
 						<c:forEach var="item2" items="${category.listResult}">
 							<c:if test="${item2.id == parent_id}">
 								<a class="merchandised-level-2"
-									href="${pageContext.request.contextPath}/user-product?categoryChild=${item.id}&parent_id=${item2.id}&maxPageItem=6">
+									href="${pageContext.request.contextPath}/user-product?categoryChild=${item.id}&parent_id=${item2.id}&maxPageItem=8&categoryName=${item.name}">
 									<img alt=""
 									src="${pageContext.request.contextPath}/${item.image}">
 									<div class="text">${item.name}</div>

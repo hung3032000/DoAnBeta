@@ -12,12 +12,7 @@
 			<div id="primary" class="primary-content">
 				<div class="page-header">
 					<h1>
-						<c:forEach var="item" items="${categoryC.listResult}">
-							<!-- Nếu mà cái id = parent id thì xuất ra cái tên danh mục cha -->
-							<c:if test="${item.id == cateC}">
-								<span class="title">${item.name} </span>
-							</c:if>
-						</c:forEach>
+								<span class="title">${cateName} </span>
 					</h1>
 				</div>
 				<div class="search-results-container">
@@ -92,15 +87,17 @@
 							data-columns="">
 
 							<c:forEach var="item" items="${model.listResult}">
+	<%-- 						<c:if test="${item.content != 'SS' }">  --%>
 								<li class="grid-tile js-slv-elements col-xs-3 col-sm-6 col-lg-3">
+				
 									<div class="product-tile" id="${item.id}"
 										data-itemid="BWC08N13FP-001" data-gtmproductid="BWC08N13FP"
 										data-availability="IN_STOCK">
 										<figure class="product-image">
 											<a class="thumb-link"
 												href="${pageContext.request.contextPath}/user-productin4">
-												<picture class="thumb-img"> <img
-													src="${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg" />
+												<picture class="thumb-img"> 
+												<img src="${pageContext.request.contextPath}/image/BB50F2B0WD051-01-01.jpg" />
 												</picture> <span class="flag"> ${item.content} </span>
 												<figcaption class="thumb-caption">
 													<div class="product-infos">
@@ -125,6 +122,7 @@
 										</figure>
 									</div>
 								</li>
+					<%-- 			</c:if> --%>
 							</c:forEach>
 
 						</ul>
@@ -136,6 +134,7 @@
 						<input type="hidden" value="" id="page" name="page" /> 
 						<input type="hidden" value="" id="maxPageItem" name="maxPageItem" />
 						<input type="hidden" value="${cateC}" name="categoryChild"/>
+						<input type="hidden" value="${cateName}" name="categoryName"/>
 					</div>
 				</div>
 			</div>
@@ -146,7 +145,7 @@
 		$(function() {
 			var totalPages = ${model.totalPage};
 			var currentPage = ${model.page};
-			var limit = 6;
+			var limit = 8;
 			window.pagObj = $('#pagination').twbsPagination({
 				totalPages : totalPages,
 				visiblePages : 5,
