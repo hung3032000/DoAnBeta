@@ -78,8 +78,6 @@
 
 										</div>
 									</div>
-									<form action="${pageContext.request.contextPath}/user-cart"
-										method="get">
 										<div class="product-add-to-cart">
 											<div class="inventory">
 												<input type="hidden" name="pid" id="pid"
@@ -209,14 +207,15 @@
 												<i class="icon_Warning"></i> <span>Please select a
 													size</span>
 											</div>
-
+											<c:url value="/user-cart?product_id=${item.id}" var="addtoCart"/>
+											<a href="${ addtoCart}">
+								
 											<button id="add-to-cart" type="submit" title="Add to cart"
 												value="Add to cart"
 												class="form-button button--full add-to-cart disabled">
-												Add to cart</button>
+												Add to cart</button></a>
 										</div>
 
-									</form>
 								</div>
 							</div>
 						</div>

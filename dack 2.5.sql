@@ -47,7 +47,8 @@ CREATE TABLE `order_items` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `order_id` bigint NOT NULL,
   `product_id` bigint NOT NULL,
-  `quantity` int
+  `quantity` int,
+  `totalprice` float
 );
 
 CREATE TABLE `orders` (
@@ -96,6 +97,8 @@ CREATE TABLE `users` (
   `created_at` timestamp,
   `updated_at` timestamp
 );
+
+
 ALTER TABLE `order_items` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 ALTER TABLE `order_items` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
@@ -114,6 +117,16 @@ ALTER TABLE `product` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`
 
 -- querry +test querry 
 use dack;
+-- orders
+
+select * from orders o join order_items i on o.id = i.order_id ;
+
+insert into orders(user_email,status,created_at) values ('a',1,now());
+insert into order_items(order_id,product_id,quantity,totalprice) values (1,6,6,900000);
+
+select * from users u 
+
+
 -- category
 select * from categories;
 insert into categories(name,parent_id,created_at) values('HungMoiThem',0,now());
@@ -145,20 +158,16 @@ insert into product (name, price,content,image,categorie_id,created_at) values('
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
 update product set categorie_id = 10 where id=4;
 select * from categories where parent_id ='1';
-alter table product add column quantity integer after price;
+alter table order_items add column totalprice float after quantity;
 update product set origin = 'VietNam6',shortdecription='6 Long-sleeved T-shirt in
 												light heather gray jersey with red Homieeeeee signature on the
 												chest, and black Schematics prints on the front and sleeves.' where id=1;
-                                                
-ALTER TABLE product
-MODIFY COLUMN origin varchar(255);
+update product set size = 'XL', color ='Grey', quantity =100 where id = 9;
+ALTER TABLE order_items
+MODIFY COLUMN totalprice bigint;
 select count(*) from product where categorie_id = 5;
 update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
-select * from product where categorie_id =5  limit 0,2;
-
-
-
-
+select * from product where categorie_id =5 ;
 
 select * from users;
 
