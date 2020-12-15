@@ -129,8 +129,8 @@ update categories set image='image/Full_WFW20show_Desktop.jpg' where id =7;
 -- select * from product_image;
 SELECT * FROM categories where parent_id= '2';
 
-
-
+insert into product_image(image,product_id,created_at) values ('image/BM710P3002055-02-07.jpg',9,now());
+select * from product p inner join product_image pi on p.id=pi.product_id ;
 
 
 
@@ -139,7 +139,7 @@ SELECT * FROM categories where parent_id= '2';
 -- product
 use dack;
 
-select * from product where categorie_id =5 ;
+select * from product where id =9 ;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
 														smooth leather','245000','New','image/BK507PK0ZY027-01-02.jpg','5',now());
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;

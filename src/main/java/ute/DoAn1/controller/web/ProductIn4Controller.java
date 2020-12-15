@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ute.DoAn1.model.CategoriesModel;
+import ute.DoAn1.model.ProductImageModel;
 import ute.DoAn1.model.ProductModel;
 import ute.DoAn1.service.ICategoriesService;
+import ute.DoAn1.service.IProductImageService;
 import ute.DoAn1.service.IProductService;
 import ute.DoAn1.utils.FormUtil;
 
@@ -26,6 +28,8 @@ public class ProductIn4Controller extends HttpServlet {
 	private ICategoriesService Icategory;
 	@Inject
 	private IProductService Iproduct;
+	@Inject
+	private IProductImageService IproductI;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,6 +52,11 @@ public class ProductIn4Controller extends HttpServlet {
 		ProductModel product = FormUtil.toModel(ProductModel.class, request);
 		product = Iproduct.findOne(product_id);
 		request.setAttribute("item", product);
+		//load thong tin anh cua 1 product
+		ProductImageModel productI = FormUtil.toModel(ProductImageModel.class, request);
+		productI.setListResult(IproductI.findAll(product_id));
+		request.setAttribute("image", productI);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/productin4.jsp");
 		rd.forward(request, response);
 	}

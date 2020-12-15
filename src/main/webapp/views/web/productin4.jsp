@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@include file="/common/taglib.jsp"%>
+
+	
 <body>
 	<div id="wrapper" class="pt_product-details">
 		<main id="main" role="main" class="full-width clearfix"
@@ -12,7 +16,7 @@
 							<section class="product-image-container"
 								aria-roledescription="carousel">
 								<img itemprop="image"
-									src="https://www.givenchy.com/on/demandware.static/-/Sites-Givenchy_master/default/dwd555d42b/images/BM710P3002055/BM710P3002055-02-01.jpg"
+									src="${pageContext.request.contextPath}/${item.image}"
 									alt="GIVENCHY Schematics oversized T-shirt">
 
 							</section>
@@ -26,7 +30,6 @@
 									<div class="product-price" itemprop="offers" itemscope=""
 										itemtype="http://schema.org/Offer">
 										<span class="price-sales">${item.price}$ </span>
-
 									</div>
 
 									<div class="product-description">
@@ -236,27 +239,14 @@
 					</div>
 
 					<div class="product-block-images container">
-						<a href="" class="fullscreen full-mobile" data-index="1.0"
-							target="_blank"> <img
-							src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw158bc979/images/BM710P3002055/BM710P3002055-02-02.jpg?sw=530"
-							alt="GIVENCHY Schematics oversized T-shirt View-2, Display in full screen">
+					<c:forEach var="image" items="${image.listResult}">
+					
+						<a href="" class="fullscreen full-mobile"> <img
+							src="${pageContext.request.contextPath}/${image.image}"
+							alt="">
 
-						</a> <a href="" class="fullscreen " data-index="2.0" target="_blank">
-							<img
-							src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw0f946f84/images/BM710P3002055/BM710P3002055-02-04.jpg?sw=530"
-							alt="GIVENCHY Schematics oversized T-shirt View-3, Display in full screen">
-
-						</a> <a href="" class="fullscreen " data-index="3.0" target="_blank">
-
-							<img
-							src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dwc543111d/images/BM710P3002055/BM710P3002055-02-05.jpg?sw=530"
-							alt="GIVENCHY Schematics oversized T-shirt View-4, Display in full screen">
-
-						</a> <a href="" class="fullscreen full-mobile" data-index="4.0"
-							target="_blank"> <img
-							src="https://www.givenchy.com/dw/image/v2/BBRT_PRD/on/demandware.static/-/Sites-Givenchy_master/default/dw8cc1a72c/images/BM710P3002055/BM710P3002055-02-07.jpg?sw=530"
-							alt="GIVENCHY Schematics oversized T-shirt View-5, Display in full screen">
-						</a>
+						</a> 
+					</c:forEach>
 					</div>
 				</div>
 			</div>
