@@ -132,7 +132,7 @@ SELECT * FROM categories where parent_id= '2';
 insert into product_image(image,product_id,created_at) values ('image/BM710P3002055-02-07.jpg',9,now());
 select * from product p inner join product_image pi on p.id=pi.product_id ;
 
-
+SELECT * FROM product_image where product_id =9;
 
 
 

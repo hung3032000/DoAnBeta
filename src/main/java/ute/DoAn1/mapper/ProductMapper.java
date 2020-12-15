@@ -20,6 +20,8 @@ public class ProductMapper implements RowMapper<ProductModel> {
 			product.setCategorie_id(resultSet.getLong("categorie_id"));
 			product.setQuantity(resultSet.getInt("quantity"));
 			product.setOrigin(resultSet.getString("origin"));
+			product.setSize(resultSet.getString("size"));
+			product.setColor(resultSet.getString("color"));
 			product.setShortdecription(resultSet.getString("shortdecription"));
 			return product;
 		} catch (SQLException e) {

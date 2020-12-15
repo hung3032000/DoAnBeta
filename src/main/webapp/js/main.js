@@ -1,7 +1,5 @@
 $(document).ready(function() {
 	// hover
-
-
 	$("#signin").hover(function() {
 		if ($("#signin").hasClass("hover")) {
 			$("#signin").removeClass("hover");
@@ -41,6 +39,7 @@ $(document).ready(function() {
 		$("#minicart-container").addClass("minicart-active");
 		e.stopPropagation();
 	});
+	
 	$("#add-to-cart").click(function(e) {
 		$("html").addClass("minicart-active");
 		$("#minicart-container").addClass("minicart-active");
@@ -51,6 +50,7 @@ $(document).ready(function() {
 		$("html").removeClass("minicart-active");
 		$("#minicart-container").removeClass("minicart-active");
 	});
+	
 	$("#js-overlay").click(function() {
 		$("html").removeClass("minicart-active");
 		$("#minicart-container").removeClass("minicart-active");
@@ -104,6 +104,7 @@ $(document).ready(function() {
 		}
 		position = scroll;
 	});
+
 });
 
 function newFunction() {
