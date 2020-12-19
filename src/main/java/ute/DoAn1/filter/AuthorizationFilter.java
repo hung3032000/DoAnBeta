@@ -21,8 +21,6 @@ public class AuthorizationFilter implements Filter {
 
 	private ServletContext context;
 
-
-
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		this.context = filterConfig.getServletContext();
@@ -35,21 +33,32 @@ public class AuthorizationFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String url = request.getRequestURI();
 
+		if (url.startsWith(request.getContextPath() + "/admin")) {
+			UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
+			if (model != null) {
+				if (model.getRole().getCode().equals(SystemConstant.ADMIN)) {
+					filterChain.doFilter(servletRequest, servletResponse);
+				} else if (model.getRole().getCode().equals(SystemConstant.USER)) {
+					response.sendRedirect(
+							request.getContextPath() + "/login?action=login&message=not_permission&alert=error");
+				}
+			} else {
+				response.sendRedirect(request.getContextPath() + "/login?action=login&message=not_login&alert=error");
+			}
+		}
 
-        if (url.startsWith(request.getContextPath()+"/admin")) {
-            UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
-            if (model != null) {
-                if (model.getRole().getCode().equals(SystemConstant.ADMIN)) {
-                    filterChain.doFilter(servletRequest, servletResponse);
-                } else if (model.getRole().getCode().equals(SystemConstant.USER)) {
-                    response.sendRedirect(request.getContextPath()+"/login?action=login&message=not_permission&alert=error");
-                }
-            } else {
-                response.sendRedirect(request.getContextPath()+"/login?action=login&message=not_login&alert=error");
-            }
-        } else {
-            filterChain.doFilter(servletRequest, servletResponse);
-        }
+		else if (url.startsWith(request.getContextPath() + "/user-checkout")) {
+			UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
+			if (model == null) {
+				response.sendRedirect(request.getContextPath() + "/login?action=login&message=not_login&alert=error");
+			} else {
+				filterChain.doFilter(servletRequest, servletResponse);
+			}
+		}
+
+		else {
+			filterChain.doFilter(servletRequest, servletResponse);
+		}
 	}
 
 	@Override

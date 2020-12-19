@@ -13,7 +13,7 @@
 			<div class="minicart-title">
 				<p>
 					<span class="title"> Your cart </span> <span class="bag-quantity">
-						<i class="icon_Bag"></i> ${item.quantity}
+						<i class="icon_Bag"></i> (${order.totalProduct})
 					</span>
 				</p>
 			</div>
@@ -25,29 +25,25 @@
 							<img src="${pageContext.request.contextPath}/${item.product.image}" alt="Lỗi ảnh">
 						</div>
 						<div class="minicart-product-details">
-							<a class="minicart-product-name" href="#"
+							<a class="minicart-product-name" href='<c:url value="/user-cart?product_id=${item.product.id }"/>'
 								title="Discover your future {0}" tabindex="0"> ${item.product.name } </a>
 							<div class="minicart-product-color">
-								<span class="label">Color:</span> <span class="value">LIGHT
-									GREY MELANGE</span>
+								<span class="label">Color:</span> <span class="value">${item.product.color }</span>
 							</div>
 							<div class="minicart-product-size">
-								<span class="label">Size:</span> <span class="value">L</span>
+								<span class="label">Size:</span> <span class="value">${item.product.size }</span>
 							</div>
 							<div class="minicart-product-qty">
 								<span class="label">Qty:</span>
 								
-								 <input class="sc-cart-item-qty" name="product_quantity" min="1" value="${item.quantity}" type="number">
+								 <span class="value">${item.quantity}</span>
 							</div>
 							<div class="minicart-product-pricing">
 								<span class="label"> Price: </span> <span class="value">
 									${item.product.price} </span>
 							</div>
-							<a class="remove-product" href="#/Cart-RemoveProduct"
-								data-name="dwfrm_cart_shipments_i0_items_i0_deleteProduct"
-								data-pid="3665963985787" tabindex="0"> <span> Update Item </span>
-							</a>
-							<a class="remove-product" href="#/Cart-RemoveProduct"
+							
+							<a class="remove-product" href='<c:url value="/user-addToCart?action=delete&product_id=${item.product.id }"/>'
 								data-name="dwfrm_cart_shipments_i0_items_i0_deleteProduct"
 								data-pid="3665963985787" tabindex="0"> <span> Remove
 									Item </span>
@@ -58,15 +54,25 @@
 			</ul>
 			<div class="minicart-summary">
 				<div class="minicart-total">
-					<span class="label">Total</span> <span class="value">$630.00</span>
+					<span class="label">Total</span> <span class="value"> $${order.totalPrice}</span>
 				</div>
 				<div class="minicart-buttons">
 					<div class="form-row-button">
-						<a class="form-button checkout-start" href="${pageContext.request.contextPath}/views/web/checkout.jsp"
+						<a class="form-button checkout-start" href="${pageContext.request.contextPath}/user-checkout"
 							title="Order" tabindex="0">Order</a>
+					</div>
+				</div>
+				<div class="minicart-buttons">
+					<div class="form-row-button">
+						<a class="form-button checkout-start" href="${pageContext.request.contextPath}/user-cart"
+							title="Order" tabindex="0">View Your Cart</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+	
+	
+	</script>
 </body>

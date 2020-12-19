@@ -207,7 +207,7 @@
 												<i class="icon_Warning"></i> <span>Please select a
 													size</span>
 											</div>
-											<c:url value="/user-cart?product_id=${item.id}" var="addtoCart"/>
+											<c:url value="/user-addToCart?product_id=${item.id}" var="addtoCart"/>
 											<a href="${ addtoCart}">
 								
 											<button id="add-to-cart" type="submit" title="Add to cart"

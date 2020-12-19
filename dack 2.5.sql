@@ -124,7 +124,7 @@ select * from orders o join order_items i on o.id = i.order_id ;
 insert into orders(user_email,status,created_at) values ('a',1,now());
 insert into order_items(order_id,product_id,quantity,totalprice) values (1,6,6,900000);
 
-select * from users u 
+select * from users u ;
 
 
 -- category

@@ -193,12 +193,12 @@
                 <div class="image-content">
                     <div class="background">
                         <picture class="">
-                            <img src="image/GIVENCHY_DIGITAL_AD_CAMPAIGN_2244x1104_03.jpg" alt="">
+                            <img src="image/Home-Full-Fall21-Desktop.jpg" alt="">
                         </picture>
                     </div>
                     <a class="content" href="#">
                         <div class="primary">
-                            <div class="primary"><span style="color:#FFFFFF;">Có Làm Thì Mới Có Ăn
+                            <div class="primary"><span style="color:#FFFFFF;">CÁI WEB CỦA HƯNG SƯƠNG SƯƠNG =))))))))))))
                                     </br></span></div>
                             <div class="cta-container">
                                 <p class="form-button look-button">

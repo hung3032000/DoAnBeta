@@ -73,6 +73,7 @@
 												name="dwfrm_login_login">Login</button>
 										</div>
 										<div class="login-actions">
+										<a class="password-reset" href="#"> Forgotten password? </a>
 											<div class="form-row form-customCheckbox remember-me">
 												<input type="checkbox" id="remember-me"
 													class="form-checkbox"> <label for="remember-me"
@@ -81,7 +82,8 @@
 													id="dwfrm_login_rememberme" name="dwfrm_login_rememberme"
 													value="true" data-dwname="rememberme">
 											</div>
-											<a class="password-reset" href="#"> Forgotten password? </a>
+											
+											
 										</div>
 									</fieldset>
 								</form>

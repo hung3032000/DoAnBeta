@@ -34,18 +34,18 @@ $(document).ready(function() {
 	});
 
 
-	$(".minicart").click(function(e) {
+	$("#minicartnotempty").click(function(e) {
 		$("html").addClass("minicart-active");
 		$("#minicart-container").addClass("minicart-active");
 		e.stopPropagation();
 	});
 	
-	$("#add-to-cart").click(function(e) {
+/*	$("#add-to-cart").click(function(e) {
 		$("html").addClass("minicart-active");
 		$("#minicart-container").addClass("minicart-active");
 		e.stopPropagation();
 	});
-
+*/
 	$(".minicart-close").click(function() {
 		$("html").removeClass("minicart-active");
 		$("#minicart-container").removeClass("minicart-active");

@@ -168,8 +168,8 @@
 .pt_account .register-box h2,
 .pt_cart .cart-coupons h2,
 .pt_cart .customer-support .tab .tab-header,
-.pt_cart .products-title,
-.pt_cart .summary-title,
+.products-title,
+.summary-title,
 .pt_checkout .address-element h4,
 .pt_checkout .customer-support .tab .tab-header,
 .pt_checkout .step-content h3,
@@ -202,7 +202,7 @@
 .wishlist-login .login-box h2,
 .wishlist-login .order-box h2,
 .wishlist-login .register-box h2,
-.wishlist-login-popin .success-content h1 {
+.wishlist-login-popin .success-content h1{
     font-family: "Maven Pro", "Noto Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -352,8 +352,8 @@
 .pt_checkout .global-error-container .no-stock--error span,
 .pt_checkout .step-content h3.country,
 .pt_checkout .store-item button,
-.pt_checkout .summary .cart-order-totals table .order-total td,
-.pt_checkout .summary .cart-order-totals table .order-total th,
+.cart-order-totals table .order-total td,
+.summary .cart-order-totals table .order-total th,
 .pt_product-details .product-actions .form-button,
 .pt_product-details .product-actions .remove-product-popin .delete-product-container .actions-container .add-to-wishlist,
 .pt_product-details .product-actions a.filters-validate-bt,
@@ -440,8 +440,8 @@ a:visited {
 .pt_cart #cart-items-form .line-item .product-infos .product-infos-table,
 .pt_cart .cart-summary .order-totals-table,
 .pt_checkout .step-title h3,
-.pt_checkout .summary .cart-order-totals table,
-.pt_checkout .summary .line-item .product-infos-table,
+.summary .cart-order-totals table,
+.summary .line-item .product-infos-table,
 .pt_product-details .addtowhishlist-btn .add-to-wishlist,
 .pt_product-details .detail-tabs .tab-header,
 .pt_product-details .double-form-button .form-button,
@@ -467,7 +467,9 @@ a.expand,
 a.expand:active,
 a.expand:hover,
 a.expand:visited,
-header.checkout-header .secured {
+header.checkout-header .secured,
+.step-title h3,
+ .product-infos-table {
     font-family: "Maven Pro", "Noto Sans", sans-serif;
     font-size: .75rem;
     line-height: 1rem;
@@ -10536,8 +10538,8 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
         padding: 0
     }
 }
-.pt_cart .products-title,
-.pt_cart .summary-title {
+.products-title,
+.summary-title {
     line-height: 1em;
     text-align: center;
     margin: 0 0 32px 0
@@ -10560,13 +10562,13 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
     list-style-type: none
 }
 .line-item .product-image {
-    padding: 0;
-    width: 33.33%;
-    margin-top: 25px
+float: left;
+    width: 33%;
 }
 .line-item .product-infos {
-    padding: 14px 0 14px 32px;
-    width: 66.66%
+    float: left;
+    width: 65%;
+    padding: 0 0 32px 32px;
 }
 .line-item .product-infos h3 {
     margin-top: 0;
@@ -10647,7 +10649,7 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .hairlines .pt_cart #cart-items-form .line-item .product-infos .product-infos-table .lineitem-quantity .quantity-value {
     border-width: .5px
 }
-.pt_cart #cart-items-form .line-item .product-infos .item-user-actions {
+.item-user-actions {
     margin-top: 48px;
     display: -ms-flexbox;
     display: flex;
@@ -10655,40 +10657,40 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
     flex-flow: row wrap
 }
 @media (min-width:769px) {
-    .pt_cart #cart-items-form .line-item .product-infos .item-user-actions {
+    .item-user-actions {
         -ms-flex-pack: justify;
         justify-content: space-between
     }
 }
 @media (min-width:1025px) {
-    .pt_cart #cart-items-form .line-item .product-infos .item-user-actions {
+    .item-user-actions {
         padding-right: 16px
     }
 }
 @media (max-width:768px) {
-    .pt_cart #cart-items-form .line-item .product-infos .item-user-actions {
+    .item-user-actions {
         margin-right: -16px
     }
 }
-.pt_cart #cart-items-form .line-item .product-infos .item-user-actions .add-to-wishlist,
-.pt_cart #cart-items-form .line-item .product-infos .item-user-actions .remove {
+.item-user-actions .add-to-wishlist,
+.item-user-actions .remove {
     padding: 0;
     margin-bottom: 10px
 }
 @media (min-width:769px) {
-    .pt_cart #cart-items-form .line-item .product-infos .item-user-actions .add-to-wishlist {
+    .item-user-actions .add-to-wishlist {
         margin-right: 16px
     }
 }
 @media (max-width:768px) and (min-width:376px) {
-    .pt_cart #cart-items-form .line-item .product-infos .item-user-actions .add-to-wishlist {
+    .item-user-actions .add-to-wishlist {
         margin-right: 8px;
         padding-right: 7px;
         border-right: 1px solid #757575
     }
 }
 @media (max-width:375px) {
-    .pt_cart #cart-items-form .line-item .product-infos .item-user-actions .add-to-wishlist {
+    .item-user-actions .add-to-wishlist {
         margin-right: 4px
     }
 }
@@ -10732,51 +10734,51 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .pt_cart .cart-footer {
     padding-top: 30px
 }
-.pt_cart .cart-summary {
+.cart-summary {
     background: #f6f6f6;
     padding: 30px 18%
 }
 @media (max-width:768px) {
-    .pt_cart .cart-summary {
+    .cart-summary {
         margin-bottom: 20px
     }
 }
-.pt_cart .cart-summary .order-totals-table {
+.cart-summary .order-totals-table {
     width: 100%
 }
-.pt_cart .cart-summary .order-totals-table td {
+.cart-summary .order-totals-table td {
     padding: 12px 0 12px;
     text-align: right
 }
-.pt_cart .cart-summary .order-totals-table td:nth-first-child {
+.cart-summary .order-totals-table td:nth-first-child {
     padding-top: 30px
 }
-.pt_cart .cart-summary .order-totals-table th {
+.cart-summary .order-totals-table th {
     padding: 12px 0 12px;
     font-weight: 400;
     text-align: left
 }
-.pt_cart .cart-summary .order-totals-table th:nth-first-child {
+.cart-summary .order-totals-table th:nth-first-child {
     padding-top: 30px
 }
-.pt_cart .cart-summary .order-totals-table .order-total td,
-.pt_cart .cart-summary .order-totals-table .order-total th {
+.cart-summary .order-totals-table .order-total td,
+.cart-summary .order-totals-table .order-total th {
     padding-top: 20px;
     padding-bottom: 32px
 }
 @media (max-width:768px) {
-    .pt_cart .cart-summary .order-totals-table .order-estimate-tax {
+    .cart-summary .order-totals-table .order-estimate-tax {
         border-top: .5px solid #c9c9c9
     }
 }
-.pt_cart .cart-summary .order-totals-table .order-tax-estimator .form-row {
+.cart-summary .order-totals-table .order-tax-estimator .form-row {
     margin: 0;
     display: inline-block;
     max-width: 100%;
     min-width: 168px;
     vertical-align: middle
 }
-.pt_cart .cart-summary .order-totals-table .order-tax-estimator .form-row label {
+.cart-summary .order-totals-table .order-tax-estimator .form-row label {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -10794,13 +10796,13 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .pt_cart .cart-summary .order-totals-table .order-tax-estimator td {
     position: relative
 }
-.pt_cart .cart-summary .order-totals-table .order-tax-estimator .form-field {
+.cart-summary .order-totals-table .order-tax-estimator .form-field {
     padding: 0
 }
-.pt_cart .cart-summary .order-totals-table .order-tax-estimator .form-field::before {
+.cart-summary .order-totals-table .order-tax-estimator .form-field::before {
     content: none
 }
-.pt_cart .cart-summary .order-totals-table .order-tax-estimator button {
+.cart-summary .order-totals-table .order-tax-estimator button {
     position: absolute;
     border: none;
     padding-left: 0;
@@ -10814,7 +10816,7 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
     right: 0;
     top: 10px
 }
-.pt_cart .cart-summary .order-totals-table .order-tax-estimator span.error {
+.cart-summary .order-totals-table .order-tax-estimator span.error {
     background: 0 0;
     top: auto;
     bottom: -22px;
@@ -11331,10 +11333,10 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .pt_checkout .summary .line-item .item-name {
     margin-bottom: 16px
 }
-.pt_checkout .summary .line-item .product-infos-table {
+.summary .line-item .product-infos-table {
     margin-top: 32px
 }
-.pt_checkout .summary .line-item .product-infos-table .lineitem-qty .qty-value {
+.summary .line-item .product-infos-table .lineitem-qty .qty-value {
     display: inline-block;
     vertical-align: top;
     width: 50px;
@@ -11372,26 +11374,26 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .pt_checkout .summary .line-item .product-price .price-savings {
     font-weight: 500
 }
-.pt_checkout .summary .cart-order-totals {
+.summary .cart-order-totals {
     background: #f6f6f6;
     padding: 45px 18%
 }
-.pt_checkout .summary .cart-order-totals table {
+.summary .cart-order-totals table {
     width: 100%
 }
-.pt_checkout .summary .cart-order-totals table td,
-.pt_checkout .summary .cart-order-totals table th {
+.summary .cart-order-totals table td,
+.summary .cart-order-totals table th {
     padding-bottom: 8px
 }
-.pt_checkout .summary .cart-order-totals table th {
+.summary .cart-order-totals table th {
     font-weight: 400;
     text-align: left
 }
-.pt_checkout .summary .cart-order-totals table .order-value {
+.summary .cart-order-totals table .order-value {
     width: 80px
 }
-.pt_checkout .summary .cart-order-totals table .order-total td,
-.pt_checkout .summary .cart-order-totals table .order-total th {
+.summary .cart-order-totals table .order-total td,
+.summary .cart-order-totals table .order-total th {
     padding: 16px 0 0
 }
 .pt_checkout .address-element,
@@ -12397,8 +12399,8 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .checkoutlogin .register-box,
 .pt_account .apple-paypal-box,
 .pt_account .guest-box,
-.pt_account .login-box,
-.pt_account .register-box,
+.login-box,
+.register-box,
 .wishlist-login .apple-paypal-box,
 .wishlist-login .guest-box,
 .wishlist-login .login-box,
@@ -12464,14 +12466,14 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .wishlist-login .login-box button {
     margin-top: 20px
 }
-.checkoutlogin .login-box .login-actions,
+.login-box .login-actions,
 .pt_account .login-box .login-actions,
 .wishlist-login .login-box .login-actions {
     max-width: 340px;
     margin: 15px auto
 }
-.checkoutlogin .login-box .remember-me,
-.pt_account .login-box .remember-me,
+.login-box .remember-me,
+.login-box .remember-me,
 .wishlist-login .login-box .remember-me {
     float: left;
     width: 50%;
@@ -12484,7 +12486,7 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .wishlist-login .login-box .remember-me label {
     line-height: 1rem
 }
-.checkoutlogin .login-box .password-reset,
+.login-box .password-reset,
 .pt_account .login-box .password-reset,
 .wishlist-login .login-box .password-reset {
     float: right;
@@ -15329,4 +15331,22 @@ p.text,h2,h3,p.intro{
 
 .pagination li:hover:not(.active) {background-color: #ddd;}
 
+.step-title{
+	width: 100%;
+    border-top: 1px solid #757575;
+    padding: 20px 0;
+}
+.step{
+	display: inline-block;
+    border: 1px solid #757575;
+    border-radius: 20px;
+    width: 14px;
+    height: 14px;
+    line-height: 12px;
+    font-size: .625rem;
+    margin-bottom: 8px;
+}
+.step-title h3{
+	margin: 0; 
+}
 

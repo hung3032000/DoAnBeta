@@ -8,7 +8,7 @@
 			<li class="level-1 country-selector"><a href=""
 				class="country-selector-link navigation-hasSubMenu level-1"
 				title='Location : US $ (Select a Country/Region)'> Location<span>:</span>
-					<strong>US $</strong>
+					<strong>VN $</strong>
 			</a></li>
 			<li class="language language-container desktop"><a
 				class="language-selector-link" href="#"> Language <span
@@ -128,14 +128,16 @@
 						</div></li>
 				</ul>
 			</c:if>
-			<div class="minicart empty-cart" id="test">
+			<div class="minicart empty-cart" <c:if test="${order.totalProduct != null}">id="minicartnotempty"</c:if>>
 				<a class="minicart-link empty-cart" href="#"
 					aria-label="View Your Cart"> <span class="icon_Bag"
-					title="View Your Cart">${item.id} 100</span>
+					title="View Your Cart"><c:if test="${order.totalProduct != null}">${order.totalProduct}</c:if></span>
 				</a>
+				<c:if test="${order.totalProduct == null}">
 				<div class="minicart-content">		
 					<p>Your cart is empty</p>
 				</div>
+				</c:if>
 			</div>
 			<div class="search-link-container" role="search">
 				<a href="#" class="search-link"> <span class="icon_Search"></span>
