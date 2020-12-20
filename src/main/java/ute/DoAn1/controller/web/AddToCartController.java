@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ute.DoAn1.model.CategoriesModel;
 import ute.DoAn1.model.ItemsModel;
-import ute.DoAn1.model.OrderModel;
+import ute.DoAn1.model.CartModel;
 import ute.DoAn1.model.ProductImageModel;
 import ute.DoAn1.model.ProductModel;
 import ute.DoAn1.service.ICategoriesService;
@@ -78,7 +78,7 @@ public class AddToCartController extends HttpServlet {
 			if (product != null) {
 
 				if (action != null && action.equals("delete")) {
-					OrderModel order = (OrderModel) SessionUtil.getInstance().getValue(request, "order");
+					CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order");
 					List<ItemsModel> listItems = order.getListResult();
 					for (ItemsModel item : listItems) {
 						if (item.getProduct().getId() == product.getId()) {
@@ -92,7 +92,7 @@ public class AddToCartController extends HttpServlet {
 				else {
 					if (SessionUtil.getInstance().getValue(request, "order") == null) {
 					
-						OrderModel order = FormUtil.toModel(OrderModel.class, request);
+						CartModel order = FormUtil.toModel(CartModel.class, request);
 						ItemsModel item = FormUtil.toModel(ItemsModel.class, request);
 
 						order.setTotalProduct(1);
@@ -107,7 +107,7 @@ public class AddToCartController extends HttpServlet {
 
 						SessionUtil.getInstance().putValue(request, "order", order);
 					} else {
-						OrderModel order = (OrderModel) SessionUtil.getInstance().getValue(request, "order");
+						CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order");
 						List<ItemsModel> listItems = order.getListResult();
 
 						boolean check = false;

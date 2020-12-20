@@ -26,7 +26,7 @@
 
 									<div class="response-container">
 
-										<form action="#/Checkout-Update" method="post"
+										<form action='<c:url value="/user-checkout" />' method="post"
 											id="dwfrm_singleshipping_shippingAddress"
 											class="shipping-address-select-form" data-checkout-step="4"
 											data-instore-shipping="false" novalidate="novalidate">
@@ -63,10 +63,11 @@
 														<div class="form-select-wrapper">
 															<select class="form-select title form-field required"
 																id="dwfrm_singleshipping_shippingAddress_shippingAddressFields_title"
-																name="dwfrm_singleshipping_shippingAddress_shippingAddressFields_title"
+																name="cus_title"
 																data-dwname="title" autocomplete="honorific-prefix"
 																aria-required="true"><option
-																	class="form-selectOption" label="${USERMODEL.title }" value="">Title</option>
+																	class="form-selectOption" label="${USERMODEL.title }"
+																	value="">Title</option>
 																<option class="form-selectOption" label="Mr."
 																	value="Mr.">Mr.</option>
 																<option class="form-selectOption" label="Mrs."
@@ -78,8 +79,10 @@
 													</div>
 
 												</div>
-												<div class="form-row required empty  <c:if test="${USERMODEL.fName != null }">focus</c:if>" data-requiredtext=""
-													data-regexinvalidmessage="" aria-required="true">
+												<div
+													class="form-row required empty  <c:if test="${USERMODEL.fName != null }">focus</c:if>"
+													data-requiredtext="" data-regexinvalidmessage=""
+													aria-required="true">
 
 													<label class="form-label"
 														for="dwfrm_singleshipping_shippingAddress_shippingAddressFields_firstname">First
@@ -88,15 +91,17 @@
 														<input class="form-input firstname form-field required"
 															type="text"
 															id="dwfrm_singleshipping_shippingAddress_shippingAddressFields_firstname"
-															name="dwfrm_singleshipping_shippingAddress_shippingAddressFields_firstname"
+															name="cus_fname"
 															value="${USERMODEL.fName }" maxlength="13"
 															data-dwname="firstname" autocomplete="given-name"
 															aria-required="true">
 													</div>
 
 												</div>
-												<div class="form-row required empty  <c:if test="${USERMODEL.lName != null }">focus</c:if>" data-requiredtext=""
-													data-regexinvalidmessage="" aria-required="true">
+												<div
+													class="form-row required empty  <c:if test="${USERMODEL.lName != null }">focus</c:if>"
+													data-requiredtext="" data-regexinvalidmessage=""
+													aria-required="true">
 
 													<label class="form-label"
 														for="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname">Last
@@ -105,41 +110,61 @@
 														<input class="form-input lastname form-field required"
 															type="text"
 															id="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname"
-															name="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname"
+															name="cus_lname"
 															value="${USERMODEL.lName }" maxlength="13"
 															data-dwname="lastname" autocomplete="family-name"
 															aria-required="true">
 													</div>
 
 												</div>
-												<div class="form-row required empty <c:if test="${USERMODEL.address != null }">focus</c:if>" data-requiredtext=""
-													data-regexinvalidmessage="" aria-required="true">
+												<div
+													class="form-row required empty <c:if test="${USERMODEL.address != null }">focus</c:if>"
+													data-requiredtext="" data-regexinvalidmessage=""
+													aria-required="true">
 
 													<label class="form-label"
 														for="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname">Start
-														typing your address</label>
+														typing your address*</label>
 													<div class="form-field">
 														<input class="form-input lastname form-field required"
 															type="text"
 															id="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname"
-															name="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname"
+															name="cus_address"
 															value="${USERMODEL.address }" maxlength="13"
-															data-dwname="lastname" autocomplete="family-name"
+															data-dwname="address" autocomplete="family-name"
 															aria-required="true">
 													</div>
 
 												</div>
+												<div
+													class="form-row required empty"
+													data-requiredtext="" data-regexinvalidmessage=""
+													aria-required="true">
 
+													<label class="form-label"
+														for="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname">Start
+														typing your phone*</label>
+													<div class="form-field">
+														<input class="form-input lastname form-field required"
+															type="text"
+															id="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname"
+															name="cus_phone"
+															value="" maxlength="13"
+															data-dwname="phone" autocomplete="family-name"
+															aria-required="true">
+													</div>
+
+												</div>
 												<div class="billing-address">
 													<button class="form-button shipping-address-save"
 														name="dwfrm_singleshipping_shippingAddress_save">
-														Continue</button>
+														Check Out</button>
 													<a class="checkout-back-to-cart"
-														href="/on/demandware.store/Sites-GIV_US-Site/en/Cart-Show">
+														href="${pageContext.request.contextPath}/user-cart">
 														Return to your cart </a>
 												</div>
 											</div>
-											<input type="hidden" name="" value="">
+											<input type="hidden" name="totalPrice" value="${order.totalPrice}">
 										</form>
 									</div>
 								</div>
@@ -177,7 +202,8 @@
 											<li class="product-infos-table">
 												<div class="info-table-row">
 													<span class="label">Price:</span> <span
-														class="value product-price"> $${item.product.price} </span>
+														class="value product-price"> $${item.product.price}
+													</span>
 												</div>
 												<div class="info-table-row">
 													<span class="label">Product code:</span> <span
@@ -223,7 +249,7 @@
 					</div>
 				</div>
 			</div>
-		
+
 		</div>
 	</main>
 </body>

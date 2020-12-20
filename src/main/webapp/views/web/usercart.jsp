@@ -46,37 +46,37 @@ CONTINUE SHOPPING
 								aria-label="update-cart" value="dwfrm_cart_updateCart"
 								name="dwfrm_cart_updateCart"></button>
 							<h2 class="products-title">Products</h2>
-					<%-- <c:forEach> --%>
+			<c:forEach items="${order.listResult}" var="item">
 							
 							<div class="line-item" data-product="BW60T4111N-100"
 								data-quantity="2.0">
 								<div class="product-image">
 
-									<img src="#" alt="">
+									<img src="${pageContext.request.contextPath}/${item.product.image}" alt="">
 								</div>
 								<ul class="product-infos">
 									<li class="item-name">
 										<h3>
 											<a
-												href="https://www.givenchy.com/us/en-US/3666082206111.html"
+												href="#"
 												title="Discover your future Oversized shirt with fold of fabric collar">
-												Oversized shirt with fold of fabric collar </a>
+												${item.product.name } </a>
 										</h3>
 									</li>
 									<li class="product-infos-table">
 										<div class="info-table-row">
 											<span class="label">Price:</span> <span
-												class="value product-price"> $1,990.00 </span>
+												class="value product-price"> $${item.product.price} </span>
 										</div>
 										<div class="info-table-row">
 											<span class="label">Product code:</span> <span class="value">
-												BW60T4111N-100 </span>
+												${item.product.id } </span>
 										</div>
 										<div class="info-table-row">
-											<span class="label">Color:</span> <span class="value">WHITE</span>
+											<span class="label">Color:</span> <span class="value">${item.product.color }</span>
 										</div>
 										<div class="info-table-row">
-											<span class="label">Size:</span> <span class="value">38</span>
+											<span class="label">Size:</span> <span class="value">${item.product.size }</span>
 										</div>
 										<div class="info-table-row lineitem-quantity">
 											<span class="label"> <span class="no-mobile">Quantity:</span>
@@ -86,7 +86,7 @@ CONTINUE SHOPPING
 													value="+" aria-label="Add One" type="submit">
 													<span class="icon_PlusS"></span>
 												</button>
-											</span> <span class="value"> <span class="quantity-value">2</span>
+											</span> <span class="value"> <span class="quantity-value">${item.quantity}</span>
 												<button class="lineitem-quantity-less" data-qty="2"
 													name="removeQuantity"
 													value="-" aria-label="Remove One" type="submit">
@@ -100,7 +100,7 @@ CONTINUE SHOPPING
 										data-pname="Oversized shirt with fold of fabric collar"
 										data-pid="3666082206111" class="add-to-wishlist"> Add to
 											your wishlist </a>  --> <a class="remove-product"
-										href="/on/demandware.store/Sites-GIV_US-Site/en/Cart-RemoveProduct"
+										href="#Cart-RemoveProduct"
 										data-name="dwfrm_cart_shipments_i0_items_i0_deleteProduct"
 										data-pid="3666082206111"> <span> Remove<span
 												class="no-mobile"> product</span>
@@ -108,8 +108,7 @@ CONTINUE SHOPPING
 									</a></li>
 								</ul>
 							</div>
-						<%-- </c:forEach> --%>
-							
+					 </c:forEach> 
 						
 							<div class="form-row-button form-row-button-cart" align="center">
 
@@ -133,7 +132,7 @@ CONTINUE SHOPPING
 											<tbody>
 												<tr class="order-subtotal">
 													<th scope="row">Subtotal</th>
-													<td>$1,990.00</td>
+													<td>$${order.totalPrice}</td>
 												</tr>
 												<tr class="order-estimate-tax">
 													<th scope="row">Estimated tax by zipcode:</th>
@@ -149,7 +148,7 @@ CONTINUE SHOPPING
 												</tr>
 												<tr class="order-total">
 													<th scope="row">Total</th>
-													<td class="order-value">$1,990.00</td>
+													<td class="order-value">$${order.totalPrice}</td>
 												</tr>
 											</tbody>
 										</table>
@@ -157,7 +156,7 @@ CONTINUE SHOPPING
 								</div>
 							</div>
 							<form class="cart-action-checkout"
-								action="https://www.givenchy.com/on/demandware.store/Sites-GIV_US-Site/en/Cart-SubmitForm"
+								action="${pageContext.request.contextPath}/user-checkout"
 								method="post" name="dwfrm_cart_d0aioieowxvk" id="checkout-form"
 								data-checkout-step="null" novalidate="novalidate">
 								<fieldset>

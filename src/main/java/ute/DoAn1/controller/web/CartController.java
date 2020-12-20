@@ -2,6 +2,7 @@ package ute.DoAn1.controller.web;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,35 +10,54 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ute.DoAn1.model.CartModel;
+import ute.DoAn1.model.CategoriesModel;
+import ute.DoAn1.service.ICategoriesService;
+import ute.DoAn1.utils.FormUtil;
+import ute.DoAn1.utils.SessionUtil;
+
 /**
  * Servlet implementation class CartController
  */
 @WebServlet(urlPatterns = { "/user-cart" })
 public class CartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CartController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	@Inject
+	private ICategoriesService Icategory;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CartController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Tra ve toan bo danh muc
+		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
+		category.setListResult(Icategory.findAllP());
+		request.setAttribute("category", category);
 		
+		  CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order"); 
+		  SessionUtil.getInstance().putValue(request, "order",order); 
+		 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/usercart.jsp");
 		rd.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	
 		doGet(request, response);
 	}
 

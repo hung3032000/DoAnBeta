@@ -97,8 +97,18 @@ CREATE TABLE `users` (
   `created_at` timestamp,
   `updated_at` timestamp
 );
-
-
+CREATE TABLE `customer` (
+  `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `user_email` varchar(255) NOT NULL COLLATE utf8mb4_0900_ai_ci ,
+  `title` varchar(255),
+  `fname` varchar(255),
+  `lname` varchar(255),
+  `address` varchar(255),
+  `phone` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
+);
+customer
 ALTER TABLE `order_items` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 ALTER TABLE `order_items` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
@@ -114,17 +124,31 @@ ALTER TABLE `orders` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`)
 
 ALTER TABLE `product` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
+ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
+
 
 -- querry +test querry 
 use dack;
 -- orders
+select * from order_items;
+select * from orders o join order_items i on o.id = i.order_id where user_email = 'abc';
 
-select * from orders o join order_items i on o.id = i.order_id ;
-
-insert into orders(user_email,status,created_at) values ('a',1,now());
-insert into order_items(order_id,product_id,quantity,totalprice) values (1,6,6,900000);
+insert into orders(user_email,totalprice,status,created_at) values ('abc',1000,1,now());
+insert into order_items(order_id,product_id,quantity,totalprice) values (2,6,6,900000);
 
 select * from users u ;
+update orders set totalprice=100000 where id=2;
+alter table orders add column updated_at timestamp after created_at;
+ALTER TABLE users
+MODIFY COLUMN dayofbirth date;
+
+select * from customer;
+
+
+
+
+
+
 
 
 -- category
@@ -154,23 +178,24 @@ use dack;
 
 select * from product where id =9 ;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
-														smooth leather','245000','New','image/BK507PK0ZY027-01-02.jpg','5',now());
+														smooth leather','245000','New','image/BM710P3002055-02-02.jpg','5',date(now()));
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
 update product set categorie_id = 10 where id=4;
 select * from categories where parent_id ='1';
-alter table order_items add column totalprice float after quantity;
+select date(now());
 update product set origin = 'VietNam6',shortdecription='6 Long-sleeved T-shirt in
 												light heather gray jersey with red Homieeeeee signature on the
 												chest, and black Schematics prints on the front and sleeves.' where id=1;
 update product set size = 'XL', color ='Grey', quantity =100 where id = 9;
-ALTER TABLE order_items
+alter table orders add column updated_at timestamp after created_at;
+ALTER TABLE orders
 MODIFY COLUMN totalprice bigint;
 select count(*) from product where categorie_id = 5;
 update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
 select * from product where categorie_id =5 ;
 
-select * from users;
-
+select * from order_items o join product p on o.product_id = p.id ;
+select * from orders;
 
 
 

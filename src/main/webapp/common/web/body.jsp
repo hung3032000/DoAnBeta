@@ -58,14 +58,14 @@
 				</div>
 				<div class="minicart-buttons">
 					<div class="form-row-button">
-						<a class="form-button checkout-start" href="${pageContext.request.contextPath}/user-checkout"
+						<a class="form-button checkout-start" href="${pageContext.request.contextPath}/user-checkoutinf"
 							title="Order" tabindex="0">Order</a>
 					</div>
 				</div>
 				<div class="minicart-buttons">
 					<div class="form-row-button">
 						<a class="form-button checkout-start" href="${pageContext.request.contextPath}/user-cart"
-							title="Order" tabindex="0">View Your Cart</a>
+							title="Order" tabindex="0">Edit Your Cart</a>
 					</div>
 				</div>
 			</div>

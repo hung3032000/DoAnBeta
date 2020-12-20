@@ -3,7 +3,17 @@ package ute.DoAn1.model;
 public class ItemsModel extends AbstractModel<ItemsModel>{
 	private int quantity;
 	private ProductModel product = new ProductModel();
+	private OrderModel order = new OrderModel();
+	
 	private long price;
+	
+
+	public OrderModel getOrder() {
+		return order;
+	}
+	public void setOrder(OrderModel order) {
+		this.order = order;
+	}
 	public int getQuantity() {
 		return quantity;
 	}
