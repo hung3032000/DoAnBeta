@@ -46,7 +46,7 @@
 											href="${pageContext.request.contextPath}/views/web/accountoverview">
 												Account overview </a></li>
 										<li class="order-history "><a
-											href="${pageContext.request.contextPath}/views/web/order.jsp">
+											href="${pageContext.request.contextPath}/user-orderdetail">
 												Orders </a></li>
 										<li class=""><a
 											href="${pageContext.request.contextPath}/user-update?action=show">

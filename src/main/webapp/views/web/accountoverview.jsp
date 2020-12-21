@@ -11,7 +11,7 @@
 				<nav class="account-navigation" aria-label="My account">
 					<ul>
 						<li class=""><a href="${pageContext.request.contextPath}/views/web/accountoverview.jsp"> Account overview </a></li>
-						<li class="order-history "><a href="${pageContext.request.contextPath}/views/web/order.jsp"> Orders </a></li>
+						<li class="order-history "><a href="${pageContext.request.contextPath}/user-orderdetail"> Orders </a></li>
 						<li class=""><a
 							href="${pageContext.request.contextPath}/user-update?action=show"
 							title="Personal details (Active page)"> Personal details </a></li>

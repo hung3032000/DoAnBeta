@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ute.DoAn1.model.CartModel;
 import ute.DoAn1.model.CategoriesModel;
 import ute.DoAn1.service.ICategoriesService;
 import ute.DoAn1.utils.FormUtil;
-import ute.DoAn1.utils.SessionUtil;
 
 /**
  * Servlet implementation class CartController
@@ -44,9 +42,6 @@ public class CartController extends HttpServlet {
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
 		
-		  CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order"); 
-		  SessionUtil.getInstance().putValue(request, "order",order); 
-		 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/usercart.jsp");
 		rd.forward(request, response);
 	}

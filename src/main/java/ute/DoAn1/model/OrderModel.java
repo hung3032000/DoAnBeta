@@ -1,14 +1,25 @@
 package ute.DoAn1.model;
 
 public class OrderModel extends AbstractModel<OrderModel> {
-	private UserModel user = new UserModel();
+	
 	private long totalprice;
 	private int status;
-	public UserModel getUser() {
-		return user;
+	private String useremail;
+	private long customerId;
+	private CustomerModel customer = new CustomerModel();
+	
+
+	public CustomerModel getCustomer() {
+		return customer;
 	}
-	public void setUser(UserModel user) {
-		this.user = user;
+	public void setCustomer(CustomerModel customer) {
+		this.customer = customer;
+	}
+	public long getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(long customerId) {
+		this.customerId = customerId;
 	}
 	public long getTotalprice() {
 		return totalprice;
@@ -18,6 +29,12 @@ public class OrderModel extends AbstractModel<OrderModel> {
 	}
 	public int getStatus() {
 		return status;
+	}
+	public String getUseremail() {
+		return useremail;
+	}
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
 	public void setStatus(int status) {
 		this.status = status;

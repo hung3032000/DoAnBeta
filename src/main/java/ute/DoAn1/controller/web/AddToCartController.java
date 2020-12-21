@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ute.DoAn1.model.CategoriesModel;
-import ute.DoAn1.model.ItemsModel;
 import ute.DoAn1.model.CartModel;
+import ute.DoAn1.model.CategoriesModel;
+import ute.DoAn1.model.OrderItemsModel;
 import ute.DoAn1.model.ProductImageModel;
 import ute.DoAn1.model.ProductModel;
 import ute.DoAn1.service.ICategoriesService;
@@ -79,8 +79,8 @@ public class AddToCartController extends HttpServlet {
 
 				if (action != null && action.equals("delete")) {
 					CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order");
-					List<ItemsModel> listItems = order.getListResult();
-					for (ItemsModel item : listItems) {
+					List<OrderItemsModel> listItems = order.getListResult();
+					for (OrderItemsModel item : listItems) {
 						if (item.getProduct().getId() == product.getId()) {
 							listItems.remove(item);
 						}
@@ -93,13 +93,13 @@ public class AddToCartController extends HttpServlet {
 					if (SessionUtil.getInstance().getValue(request, "order") == null) {
 					
 						CartModel order = FormUtil.toModel(CartModel.class, request);
-						ItemsModel item = FormUtil.toModel(ItemsModel.class, request);
+						OrderItemsModel item = FormUtil.toModel(OrderItemsModel.class, request);
 
 						order.setTotalProduct(1);
 						item.setQuantity(quantity);
 						item.setProduct(product);
-						item.setPrice(product.getPrice());
-						totalPrice = item.getPrice() * item.getQuantity();
+						item.setTotalPrice(product.getPrice());
+						totalPrice = item.getTotalPrice() * item.getQuantity();
 
 						order.setTotalPrice(totalPrice);
 						item.getListResult().add(item);
@@ -108,10 +108,10 @@ public class AddToCartController extends HttpServlet {
 						SessionUtil.getInstance().putValue(request, "order", order);
 					} else {
 						CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order");
-						List<ItemsModel> listItems = order.getListResult();
+						List<OrderItemsModel> listItems = order.getListResult();
 
 						boolean check = false;
-						for (ItemsModel item : listItems) {
+						for (OrderItemsModel item : listItems) {
 							if (item.getProduct().getId() == product.getId()) {
 								item.setQuantity(item.getQuantity() + quantity);
 
@@ -120,17 +120,17 @@ public class AddToCartController extends HttpServlet {
 							}
 						}
 						if (check == false) {
-							ItemsModel item = FormUtil.toModel(ItemsModel.class, request);
+							OrderItemsModel item = FormUtil.toModel(OrderItemsModel.class, request);
 							item.setQuantity(quantity);
 							item.setProduct(product);
-							item.setPrice(product.getPrice());
+							item.setTotalPrice(product.getPrice());
 
 							listItems.add(item);
 
 						}
-						for (ItemsModel item : listItems) {
+						for (OrderItemsModel item : listItems) {
 							totalProduct += item.getQuantity();
-							totalPrice += item.getPrice()*item.getQuantity();
+							totalPrice += item.getTotalPrice()*item.getQuantity();
 						}
 						order.setTotalPrice(totalPrice);
 						order.setTotalProduct(totalProduct);

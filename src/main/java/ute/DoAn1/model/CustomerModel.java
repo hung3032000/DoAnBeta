@@ -1,17 +1,18 @@
 package ute.DoAn1.model;
 
 public class CustomerModel extends AbstractModel<CustomerModel> {
-	private UserModel user = new UserModel();
+	private String user_email;
 	private String title;
 	private String fName;
 	private String lName;
 	private String phone;
 	private String address;
-	public UserModel getUser() {
-		return user;
+	
+	public String getUser_email() {
+		return user_email;
 	}
-	public void setUser(UserModel user) {
-		this.user = user;
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
 	}
 	public String getTitle() {
 		return title;

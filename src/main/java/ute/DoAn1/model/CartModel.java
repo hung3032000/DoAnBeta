@@ -1,6 +1,6 @@
 package ute.DoAn1.model;
 
-public class CartModel extends AbstractModel<ItemsModel>{
+public class CartModel extends AbstractModel<OrderItemsModel>{
 	private UserModel user = new UserModel();
 
 	private int totalProduct;

@@ -28,7 +28,7 @@ if (daySelected == null) {
 				<nav class="account-navigation" aria-label="My account">
 					<ul>
 						<li class=""><a href="${pageContext.request.contextPath}/views/web/accountoverview.jsp"> Account overview </a></li>
-						<li class="order-history "><a href="${pageContext.request.contextPath}/views/web/order.jsp"> Orders </a></li>
+						<li class="order-history "><a href="${pageContext.request.contextPath}/user-orderdetail"> Orders </a></li>
 						<li class=""><a href="${pageContext.request.contextPath}/user-update?action=show"> Personal details </a></li>
 						<li><a href="${pageContext.request.contextPath}/login?action=logout">Logout</a>
 					</ul>

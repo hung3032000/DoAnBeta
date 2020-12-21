@@ -67,7 +67,7 @@
 																data-dwname="title" autocomplete="honorific-prefix"
 																aria-required="true"><option
 																	class="form-selectOption" label="${USERMODEL.title }"
-																	value="">Title</option>
+																	value="${USERMODEL.title}">Title</option>
 																<option class="form-selectOption" label="Mr."
 																	value="Mr.">Mr.</option>
 																<option class="form-selectOption" label="Mrs."
@@ -165,6 +165,7 @@
 												</div>
 											</div>
 											<input type="hidden" name="totalPrice" value="${order.totalPrice}">
+											<input type="hidden" name="user_email" value="${USERMODEL.email }">
 										</form>
 									</div>
 								</div>

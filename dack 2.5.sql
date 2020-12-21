@@ -108,7 +108,7 @@ CREATE TABLE `customer` (
   `created_at` timestamp,
   `updated_at` timestamp
 );
-customer
+
 ALTER TABLE `order_items` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 ALTER TABLE `order_items` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
@@ -126,28 +126,31 @@ ALTER TABLE `product` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`
 
 ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
+ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
+ALTER TABLE `orders` ADD FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
 -- querry +test querry 
 use dack;
 -- orders
-select * from order_items;
-select * from orders o join order_items i on o.id = i.order_id where user_email = 'abc';
-
+select * from order_items ;
+select* from order_items oi join product p on oi.product_id=p.id where order_id =1;
+select * from orders  where user_email = 'abc';
+select  * from order_items oi join product p on oi.product_id=p.id where order_id =2;
 insert into orders(user_email,totalprice,status,created_at) values ('abc',1000,1,now());
 insert into order_items(order_id,product_id,quantity,totalprice) values (2,6,6,900000);
 
 select * from users u ;
-update orders set totalprice=100000 where id=2;
-alter table orders add column updated_at timestamp after created_at;
+update orders set customer_id=1 where id=3;
+alter table orders add column customer_id bigint after user_email;
 ALTER TABLE users
 MODIFY COLUMN dayofbirth date;
 
 select * from customer;
 
+insert into customer(user_email,title,fname,lname,address,phone,created_at) values("abc","Mr.","Hùng","Phạm","4646 ss","0933944775",now());
 
 
-
-
+select * from orders o, order_items oi, customer c where o.id =3;
 
 
 

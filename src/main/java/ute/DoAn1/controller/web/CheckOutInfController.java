@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ute.DoAn1.model.CartModel;
 import ute.DoAn1.model.CategoriesModel;
-import ute.DoAn1.model.UserModel;
 import ute.DoAn1.service.ICategoriesService;
 import ute.DoAn1.utils.FormUtil;
-import ute.DoAn1.utils.SessionUtil;
 
 /**
  * Servlet implementation class CheckOutController
@@ -41,13 +38,7 @@ public class CheckOutInfController extends HttpServlet {
 		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
-		
-		
-		
-		UserModel user = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
-		CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order");
-		order.setUser(user);
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/checkout.jsp");
 		rd.forward(request, response);
 	}

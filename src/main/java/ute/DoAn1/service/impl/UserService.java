@@ -6,18 +6,16 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.inject.Inject;
+
 import ute.DoAn1.DAO.IUserDAO;
-import ute.DoAn1.DAO.impl.UserDAO;
 import ute.DoAn1.model.UserModel;
 import ute.DoAn1.service.IUserService;
 
 public class UserService implements IUserService{
-	
+	@Inject
 	private IUserDAO userDAO;
 
-	public UserService() {
-		userDAO = new UserDAO();
-	}
 
 
 	@Override

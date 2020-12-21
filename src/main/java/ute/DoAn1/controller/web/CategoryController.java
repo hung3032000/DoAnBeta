@@ -20,12 +20,12 @@ import ute.DoAn1.utils.FormUtil;
 @WebServlet(urlPatterns = { "/user-category" })
 public class CategoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	@Inject
+	private ICategoriesService Icategory;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	@Inject
-	private ICategoriesService Icategory;
+
 	public CategoryController() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -37,6 +37,7 @@ public class CategoryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//load categoryC
 		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);

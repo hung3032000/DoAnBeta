@@ -2466,7 +2466,8 @@ a.secondary.filters-validate-bt {
 .remove-product-popin .delete-product-container .actions-container .secondary.add-to-wishlist:focus,
 .remove-product-popin .delete-product-container .actions-container .secondary.add-to-wishlist:hover,
 a.secondary.filters-validate-bt:focus,
-a.secondary.filters-validate-bt:hover {
+a.secondary.filters-validate-bt:hover,
+.customer-table-bg {
     background: #f6f6f6
 }
 .form-button.fitle-active,
@@ -11376,7 +11377,8 @@ float: left;
 }
 .summary .cart-order-totals {
     background: #f6f6f6;
-    padding: 45px 18%
+    padding: 45px 18%;
+    margin-bottom: 10px
 }
 .summary .cart-order-totals table {
     width: 100%
@@ -15324,8 +15326,8 @@ p.text,h2,h3,p.intro{
   
 }
 
-.pagination a.active {
-  background-color: black;
+.pagination .active {
+  background-color: #ddd;
   color: white;
 }
 
@@ -15349,4 +15351,69 @@ p.text,h2,h3,p.intro{
 .step-title h3{
 	margin: 0; 
 }
+#cus-info{
+	width: 95%;
+}
+#title-detail{
+	font-size: 20px;
+}
+.customer-table-wrap{
+	background: #f2f5fa;
+    padding: 10px;
+}
 
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+#customer_orders table tr td, #order_details tr td {
+    vertical-align: middle;
+    border-top: none;
+    font-size: 14px;
+}
+
+table tr td:first-child, table tr th:first-child {
+    padding-left: 0px;
+}
+.table-responsive{
+    min-height: 150px;
+    max-height: 330px;
+    overflow-y: auto;
+}
+#table-detail{
+	width: 100%; 
+	background: #fff;
+}
+.title-detail {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-bottom: 8px;
+    margin-left: 7.5%;
+}
+.account-order, .address {
+    margin: 0px 0px 30px;
+    padding: 10px;
+    background-color: #fbfbfb;
+}
+#customer_orders, #order_payment, #order_shipping {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.alert-info {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.alert {
+    padding: 15px;
+    border: 1px solid transparent;
+}
