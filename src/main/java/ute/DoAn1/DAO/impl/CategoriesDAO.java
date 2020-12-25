@@ -20,4 +20,10 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
 		return query(sql, new CategoriesMapper(), category_id);
 	}
 
+	@Override
+	public List<CategoriesModel> findAll() {
+		String sql = "SELECT * FROM categories;";
+		return query(sql, new CategoriesMapper());
+	}
+
 }

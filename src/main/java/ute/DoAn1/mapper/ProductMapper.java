@@ -23,6 +23,9 @@ public class ProductMapper implements RowMapper<ProductModel> {
 			product.setSize(resultSet.getString("size"));
 			product.setColor(resultSet.getString("color"));
 			product.setShortdecription(resultSet.getString("shortdecription"));
+			product.setCreated_at(resultSet.getTimestamp("created_at"));
+			product.setUpdated_at(resultSet.getTimestamp("updated_at"));
+			
 			return product;
 		} catch (SQLException e) {
 			return null;

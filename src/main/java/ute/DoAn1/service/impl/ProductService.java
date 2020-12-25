@@ -14,7 +14,7 @@ public class ProductService implements IProductService {
 
 	@Override
 	public List<ProductModel> findAllC(String category_id, Integer offset, Integer limit) {
-		return productDAO.findAllC(category_id,offset,limit);
+		return productDAO.findAllC(category_id, offset, limit);
 	}
 
 	@Override
@@ -26,5 +26,10 @@ public class ProductService implements IProductService {
 	public ProductModel findOne(String product_id) {
 		return productDAO.findOne(product_id);
 	}
-	
+
+	@Override
+	public List<ProductModel> findAll() {
+		return productDAO.findAll();
+	}
+
 }

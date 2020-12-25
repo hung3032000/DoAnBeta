@@ -19,6 +19,7 @@ import ute.DoAn1.utils.SessionUtil;
 
 public class AuthorizationFilter implements Filter {
 
+	@SuppressWarnings("unused")
 	private ServletContext context;
 
 	@Override
@@ -32,9 +33,8 @@ public class AuthorizationFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String url = request.getRequestURI();
-
+		UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
 		if (url.startsWith(request.getContextPath() + "/admin")) {
-			UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
 			if (model != null) {
 				if (model.getRole().getCode().equals(SystemConstant.ADMIN)) {
 					filterChain.doFilter(servletRequest, servletResponse);
@@ -48,7 +48,6 @@ public class AuthorizationFilter implements Filter {
 		}
 
 		else if (url.startsWith(request.getContextPath() + "/user-checkout")) {
-			UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
 			if (model == null) {
 				response.sendRedirect(request.getContextPath() + "/login?action=login&message=not_login&alert=error");
 			} else {

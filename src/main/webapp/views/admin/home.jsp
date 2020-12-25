@@ -15,7 +15,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="">Trang chủ</a>
                 </li>
-            </ul><!-- /.breadcrumb -->
+            </ul>
         </div>
         <div class="page-content">
             <div class="row" >
@@ -25,6 +25,6 @@
             </div>
         </div>
     </div>
-</div><!-- /.main-content -->
+</div>
 </body>
 </html>

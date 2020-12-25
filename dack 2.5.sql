@@ -131,11 +131,21 @@ ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email
 ALTER TABLE `orders` ADD FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
 -- querry +test querry 
 use dack;
+
+
+
+
+
+
+
+
+
+
 -- orders
 select * from order_items ;
-select* from order_items oi join product p on oi.product_id=p.id where order_id =1;
-select * from orders  where user_email = 'abc';
-select  * from order_items oi join product p on oi.product_id=p.id where order_id =2;
+select* from order_items oi join product p on oi.product_id=p.id where order_id =13;
+select * from orders o join customer c on o.customer_id = c.id  where o.id =13;
+select  * from order_items oi join product p on oi.product_id=p.id where order_id =11;
 insert into orders(user_email,totalprice,status,created_at) values ('abc',1000,1,now());
 insert into order_items(order_id,product_id,quantity,totalprice) values (2,6,6,900000);
 
@@ -215,7 +225,7 @@ select * from users;
 insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','a1','1',1,3,now());
 
 select * from role;
-delete from users where role_id ='3';
+
 insert into role values('1','ADMIN','ADMIN',now(),null);
 insert into role  values(3,'USER','USER',now(),null);
 select * from users u inner join role r on r.id=u.role_id ;

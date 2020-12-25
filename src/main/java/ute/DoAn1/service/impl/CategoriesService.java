@@ -23,4 +23,9 @@ public class CategoriesService implements ICategoriesService {
 		return categoryDao.findAllC(category_id);
 	}
 
+	@Override
+	public List<CategoriesModel> findAll() {
+		return categoryDao.findAll();
+	}
+
 }

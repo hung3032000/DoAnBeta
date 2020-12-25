@@ -23,7 +23,7 @@
 					src="${pageContext.request.contextPath}/image/logo.svg"
 					alt="HomieReal" />
 				</a>
-				
+
 			</h1>
 		</div>
 		<div class="header-right-container">
@@ -59,7 +59,7 @@
 					</li>
 				</ul>
 			</c:if>
-			
+
 			<c:if test="${empty USERMODEL}">
 				<ul class="header-links" role="presentation">
 					<li class="level-1 account-nav header-link" id="signin"><a
@@ -78,8 +78,8 @@
 										data-requiredtext="Please enter your e-mail address &lt;span class=&quot;format&gt;(format: email@domain.fr)&lt;/span&gt;"
 										data-regexinvalidmessage="">
 										<c:if test="${not empty message}">
-										<div class="error">${message}</div>
-									</c:if>
+											<div class="error">${message}</div>
+										</c:if>
 										<label class="form-label"
 											for="dwfrm_login_username_d0avwwudscur">E-mail
 											address *</label>
@@ -91,8 +91,7 @@
 
 									</div>
 									<!--  form-row--error -->
-									<div
-										class="form-row password form-auto required empty"
+									<div class="form-row password form-auto required empty"
 										data-requiredtext="Please enter your password"
 										data-regexinvalidmessage="">
 										<label class="form-label"
@@ -128,15 +127,17 @@
 						</div></li>
 				</ul>
 			</c:if>
-			<div class="minicart empty-cart" <c:if test="${order.totalProduct != null}">id="minicartnotempty"</c:if>>
+			<div class="minicart empty-cart"
+				<c:if test="${order.totalProduct != null}">id="minicartnotempty"</c:if>>
 				<a class="minicart-link empty-cart" href="#"
 					aria-label="View Your Cart"> <span class="icon_Bag"
-					title="View Your Cart"><c:if test="${order.totalProduct != null}">${order.totalProduct}</c:if></span>
+					title="View Your Cart"><c:if
+							test="${order.totalProduct != null}">${order.totalProduct}</c:if></span>
 				</a>
 				<c:if test="${order.totalProduct == null}">
-				<div class="minicart-content">		
-					<p>Your cart is empty</p>
-				</div>
+					<div class="minicart-content">
+						<p>Your cart is empty</p>
+					</div>
 				</c:if>
 			</div>
 			<div class="search-link-container" role="search">
@@ -177,131 +178,129 @@
 
 	<!-- Navigation -->
 	<nav class="navigation">
-		<ul class="level-1">	
-		<c:forEach var="item" items="${category.listResult}">
+		<ul class="level-1">
+			<c:forEach var="item" items="${category.listResult}">
 
-			<li class="level-1 " id="${item.name}">
-			
-			<a
-				class="level-1 navigation-hasSubMenu"
-				href="${pageContext.request.contextPath}/user-category?parent_id=${item.id}"> <span>${item.name} ${item.id}</span>
-			</a>
-				<div class="level-2">
-					<div class="container">
+				<li class="level-1 " id="${item.name}"><a
+					class="level-1 navigation-hasSubMenu"
+					href="${pageContext.request.contextPath}/user-category?parent_id=${item.id}">
+						<span>${item.name} ${item.id}</span>
+				</a>
+					<div class="level-2">
+						<div class="container">
 
-						<a href="" class="level-2 back">${item.id}</a>
-						<ul class="level-2 row">
-							<li class="first-col col-xs-6 col-sm-12 col-md-3 col-md-margin-1">
-								<p>
-									<span> <a href="#"
-										style="padding: 0; border-bottom: 0; line-height: 1;"> <img
-											alt="Givenchy Antigona Soft"
-											src="${pageContext.request.contextPath}/image/Winter20_FlyOut_Women2.jpg"
-											title="" />
-									</a>
-									</span>
-								</p>
-							</li>
-							<li class="level-2 col-sm-3 col-md-2 " id="NEW_ARRIVALS_W">
-								<a class="level-2 navigation-hasSubMenu" href="#"> <span>${item.id}</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">New Arrivals</a>
-									<ul class="level-3">
-										<li class="level-3 " id="Gift_selection_W"><a
-											class="level-3" href="#"> Gifts for Her </a></li>
-										<li class="level-3 " id="New_In_W"><a class="level-3"
-											href="#"> New In </a></li>
-										<li class="level-3 " id="NI_ANTIGONA_W"><a
-											class="level-3" href="#"> Antigona Celebration </a></li>
-										<li class="level-3 " id="Microbags_W"><a class="level-3"
-											href="#"> Micro Bags </a></li>
-									</ul>
-								</div>
-							</li>
-							<li class="level-2 col-sm-3 col-md-2 " id="RTW_W"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Ready-to-wear</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Ready-to-wear</a>
-									<ul class="level-3">
-										<li class="level-3 " id="Evening_dresses_W"><a
-											class="level-3" href="#"> Evening dresses </a></li>
-										<li class="level-3 " id="DAY_DRESS_W"><a class="level-3"
-											href="#"> Day dresses </a></li>
-										<li class="level-3 " id="JACKETS_W"><a class="level-3"
-											href="#"> Jackets </a></li>
-									</ul>
-								</div></li>
-							<li class="level-2 col-sm-3 col-md-2 " id="BAGS_W"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Bags</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Bags</a>
-									<ul class="level-3">
-										<li class="level-3 " id="ALL_BAGS"><a class="level-3"
-											href="#"> All Bags </a></li>
-										<li class="level-3 " id="HANDBAG_W"><a class="level-3"
-											href="#"> Handbags </a></li>
+							<a href="" class="level-2 back">${item.id}</a>
+							<ul class="level-2 row">
+								<li
+									class="first-col col-xs-6 col-sm-12 col-md-3 col-md-margin-1">
+									<p>
+										<span> <a href="#"
+											style="padding: 0; border-bottom: 0; line-height: 1;"> <img
+												alt="Givenchy Antigona Soft"
+												src="${pageContext.request.contextPath}/image/Winter20_FlyOut_Women2.jpg"
+												title="" />
+										</a>
+										</span>
+									</p>
+								</li>
+								<li class="level-2 col-sm-3 col-md-2 " id="NEW_ARRIVALS_W">
+									<a class="level-2 navigation-hasSubMenu" href="#"> <span>${item.id}</span>
+								</a>
+									<div class="level-3">
+										<a href="" class="level-3 back">New Arrivals</a>
+										<ul class="level-3">
+											<li class="level-3 " id="Gift_selection_W"><a
+												class="level-3" href="#"> Gifts for Her </a></li>
+											<li class="level-3 " id="New_In_W"><a class="level-3"
+												href="#"> New In </a></li>
+											<li class="level-3 " id="NI_ANTIGONA_W"><a
+												class="level-3" href="#"> Antigona Celebration </a></li>
+											<li class="level-3 " id="Microbags_W"><a class="level-3"
+												href="#"> Micro Bags </a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="level-2 col-sm-3 col-md-2 " id="RTW_W"><a
+									class="level-2 navigation-hasSubMenu" href="#"> <span>Ready-to-wear</span>
+								</a>
+									<div class="level-3">
+										<a href="" class="level-3 back">Ready-to-wear</a>
+										<ul class="level-3">
+											<li class="level-3 " id="Evening_dresses_W"><a
+												class="level-3" href="#"> Evening dresses </a></li>
+											<li class="level-3 " id="DAY_DRESS_W"><a class="level-3"
+												href="#"> Day dresses </a></li>
+											<li class="level-3 " id="JACKETS_W"><a class="level-3"
+												href="#"> Jackets </a></li>
+										</ul>
+									</div></li>
+								<li class="level-2 col-sm-3 col-md-2 " id="BAGS_W"><a
+									class="level-2 navigation-hasSubMenu" href="#"> <span>Bags</span>
+								</a>
+									<div class="level-3">
+										<a href="" class="level-3 back">Bags</a>
+										<ul class="level-3">
+											<li class="level-3 " id="ALL_BAGS"><a class="level-3"
+												href="#"> All Bags </a></li>
+											<li class="level-3 " id="HANDBAG_W"><a class="level-3"
+												href="#"> Handbags </a></li>
 
-									</ul>
-									<ul class="level-4">
-										<li class="level-4"><a class="level-4" href="#">
-												Antigona </a></li>
-										<li class="level-4"><a class="level-4" href="#"> Bond
-										</a></li>
+										</ul>
+										<ul class="level-4">
+											<li class="level-4"><a class="level-4" href="#">
+													Antigona </a></li>
+											<li class="level-4"><a class="level-4" href="#">
+													Bond </a></li>
 
-									</ul>
-								</div></li>
-							<li class="level-2 col-sm-3 col-md-2 " id="SHOES_W"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Shoes</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Shoes</a>
-									<ul class="level-3">
-										<li class="level-3 " id="SNEAKERS_W"><a class="level-3"
-											href="#"> Sneakers </a></li>
-										<li class="level-3 " id="FLATS_W"><a class="level-3"
-											href="#"> Flats </a></li>
-										<li class="level-3 " id="BOOTS_W"><a class="level-3"
-											href="#"> Boots &amp; Booties </a></li>
-										<li class="level-3 " id="SANDALS_PUMPS_W"><a
-											class="level-3" href="#"> High Heels </a></li>
-									</ul>
-								</div></li>
-							<li class="level-2 col-sm-3 col-md-2 " id="ACC_W"><a
-								class="level-2 navigation-hasSubMenu" href="#"> <span>Accessories</span>
-							</a>
-								<div class="level-3">
-									<a href="" class="level-3 back">Accessories</a>
-									<ul class="level-3">
-										<li class="level-3 " id="POUCH_W"><a class="level-3"
-											href="#"> Pouches </a></li>
+										</ul>
+									</div></li>
+								<li class="level-2 col-sm-3 col-md-2 " id="SHOES_W"><a
+									class="level-2 navigation-hasSubMenu" href="#"> <span>Shoes</span>
+								</a>
+									<div class="level-3">
+										<a href="" class="level-3 back">Shoes</a>
+										<ul class="level-3">
+											<li class="level-3 " id="SNEAKERS_W"><a class="level-3"
+												href="#"> Sneakers </a></li>
+											<li class="level-3 " id="FLATS_W"><a class="level-3"
+												href="#"> Flats </a></li>
+											<li class="level-3 " id="BOOTS_W"><a class="level-3"
+												href="#"> Boots &amp; Booties </a></li>
+											<li class="level-3 " id="SANDALS_PUMPS_W"><a
+												class="level-3" href="#"> High Heels </a></li>
+										</ul>
+									</div></li>
+								<li class="level-2 col-sm-3 col-md-2 " id="ACC_W"><a
+									class="level-2 navigation-hasSubMenu" href="#"> <span>Accessories</span>
+								</a>
+									<div class="level-3">
+										<a href="" class="level-3 back">Accessories</a>
+										<ul class="level-3">
+											<li class="level-3 " id="POUCH_W"><a class="level-3"
+												href="#"> Pouches </a></li>
 
-										<li class="level-3 " id="TechOther_W"><a class="level-3"
-											href="#"> Other Accessories </a></li>
-									</ul>
-								</div></li>
-						</ul>
-					</div>
-				</div></li>
+											<li class="level-3 " id="TechOther_W"><a class="level-3"
+												href="#"> Other Accessories </a></li>
+										</ul>
+									</div></li>
+							</ul>
+						</div>
+					</div></li>
 			</c:forEach>
 		</ul>
 	</nav>
 
-		
+
 	<c:forEach var="item" items="${category.listResult}">
-			<script type="text/javascript">
-		  $("#${item.name}").hover(function () {
-			    if ($("#${item.name}").hasClass("hover")) {
-			      $("#${item.name}").removeClass("hover");
-			    } else {
-			      $("#${item.name}").addClass("hover");
-			    }
-			  });
+		<script type="text/javascript">
+			$("#${item.name}").hover(function() {
+				if ($("#${item.name}").hasClass("hover")) {
+					$("#${item.name}").removeClass("hover");
+				} else {
+					$("#${item.name}").addClass("hover");
+				}
+			});
 		</script>
 	</c:forEach>
-	<script type="text/javascript">
 
-		</script>
 </header>

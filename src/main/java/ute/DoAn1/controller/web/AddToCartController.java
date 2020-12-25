@@ -53,9 +53,6 @@ public class AddToCartController extends HttpServlet {
 		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
-		// String action = "deleteCart";
-		// request.getParameter("action");
-
 		// load toan bo san pham
 		String product_id = request.getParameter("product_id");
 		ProductModel product = FormUtil.toModel(ProductModel.class, request);
@@ -66,13 +63,13 @@ public class AddToCartController extends HttpServlet {
 		productI.setListResult(IproductI.findAll(product_id));
 		request.setAttribute("image", productI);
 		// delete
+		String page = request.getParameter("page");
 		String action = request.getParameter("action");
 		// addToCart
 		int quantity = 1;
-		int totalProduct =0;
-		long totalPrice=0;
+		int totalProduct = 0;
+		long totalPrice = 0;
 		request.setAttribute("product_id", product_id);
-		/* if (action != null && action.equals("updateCart")) { */
 		if (product_id != null) {
 
 			if (product != null) {
@@ -80,18 +77,27 @@ public class AddToCartController extends HttpServlet {
 				if (action != null && action.equals("delete")) {
 					CartModel order = (CartModel) SessionUtil.getInstance().getValue(request, "order");
 					List<OrderItemsModel> listItems = order.getListResult();
-					for (OrderItemsModel item : listItems) {
-						if (item.getProduct().getId() == product.getId()) {
-							listItems.remove(item);
+					for (int i = 0; i < listItems.size(); i++) {
+						if (listItems.get(i).getProduct().getId() == product.getId()) {
+							listItems.remove(i);
 						}
 					}
 
-					SessionUtil.getInstance().putValue(request, "order", order);
-				}
-
-				else {
+					for (OrderItemsModel item : listItems) {
+						totalProduct += item.getQuantity();
+						totalPrice += item.getTotalPrice() * item.getQuantity();
+					}
+					order.setListResult(listItems);
+					order.setTotalPrice(totalPrice);
+					order.setTotalProduct(totalProduct);
+					if (order.getListResult().size() != 0) {
+						SessionUtil.getInstance().putValue(request, "order", order);
+					} else {
+						SessionUtil.getInstance().removeValue(request, "order");
+					}
+				} else {
 					if (SessionUtil.getInstance().getValue(request, "order") == null) {
-					
+
 						CartModel order = FormUtil.toModel(CartModel.class, request);
 						OrderItemsModel item = FormUtil.toModel(OrderItemsModel.class, request);
 
@@ -115,7 +121,6 @@ public class AddToCartController extends HttpServlet {
 							if (item.getProduct().getId() == product.getId()) {
 								item.setQuantity(item.getQuantity() + quantity);
 
-			
 								check = true;
 							}
 						}
@@ -130,7 +135,7 @@ public class AddToCartController extends HttpServlet {
 						}
 						for (OrderItemsModel item : listItems) {
 							totalProduct += item.getQuantity();
-							totalPrice += item.getTotalPrice()*item.getQuantity();
+							totalPrice += item.getTotalPrice() * item.getQuantity();
 						}
 						order.setTotalPrice(totalPrice);
 						order.setTotalProduct(totalProduct);
@@ -141,15 +146,16 @@ public class AddToCartController extends HttpServlet {
 				}
 
 			}
-		}
-		/*
-		 * } else if (action != null && action.equals("deleteCart")){
-		 * SessionUtil.getInstance().removeValue(request, "order");
-		 * response.sendRedirect(request.getContextPath() + "/user-cart"); }
-		 */
 
-		RequestDispatcher rd = request.getRequestDispatcher("/views/web/productin4.jsp");
-		rd.forward(request, response);
+		}
+		if (page != null && page.equals("usercart")) {
+			RequestDispatcher rd = request.getRequestDispatcher("/views/web/usercart.jsp");
+			rd.forward(request, response);
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/views/web/productin4.jsp");
+			rd.forward(request, response);
+		}
+
 	}
 
 	/**

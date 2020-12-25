@@ -21,8 +21,12 @@ public class OrderService implements IOrderService {
         return orderDAO.findOne(order_id);
 	}
 	@Override
-	public List<OrderModel> findAll(String user_email) {
-		return orderDAO.findAll(user_email);
+	public List<OrderModel> findAllE(String user_email) {
+		return orderDAO.findAllE(user_email);
+	}
+	@Override
+	public List<OrderModel> findAll() {
+		return orderDAO.findAll();
 	}
 
 

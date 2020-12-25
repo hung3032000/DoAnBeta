@@ -50,7 +50,7 @@ public class OrderDetail extends HttpServlet {
 		UserModel user = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
 		String user_email = user.getEmail();
 		OrderModel order = FormUtil.toModel(OrderModel.class, request);
-		order.setListResult(IOrder.findAll(user_email));
+		order.setListResult(IOrder.findAllE(user_email));
 		request.setAttribute("order2", order);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/order.jsp");

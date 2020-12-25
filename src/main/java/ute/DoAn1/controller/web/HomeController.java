@@ -95,6 +95,9 @@ public class HomeController extends HttpServlet {
 						request.getContextPath() + "/login?action=login&message=username_password_invalid&alert=error");
 			}
 		}
+		else {
+			response.sendRedirect(request.getContextPath() + "/trang-chu");
+		}
 
 	}
 

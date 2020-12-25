@@ -195,7 +195,7 @@
 											<li class="item-name">
 												<h3>
 													<a
-														href="https://www.givenchy.com/us/en-US/3665963985763.html"
+														href="#"
 														title="Discover your future GIVENCHY Schematics oversized T-shirt">
 														${item.product.name} </a>
 												</h3>

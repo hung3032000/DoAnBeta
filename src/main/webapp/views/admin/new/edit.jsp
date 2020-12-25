@@ -19,7 +19,7 @@
                     <a href="#">Trang chủ</a>
                 </li>
                 <li class="active">Chỉnh sửa bài viết</li>
-            </ul><!-- /.breadcrumb -->
+            </ul>
         </div>
         <div class="page-content">
             <div class="row">

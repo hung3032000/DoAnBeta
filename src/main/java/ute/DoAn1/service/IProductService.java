@@ -8,4 +8,5 @@ public interface IProductService {
 	List<ProductModel> findAllC(String category_id, Integer offset, Integer limit);
 	int getTotalItem(String category_id);
 	ProductModel findOne(String product_id);
+	List<ProductModel> findAll();
 }
