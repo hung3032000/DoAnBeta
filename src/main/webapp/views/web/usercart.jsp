@@ -166,8 +166,8 @@
 									</div>
 								</div>
 								<form class="cart-action-checkout"
-									action="${pageContext.request.contextPath}/user-checkout"
-									method="post" name="dwfrm_cart_d0aioieowxvk" id="checkout-form"
+									action="${pageContext.request.contextPath}/user-checkoutinf"
+									method="post" name="dwfrm_cart_d0aioieowxvk" id="checkoutinf-form"
 									data-checkout-step="null" novalidate="novalidate">
 									<fieldset>
 										<legend class="visually-hidden">Order</legend>

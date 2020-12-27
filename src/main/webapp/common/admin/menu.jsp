@@ -36,8 +36,8 @@
 	</div>
 	<ul class="nav nav-list">
 		<li><a href="#" class="dropdown-toggle"> <i
-				class="menu-icon fa fa-list"></i> <span class="menu-text"></span>
-				Users Management <b class="arrow fa fa-angle-down"></b>
+				class="menu-icon fa fa-list"></i> <span class="menu-text">Users
+					Management</span> <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
 				<li><a href='<c:url value="/admin-User"/>'> <i
@@ -45,8 +45,8 @@
 				</a> <b class="arrow"></b></li>
 			</ul></li>
 		<li><a href="#" class="dropdown-toggle"> <i
-				class="menu-icon fa fa-list"></i> <span class="menu-text"></span>
-				Categories Management <b class="arrow fa fa-angle-down"></b>
+				class="menu-icon fa fa-list"></i> <span class="menu-text">Categories
+					Management </span> <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
 				<li><a href='<c:url value="/admin-Category"/>'> <i
@@ -55,34 +55,34 @@
 			</ul></li>
 
 		<li><a href="#" class="dropdown-toggle"> <i
-				class="menu-icon fa fa-list"></i> <span class="menu-text"></span>
-				Role Management <b class="arrow fa fa-angle-down"></b>
+				class="menu-icon fa fa-list"></i> <span class="menu-text">Role
+					Management</span> <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
 				<li><a href='<c:url value="/admin-Role"/>'> <i
 						class="menu-icon fa fa-caret-right"></i> List Role
 				</a> <b class="arrow"></b></li>
 			</ul></li>
-			
+
 		<li><a href="#" class="dropdown-toggle"> <i
-				class="menu-icon fa fa-list"></i> <span class="menu-text"></span>
-				Products Management <b class="arrow fa fa-angle-down"></b>
+				class="menu-icon fa fa-list"></i> <span class="menu-text">Products
+					Management</span> <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
 				<li><a href='<c:url value="/admin-Product"/>'> <i
 						class="menu-icon fa fa-caret-right"></i> List Products
 				</a> <b class="arrow"></b></li>
-		</ul></li>
+			</ul></li>
 		<li><a href="#" class="dropdown-toggle"> <i
-				class="menu-icon fa fa-list"></i> <span class="menu-text"></span>
-				Orders Management <b class="arrow fa fa-angle-down"></b>
+				class="menu-icon fa fa-list"></i> <span class="menu-text">Orders
+					Management</span> <b class="arrow fa fa-angle-down"></b>
 		</a> <b class="arrow"></b>
 			<ul class="submenu">
 				<li><a href='<c:url value="/admin-Order"/>'> <i
 						class="menu-icon fa fa-caret-right"></i> List Orders
 				</a> <b class="arrow"></b></li>
-		</ul></li>
-			
+			</ul></li>
+
 	</ul>
 	<div class="sidebar-toggle sidebar-collapse">
 		<i class="ace-icon fa fa-angle-double-left ace-save-state"

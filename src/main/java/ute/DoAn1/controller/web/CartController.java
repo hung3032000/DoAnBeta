@@ -45,7 +45,10 @@ public class CartController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		// Tra ve toan bo danh muc
+		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
+		category.setListResult(Icategory.findAllP());
+		request.setAttribute("category", category);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/usercart.jsp");
 		rd.forward(request, response);
 	}

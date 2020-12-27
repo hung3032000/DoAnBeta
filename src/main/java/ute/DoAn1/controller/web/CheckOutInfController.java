@@ -47,9 +47,8 @@ public class CheckOutInfController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.sendRedirect(
-				request.getContextPath() + "/user-checkout");
+		//load category
+		doGet(request, response);
 	}
 
 }
