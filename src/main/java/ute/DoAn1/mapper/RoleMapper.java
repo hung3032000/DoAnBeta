@@ -16,7 +16,6 @@ public class RoleMapper implements RowMapper<RoleModel>{
 			role.setName(resultSet.getString("name"));
 			role.setCreated_at(resultSet.getTimestamp("created_at"));
 			role.setUpdated_at(resultSet.getTimestamp("updated_at"));
-			
 			return role;
 		} catch (SQLException e) {
 			return null;

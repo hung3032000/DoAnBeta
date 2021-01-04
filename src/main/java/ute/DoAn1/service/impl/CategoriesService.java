@@ -28,4 +28,20 @@ public class CategoriesService implements ICategoriesService {
 		return categoryDao.findAll();
 	}
 
+	@Override
+	public CategoriesModel save(CategoriesModel categoriesModel) {
+		Long newcategory = categoryDao.save(categoriesModel);
+		return categoryDao.findOne(newcategory);
+	}
+
+	@Override
+	public CategoriesModel findOne(long category_id) {
+		return categoryDao.findOne(category_id);
+	}
+
+	@Override
+	public void update(CategoriesModel categoriesModel) {
+		categoryDao.update(categoriesModel);
+	}
+
 }

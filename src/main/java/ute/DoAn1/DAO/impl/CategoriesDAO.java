@@ -10,7 +10,7 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
 
 	@Override
 	public List<CategoriesModel> findAllP() {
-		String sql = "SELECT * FROM categories where parent_id = 0;";
+		String sql = "SELECT * FROM categories where parent_id = 1 and id > 1;";
 		return query(sql, new CategoriesMapper());
 	}
 
@@ -25,5 +25,26 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
 		String sql = "SELECT * FROM categories;";
 		return query(sql, new CategoriesMapper());
 	}
+
+	@Override
+	public Long save(CategoriesModel categoriesModel) {
+		String sql = "insert into categories(name,parent_id,image,created_at) values(?,?,?,now());";
+		return insert(sql, categoriesModel.getName(),categoriesModel.getParent_id(),categoriesModel.getImage());
+	}
+
+	@Override
+	public CategoriesModel findOne(long categoryid) {
+		String sql = "SELECT * FROM categories where id = ?;";
+		List<CategoriesModel> category = query(sql, new CategoriesMapper(), categoryid);
+		return category.isEmpty() ? null : category.get(0);
+	}
+
+	@Override
+	public void update(CategoriesModel categoriesModel) {
+		String sql = "update categories set name=?, parent_id=?,image=?,updated_at=now() where id =?;";
+		this.update(sql,categoriesModel.getName(),categoriesModel.getParent_id(),categoriesModel.getImage(),categoriesModel.getId());
+		
+	}
+	
 
 }

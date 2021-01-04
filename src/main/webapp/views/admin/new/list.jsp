@@ -124,7 +124,7 @@
 											<a flag="info"
 												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
 												data-toggle="tooltip" title='Thêm Mới'
-												href='<c:url value="/admin-CategoryNew?type=edit"/>'> <span>
+												href='<c:url value="/admin-CategoryNew"/>'> <span>
 													<i class="fa fa-plus-circle bigger-110 purple"></i>
 											</span>
 											</a>
@@ -160,20 +160,20 @@
 														<td>${item.image}</td>
 														<td>${item.created_at}</td>
 														<td>${item.updated_at}</td>
-														<td><c:url var="editURL" value="/admin-Category">
+														<td><c:url var="editURL" value="/admin-CategoryNew">
 																	<c:param name="action" value="detail" />
-																	<c:param name="email" value="${item.id}" />
+																	<c:param name="Categoryid" value="${item.id}" />
 																</c:url> <a class="btn btn-sm btn-primary btn-edit"
-																data-toggle="tooltip" title="Edit User"
+																data-toggle="tooltip" title="Edit Category"
 																href='${editURL}'><i class="fa fa-pencil-square-o"
 																	aria-hidden="true"></i> </a> 
 																<c:url var="editURL" value="/admin-Category">
 
 																	<c:param name="action" value="delete" />
-																	<c:param name="email" value="${item.id}" />
+																	<c:param name="Categoryid" value="${item.id}" />
 																</c:url> <a
 																class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-																data-toggle="tooltip" title="Delete User"
+																data-toggle="tooltip" title="Delete Category"
 																href='${editURL}'><i
 																	class="fa fa-trash-o bigger-110 pink"
 																	aria-hidden="true"></i> </a></td>

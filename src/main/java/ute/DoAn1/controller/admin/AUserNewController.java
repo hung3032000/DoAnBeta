@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ute.DoAn1.constant.SystemConstant;
+import ute.DoAn1.model.RoleModel;
 import ute.DoAn1.model.UserModel;
+import ute.DoAn1.service.impl.RoleService;
 import ute.DoAn1.service.impl.UserService;
 import ute.DoAn1.utils.FormUtil;
 
@@ -35,6 +37,8 @@ public class AUserNewController extends HttpServlet {
 
 	@Inject
 	UserService userService = new UserService();
+	@Inject
+	RoleService roleService = new RoleService();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -74,6 +78,10 @@ public class AUserNewController extends HttpServlet {
 			UserModel model = FormUtil.toModel(UserModel.class, request);
 			model = userService.findOne(email);
 			request.setAttribute(SystemConstant.MODEL, model);
+			RoleModel role = FormUtil.toModel(RoleModel.class, request);
+			role.setListResult(roleService.findAll());
+			request.setAttribute("role", role);
+
 			if(model.getDateOfBirth() != null) {
 			Date birthDate = model.getDateOfBirth();
 			LocalDate birth = birthDate.toLocalDate();
@@ -114,6 +122,9 @@ public class AUserNewController extends HttpServlet {
 		}
 
 		else {
+			RoleModel role = FormUtil.toModel(RoleModel.class, request);
+			role.setListResult(roleService.findAll());
+			request.setAttribute("role", role);
 			RequestDispatcher rd = request.getRequestDispatcher("/views/admin/new/editUser.jsp");
 			rd.forward(request, response);
 		}

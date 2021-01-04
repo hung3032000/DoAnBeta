@@ -13,7 +13,7 @@ CREATE TABLE `product_image` (
 CREATE TABLE `categories` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
-  `parent_id` int,
+  `parent_id` bigint,
   `image` varchar(255),
   `created_at` timestamp,
   `updated_at` timestamp
@@ -31,16 +31,18 @@ CREATE TABLE `menus` (
 
 CREATE TABLE `product` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` varchar(255),
-  `price` int,
-  `quantity` int,
-  `origin` varchar(255),
+  `name` varchar(255) DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `color` varchar(255) DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  `origin` varchar(255) DEFAULT NULL,
   `shortdecription` text,
-  `content` varchar(255),
-  `user_email` varchar(255) NOT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `categorie_id` bigint NOT NULL,
-  `created_at` timestamp,
-  `updated_at` timestamp
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 );
 
 CREATE TABLE `order_items` (
@@ -53,9 +55,12 @@ CREATE TABLE `order_items` (
 
 CREATE TABLE `orders` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `user_email` varchar(255) NOT NULL,
-  `status` varchar(255),
-  `created_at` timestamp
+  `user_email` varchar(255),
+  `customer_id` bigint DEFAULT NULL,
+  `totalprice` bigint DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 );
 
 CREATE TABLE `sliders` (
@@ -99,7 +104,7 @@ CREATE TABLE `users` (
 );
 CREATE TABLE `customer` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `user_email` varchar(255) NOT NULL COLLATE utf8mb4_0900_ai_ci ,
+  `user_email` varchar(255) NOT NULL,
   `title` varchar(255),
   `fname` varchar(255),
   `lname` varchar(255),
@@ -108,7 +113,7 @@ CREATE TABLE `customer` (
   `created_at` timestamp,
   `updated_at` timestamp
 );
-
+-- COLLATE utf8mb4_0900_ai_ci
 ALTER TABLE `order_items` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 ALTER TABLE `order_items` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
@@ -122,8 +127,6 @@ ALTER TABLE `users` ADD FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 
 ALTER TABLE `orders` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
-ALTER TABLE `product` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
-
 ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
 ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
@@ -131,6 +134,8 @@ ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email
 ALTER TABLE `orders` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
 ALTER TABLE `orders` ADD FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
+
+ALTER TABLE `categories` ADD FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`);
 -- querry +test querry 
 use dack;
 
@@ -158,8 +163,8 @@ ALTER TABLE orders MODIFY
 
       COLLATE utf8mb4_0900_ai_ci;
 alter table orders add column customer_id bigint after user_email;
-ALTER TABLE users
-MODIFY COLUMN dayofbirth date;
+ALTER TABLE categories
+MODIFY COLUMN parent_id bigint;
 
 select * from customer;
 
@@ -168,23 +173,26 @@ insert into customer(user_email,title,fname,lname,address,phone,created_at) valu
 
 select * from orders o, order_items oi, customer c where o.id =3;
 
+delete from categories where id = 2;
+select id from categories where parent_id = 2;
+select count(*) from categories where parent_id = 2;
 
 
 -- category
 select * from categories;
-insert into categories(name,parent_id,created_at) values('HungMoiThem',0,now());
-insert into categories(name,parent_id,created_at) values('Men',0,now());
-insert into categories(name,parent_id,created_at) values('Collection',0,now());
-insert into categories(name,parent_id,created_at) values('Test',0,now());
+insert into categories(name,parent_id,created_at) values('Parent',1,now());
+insert into categories(name,parent_id,created_at) values('Men4',2,now());
+insert into categories(name,parent_id,created_at) values('Collection',1,now());
+insert into categories(name,parent_id,created_at) values('Women',1,now());
 insert into categories(name,parent_id,created_at) values('Themmoiday',0,now());
 insert into categories(name,parent_id,created_at) values('Themmoiday2',4,now());
 update categories set parent_id='0' where id =8;
-insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','1','image/Collection-Land-Desktop.jpg',now());
+insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','3','image/Collection-Land-Desktop.jpg',now());
 insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','2','image/Collection-Land-Desktop.jpg',now());
 update categories set image='image/Full_WFW20show_Desktop.jpg' where id =7;
 update categories set parent_id =3 where id = 11;
 -- select * from product_image;
-SELECT * FROM categories where parent_id= '2';
+SELECT * FROM categories where parent_id =1 and id > 1;
 
 insert into product_image(image,product_id,created_at) values ('image/BM710P3002055-02-07.jpg',9,now());
 select * from product p inner join product_image pi on p.id=pi.product_id ;
@@ -194,11 +202,11 @@ SELECT * FROM product_image where product_id =9;
 
 
 -- product
-use dack;
 
+use dack;
 select * from product where id =9 ;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
-														smooth leather','245000','New','image/BM710P3002055-02-02.jpg','5',date(now()));
+														smooth leather','245000','New','image/BM710P3002055-02-02.jpg','6',date(now()));
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
 update product set categorie_id = 10 where id=4;
 select * from categories where parent_id ='1';
@@ -206,7 +214,7 @@ select date(now());
 update product set origin = 'VietNam6',shortdecription='6 Long-sleeved T-shirt in
 												light heather gray jersey with red Homieeeeee signature on the
 												chest, and black Schematics prints on the front and sleeves.' where id=1;
-update product set size = 'XL', color ='Grey', quantity =100 where id = 9;
+update product set size = 'XL', color ='Grey', quantity =100 where id = 1;
 alter table orders add column updated_at timestamp after created_at;
 ALTER TABLE orders
 MODIFY COLUMN totalprice bigint;
@@ -224,12 +232,11 @@ select * from orders;
 
 
 
-
 -- users done
 insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','hung1','a','1',1,1,now());
 select * from users where email='a' and password=1 and status=1;
 select * from users;
-insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','a1','1',1,3,now());
+insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','abc','1',1,3,now());
 
 select * from role;
 update users set title= 'Mr.' ,fname= 'abc' ,lname= 'abc',password ='1',address = '', status = 0 ,updated_at = now() where email = 'asdhajks@gmail.com';

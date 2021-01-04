@@ -223,7 +223,6 @@ if (daySelected == null) {
 								<div class="col-sm-9">
 									<select class="form-control" id="status" name="status">
 										<c:if test="${empty model.status}">
-											<option value="">Role</option>
 											<option class="form-selectOption" label="Active" value="1">Active
 											</option>
 											<option class="form-selectOption" label="Inactive" value="0">Inactive
@@ -238,10 +237,14 @@ if (daySelected == null) {
 												<c:if test="${model.status == 1}">Active</c:if>
 												<c:if test="${model.status == 0}">Inactive</c:if>
 											</option>
+											<c:if test="${model.status == 0}">
 											<option class="form-selectOption" label="Active" value="1">Active
 											</option>
+											</c:if>
+											<c:if test="${model.status == 1}">
 											<option class="form-selectOption" label="Inactive" value="0">Inactive
 											</option>
+											</c:if>
 										</c:if>
 									</select>
 								</div>
@@ -252,28 +255,20 @@ if (daySelected == null) {
 									ID</label>
 								<div class="col-sm-9">
 									<select class="form-control" id="roleid" name="roleid">
-										<c:if test="${empty model.roleId}">
-											<option value="">Role</option>
-											<option class="form-selectOption" label="User" value="3">User
-											</option>
-											<option class="form-selectOption" label="Admin" value="1">Admin
-											</option>
-
+								
+										<c:if test="${empty model.email}">
+											<c:forEach var="item" items="${role.listResult}">
+												<option value="${item.id}">${item.name}</option>
+											</c:forEach>
 										</c:if>
-										<c:if test="${not empty model.roleId}">
-											<option class="form-selectOption"
-												<c:if test="${model.roleId == 3}"> label="User"</c:if>
-												<c:if test="${model.roleId == 1}"> label="Admin"</c:if>
-												value="${model.roleId}">
-												<c:if test="${model.roleId == 1}">Admin</c:if>
-												<c:if test="${model.roleId == 3}">User</c:if>
-											</option>
-											<option class="form-selectOption" label="User" value="3">User
-											</option>
-											<option class="form-selectOption" label="Admin" value="1">Admin
-											</option>
-
-
+										
+										<c:if test="${not empty model.email}">
+									
+											<c:forEach var="item" items="${role.listResult}">
+												<option value="${item.id}"
+													<c:if test="${item.id == model.roleId}">selected="selected"</c:if>>
+													${item.name}</option>
+											</c:forEach>
 										</c:if>
 									</select>
 								</div>
@@ -302,57 +297,6 @@ if (daySelected == null) {
 			</div>
 		</div>
 	</div>
-	<!-- <script>
-	var editor = '';
-	$(document).ready(function(){
-		editor = CKEDITOR.replace( 'content');
-	});
-	
-    $('#btnAddOrUpdateNew').click(function (e) {
-        e.preventDefault();
-        var data = {};
-        var formData = $('#formSubmit').serializeArray();
-        $.each(formData, function (i, v) {
-            data[""+v.name+""] = v.value;
-        });
-        data["content"] = editor.getData();
-        var id = $('#id').val();
-        if (id == "") {
-            addNew(data);
-        } else {
-            updateNew(data);
-        }
-    });
-    function addNew(data) {
-        $.ajax({
-            url: '${APIurl}',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function (result) {
-            	window.location.href = "${NewURL}?type=edit&id="+result.id+"&message=insert_success";
-            },
-            error: function (error) {
-            	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
-            }
-        });
-    }
-    function updateNew(data) {
-        $.ajax({
-            url: '${APIurl}',
-            type: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function (result) {
-            	window.location.href = "${NewURL}?type=edit&id="+result.id+"&message=update_success";
-            },
-            error: function (error) {
-            	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
-            }
-        });
-    }
-</script> -->
+
 </body>
 </html>
