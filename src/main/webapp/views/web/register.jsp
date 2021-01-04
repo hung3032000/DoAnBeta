@@ -43,8 +43,7 @@
 													id="dwfrm_profile_customer_title" name="cus_title"
 													data-dwname="title" title="Title"
 													autocomplete="honorific-prefix" aria-required="true">
-													<option class="form-selectOption" label="Title" value="">Title
-													</option>
+										
 													<option class="form-selectOption" label="Mr." value="Mr.">Mr.
 													</option>
 													<option class="form-selectOption" label="Mrs." value="Mrs.">Mrs.</option>

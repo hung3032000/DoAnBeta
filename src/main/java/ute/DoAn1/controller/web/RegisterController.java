@@ -107,6 +107,8 @@ public class RegisterController extends HttpServlet {
 					model2.setlName(lname);
 					model2.setEmail(email);
 					model2.setPassWord(password);
+					model2.setRoleId(3);
+					model2.setStatus(1);
 					model2 = userService.save(model2);
 					if (model2 != null) {
 						response.sendRedirect(

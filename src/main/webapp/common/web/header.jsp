@@ -184,7 +184,7 @@
 				<li class="level-1 " id="${item.name}"><a
 					class="level-1 navigation-hasSubMenu"
 					href="${pageContext.request.contextPath}/user-category?parent_id=${item.id}">
-						<span>${item.name} ${item.id}</span>
+						<span>${item.name}</span>
 				</a>
 					<div class="level-2">
 						<div class="container">

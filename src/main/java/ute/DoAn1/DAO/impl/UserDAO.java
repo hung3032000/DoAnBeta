@@ -29,14 +29,15 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 	@Override
 	public String save(UserModel userModel) {
 		String sql = "insert into users (title,fname,lname,email,password,status,role_id,created_at) "
-				+ "values(?,?,?,?,?,1,3,now());";
-		return insertU(sql, userModel.getEmail(), userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getEmail(),userModel.getPassWord());
+				+ "values(?,?,?,?,?,?,?,now());";
+		return insertU(sql, userModel.getEmail(), userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getEmail(),userModel.getPassWord(),
+				userModel.getStatus(),userModel.getRoleId());
 	}
 
 	@Override
 	public void update(UserModel userModel) {
-		String sql = "update users set title= ? ,fname= ? ,lname= ?,address = ?, dayofbirth= ? ,updated_at = now() where email = ?;";
-		this.update(sql,userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getAddress(),userModel.getDateOfBirth(),userModel.getEmail());
+		String sql = "update users set title= ? ,fname= ? ,lname= ?,password =?,address = ?, dayofbirth= ?,status = ? ,updated_at = now() where email = ?;";
+		this.update(sql,userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getPassWord(),userModel.getAddress(),userModel.getDateOfBirth(),userModel.getStatus(),userModel.getEmail());
 	}
 
 	@Override

@@ -128,6 +128,8 @@ ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email
 
 ALTER TABLE `customer` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
 
+ALTER TABLE `orders` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`email`);
+
 ALTER TABLE `orders` ADD FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
 -- querry +test querry 
 use dack;
@@ -150,7 +152,11 @@ insert into orders(user_email,totalprice,status,created_at) values ('abc',1000,1
 insert into order_items(order_id,product_id,quantity,totalprice) values (2,6,6,900000);
 
 select * from users u ;
-update orders set customer_id=1 where id=3;
+
+ALTER TABLE orders MODIFY
+    user_email VARCHAR(255)
+
+      COLLATE utf8mb4_0900_ai_ci;
 alter table orders add column customer_id bigint after user_email;
 ALTER TABLE users
 MODIFY COLUMN dayofbirth date;
@@ -176,6 +182,7 @@ update categories set parent_id='0' where id =8;
 insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','1','image/Collection-Land-Desktop.jpg',now());
 insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','2','image/Collection-Land-Desktop.jpg',now());
 update categories set image='image/Full_WFW20show_Desktop.jpg' where id =7;
+update categories set parent_id =3 where id = 11;
 -- select * from product_image;
 SELECT * FROM categories where parent_id= '2';
 
@@ -225,7 +232,7 @@ select * from users;
 insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','a1','1',1,3,now());
 
 select * from role;
-
+update users set title= 'Mr.' ,fname= 'abc' ,lname= 'abc',password ='1',address = '', status = 0 ,updated_at = now() where email = 'asdhajks@gmail.com';
 insert into role values('1','ADMIN','ADMIN',now(),null);
 insert into role  values(3,'USER','USER',now(),null);
 select * from users u inner join role r on r.id=u.role_id ;

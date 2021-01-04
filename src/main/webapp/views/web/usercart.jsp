@@ -16,7 +16,7 @@
 
 
 				<!--  -->
-				<c:if test="${order.totalProduct == null}">
+				<c:if test="${empty order.totalProduct}">
 					<div class="page-header">
 						<h1>
 							<span class="title">Your cart</span>
@@ -37,7 +37,7 @@
 					</div>
 				</c:if>
 
-				<c:if test="${order.totalProduct != null}">
+				<c:if test="${not empty order.totalProduct}">
 					<div class="page-header">
 						<h1>
 							<span class="title">Your cart</span>

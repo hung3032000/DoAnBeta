@@ -154,7 +154,7 @@
                             <div class="grid-tile col-xs-5 col-sm-4 col-lg-4 double flatshot-3 category swiper-slide"
                                 aria-roledescription="slide">
                                 <a href="#">
-                                    <span class="text">
+                                    <span>
                                         Shop Boots &amp; Derbies
                                     </span>
                                     <picture class="">
@@ -165,7 +165,7 @@
                             <div class="grid-tile col-xs-5 col-sm-4 col-lg-4 double flatshot-3 category swiper-slide"
                                 aria-roledescription="slide">
                                 <a href="#">
-                                    <span class="text">
+                                    <span>
                                         Shop Sweatshirts
                                     </span>
                                     <picture class="">
@@ -176,7 +176,7 @@
                             <div class="grid-tile col-xs-5 col-sm-4 col-lg-4 double flatshot-3 category swiper-slide"
                                 aria-roledescription="slide">
                                 <a href="#">
-                                    <span class="text">
+                                    <span>
                                         Shop Sneakers
                                     </span>
                                     <picture class="">
