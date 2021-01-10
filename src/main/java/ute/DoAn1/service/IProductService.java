@@ -9,4 +9,9 @@ public interface IProductService {
 	int getTotalItem(String category_id);
 	ProductModel findOne(String product_id);
 	List<ProductModel> findAll();
+	ProductModel save(ProductModel productModel);
+	ProductModel findOne(long product_Id);
+	void update(ProductModel productModel);
+	void updateStatus(ProductModel productModel);
+	void delete(ProductModel productModel);
 }

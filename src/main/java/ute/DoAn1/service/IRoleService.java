@@ -6,4 +6,5 @@ import ute.DoAn1.model.RoleModel;
 
 public interface IRoleService {
 	List<RoleModel> findAll();
+	RoleModel findOne(String id);
 }

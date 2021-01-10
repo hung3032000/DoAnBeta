@@ -60,12 +60,12 @@ public class ACategoryNewController extends HttpServlet {
 			if (message2 != null && alert == null && ready != null && ready.equals("success")) {
 				request.setAttribute("message2", resourceBundle.getString(message2));
 				request.setAttribute("ready", ready);
-				RequestDispatcher rd = request.getRequestDispatcher("/views/admin/new/list.jsp");
-				rd.forward(request, response);
+				response.sendRedirect(request.getContextPath() + "/admin-Category");
+
 			}
 
 		} else if (action != null && action.equals("detail")) {
-			Integer parent_id = Integer.parseInt(request.getParameter("Categoryid"));
+			Integer parent_id = Integer.parseInt(request.getParameter("categoryId"));
 			CategoriesModel category2 = FormUtil.toModel(CategoriesModel.class, request);
 			category2 = Icategory.findOne(parent_id);
 			request.setAttribute(SystemConstant.MODEL, category2);
@@ -73,9 +73,17 @@ public class ACategoryNewController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/admin/new/editCategory.jsp");
 			rd.forward(request, response);
 
-		}
+		} else if (action != null && action.equals("delete")) {
+			Integer parent_id = Integer.parseInt(request.getParameter("categoryId"));
 
-		else {
+			CategoriesModel category2 = FormUtil.toModel(CategoriesModel.class, request);
+			category2 = Icategory.findOne(parent_id);
+			Icategory.delete(category2);
+
+			response.sendRedirect(request.getContextPath() + "/admin-Category");
+
+		} else {
+
 			RequestDispatcher rd = request.getRequestDispatcher("/views/admin/new/editCategory.jsp");
 			rd.forward(request, response);
 		}
@@ -91,6 +99,7 @@ public class ACategoryNewController extends HttpServlet {
 		String categoryName = request.getParameter("categoryName");
 		Integer parent_id = Integer.parseInt(request.getParameter("Categoryid"));
 		String image = request.getParameter("outputfile");
+		int status = Integer.parseInt(request.getParameter("status").trim());
 		String action = request.getParameter("action");
 		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 
@@ -98,6 +107,7 @@ public class ACategoryNewController extends HttpServlet {
 			category.setImage(image);
 			category.setParent_id(parent_id);
 			category.setName(categoryName);
+			category.setStatus(status);
 			category = Icategory.save(category);
 
 			if (category != null) {
@@ -108,15 +118,23 @@ public class ACategoryNewController extends HttpServlet {
 						request.getContextPath() + "/admin-CategoryNew?action=new&message=category_exist&alert=error");
 			}
 		} else if (action != null && action.equals("Edit Category")) {
-			Long id = Long.parseLong(request.getParameter("categoryid"));
-			category.setImage(image);
-			category.setParent_id(parent_id);
-			category.setId(id);
-			category.setName(categoryName);
-			Icategory.update(category);
+			if (image.equals("")) {
+				Long id = Long.parseLong(request.getParameter("categoryid"));
+				category.setParent_id(parent_id);
+				category.setId(id);// truyen id de sua
+				category.setName(categoryName);
+				Icategory.updateStatus(category);
+			} else {
+				Long id = Long.parseLong(request.getParameter("categoryid"));
+				category.setImage(image);
+				category.setParent_id(parent_id);
+				category.setId(id);
+				category.setName(categoryName);
+				Icategory.update(category);
+			}
 			response.sendRedirect(
-					request.getContextPath() + "/admin-CategoryNew?action=update&message2=category_new&ready=success");
-		}else {
+					request.getContextPath() + "/admin-CategoryNew?action=new&message2=category_new&ready=success");
+		} else {
 			response.sendRedirect(request.getContextPath() + "/admin-CategoryNew?action=new");
 		}
 	}

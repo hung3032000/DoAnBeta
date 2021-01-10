@@ -32,4 +32,32 @@ public class ProductService implements IProductService {
 		return productDAO.findAll();
 	}
 
+	@Override
+	public ProductModel save(ProductModel productModel) {
+		Long newProduct = productDAO.save(productModel);
+		return productDAO.findOne(newProduct);
+	}
+
+	@Override
+	public ProductModel findOne(long product_Id) {
+		return productDAO.findOne(product_Id);
+	}
+
+	@Override
+	public void update(ProductModel productModel) {
+		productDAO.update(productModel);
+		
+	}
+
+	@Override
+	public void updateStatus(ProductModel productModel) {
+		productDAO.updateStatus(productModel);
+	}
+
+	@Override
+	public void delete(ProductModel productModel) {
+		productDAO.delete(productModel);
+		
+	}
+
 }

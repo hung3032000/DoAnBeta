@@ -9,4 +9,9 @@ public interface IProductDAO extends GenericDAO<ProductModel> {
 	int getTotalItem(String category_id);
 	ProductModel findOne(String product_id);
 	List<ProductModel> findAll();
+	Long save(ProductModel productModel);
+	ProductModel findOne(long productId);
+	void update(ProductModel productModel);
+	void updateStatus(ProductModel productModel);
+	void delete(ProductModel productModel);
 }

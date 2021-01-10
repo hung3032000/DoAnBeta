@@ -15,6 +15,7 @@ public class CategoriesMapper implements RowMapper<CategoriesModel> {
 			category.setName(resultSet.getString("name"));
 			category.setParent_id(resultSet.getInt("parent_id"));
 			category.setImage(resultSet.getString("image"));
+			category.setStatus(resultSet.getInt("status"));
 			category.setCreated_at(resultSet.getTimestamp("created_at"));
 			category.setUpdated_at(resultSet.getTimestamp("updated_at"));
 			return category;

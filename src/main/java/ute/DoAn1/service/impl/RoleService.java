@@ -17,4 +17,9 @@ public class RoleService implements IRoleService {
 		return roleDAO.findAll();
 	}
 
+	@Override
+	public RoleModel findOne(String id) {
+		return roleDAO.findOne(id);
+	}
+
 }

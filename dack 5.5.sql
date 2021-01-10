@@ -42,6 +42,7 @@ CREATE TABLE `product` (
   `content` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `categorie_id` bigint NOT NULL,
+  `status` int,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 );
@@ -85,6 +86,7 @@ CREATE TABLE `role` (
   `id` int PRIMARY KEY NOT NULL,
   `code` varchar(255),
   `name` varchar(255),
+  `status` int,
   `created_at` timestamp,
   `updated_at` timestamp
 );
@@ -138,14 +140,8 @@ ALTER TABLE `categories` ADD FOREIGN KEY (`parent_id`) REFERENCES `categories` (
 -- querry +test querry 
 use dack;
 
-
-
-
-
-
-
-
-
+update product set status =1 where id>0;
+select * from categories; 
 
 -- orders
 select * from order_items ;
@@ -161,7 +157,7 @@ ALTER TABLE orders MODIFY
     user_email VARCHAR(255)
 
       COLLATE utf8mb4_0900_ai_ci;
-alter table categories add column status int after image;
+alter table product add column status int after image;
 ALTER TABLE categories
 MODIFY COLUMN parent_id bigint;
 
@@ -176,7 +172,7 @@ delete from categories where id = 2;
 select id from categories where parent_id = 2;
 select count(*) from categories where parent_id = 2;
 
-
+SELECT * FROM categories where parent_id = 1 and id > 1 and status =1;
 -- category
 select * from categories;
 insert into categories(name,parent_id,created_at) values('Parent',1,now());
@@ -201,9 +197,10 @@ SELECT * FROM product_image where product_id =9;
 
 
 -- product
-
+SELECT * FROM categories where parent_id>1 and status = 1;
 use dack;
-select * from product where id =9 ;
+update role set status=1 where id >0;
+select * from product where id =1;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
 														smooth leather','245000','New','image/BM710P3002055-02-02.jpg','6',date(now()));
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
@@ -214,7 +211,7 @@ update product set origin = 'VietNam6',shortdecription='6 Long-sleeved T-shirt i
 												light heather gray jersey with red Homieeeeee signature on the
 												chest, and black Schematics prints on the front and sleeves.' where id=1;
 update product set size = 'XL', color ='Grey', quantity =100 where id = 1;
-alter table orders add column updated_at timestamp after created_at;
+alter table role add column status int after name;
 ALTER TABLE orders
 MODIFY COLUMN totalprice bigint;
 select count(*) from product where categorie_id = 5;

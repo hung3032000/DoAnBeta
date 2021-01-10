@@ -14,6 +14,7 @@ public class RoleMapper implements RowMapper<RoleModel>{
 			role.setId(resultSet.getLong("id"));
 			role.setCode(resultSet.getString("code"));
 			role.setName(resultSet.getString("name"));
+			role.setStatus(resultSet.getInt("rolestatus"));
 			role.setCreated_at(resultSet.getTimestamp("created_at"));
 			role.setUpdated_at(resultSet.getTimestamp("updated_at"));
 			return role;

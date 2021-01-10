@@ -6,4 +6,6 @@ import ute.DoAn1.model.RoleModel;
 
 public interface IRoleDAO extends GenericDAO<RoleModel>{
 	List<RoleModel> findAll();
+	RoleModel findOne(String id);
+
 }

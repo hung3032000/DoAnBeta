@@ -4,6 +4,13 @@ public class CategoriesModel extends AbstractModel<CategoriesModel> {
 	private String name;
 	private int parent_id;
 	private String image;
+	private int status;
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public String getImage() {
 		return image;
 	}

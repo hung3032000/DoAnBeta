@@ -11,8 +11,14 @@ public class ProductModel extends AbstractModel<ProductModel>{
 	private String shortdecription;
 	private String color;
 	private String size;
+	private int status;
 	
-	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public String getColor() {
 		return color;
 	}

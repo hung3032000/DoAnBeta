@@ -13,5 +13,12 @@ public class RoleDAO extends AbstractDAO<RoleModel> implements IRoleDAO {
 		String sql = "select * from role;";
 		return query(sql, new RoleMapper());
 	}
+
+	@Override
+	public RoleModel findOne(String id) {
+		String sql = "SELECT * FROM role where id =?";
+		List<RoleModel> role = query(sql.toString(), new RoleMapper(), id);
+		return role.isEmpty() ? null : role.get(0);
+	}
 	
 }

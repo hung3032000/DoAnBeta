@@ -141,12 +141,7 @@
 
 
 								<div class="form-row form-row-button">
-									<button>Have Account? To Sign In Page</button>
-									<!-- 										<div class="content-asset">
-											<p class="terms-conditions">
-												<a href="#">Privacy  Policy</a> 
-											</p>
-										</div> -->
+									<a href="${pageContext.request.contextPath}/user-new?action=login"> Have Account? To Sign In Page </a>
 								</div>
 							</fieldset>
 						</form>

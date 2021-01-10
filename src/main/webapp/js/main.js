@@ -39,18 +39,18 @@ $(document).ready(function() {
 		$("#minicart-container").addClass("minicart-active");
 		e.stopPropagation();
 	});
-	
-/*	$("#add-to-cart").click(function(e) {
-		$("html").addClass("minicart-active");
-		$("#minicart-container").addClass("minicart-active");
-		e.stopPropagation();
-	});
-*/
+
+	/*	$("#add-to-cart").click(function(e) {
+			$("html").addClass("minicart-active");
+			$("#minicart-container").addClass("minicart-active");
+			e.stopPropagation();
+		});
+	*/
 	$(".minicart-close").click(function() {
 		$("html").removeClass("minicart-active");
 		$("#minicart-container").removeClass("minicart-active");
 	});
-	
+
 	$("#js-overlay").click(function() {
 		$("html").removeClass("minicart-active");
 		$("#minicart-container").removeClass("minicart-active");
@@ -72,7 +72,7 @@ $(document).ready(function() {
 			$(".tab-header").addClass("active");
 		}
 	});
-	
+
 	// login
 	const inputs = document.querySelectorAll(".form-field");
 	function addcl() {
@@ -104,6 +104,29 @@ $(document).ready(function() {
 		}
 		position = scroll;
 	});
+
+
+	var swiper = new Swiper('.swiper-container', {
+		loop: true,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
+		},
+
+	});
+	var swiper2 = new Swiper('.value', {
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true
+
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+
+	});
+
 
 });
 

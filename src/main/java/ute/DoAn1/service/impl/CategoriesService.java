@@ -44,4 +44,21 @@ public class CategoriesService implements ICategoriesService {
 		categoryDao.update(categoriesModel);
 	}
 
+	@Override
+	public void delete(CategoriesModel categoriesModel) {
+		categoryDao.delete(categoriesModel);
+		
+	}
+
+	@Override
+	public void updateStatus(CategoriesModel categoriesModel) {
+		categoryDao.updateStatus(categoriesModel);
+		
+	}
+
+	@Override
+	public List<CategoriesModel> findAllPandC() {
+		return categoryDao.findAllPandC();
+	}
+
 }

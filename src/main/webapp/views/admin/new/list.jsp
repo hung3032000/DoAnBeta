@@ -89,8 +89,8 @@
 																</c:url> <a class="btn btn-sm btn-primary btn-edit"
 																data-toggle="tooltip" title="Edit User"
 																href='${editURL}'><i class="fa fa-pencil-square-o"
-																	aria-hidden="true"></i> </a> 
-																<c:url var="editURL" value="/admin-New">
+																	aria-hidden="true"></i> </a> <c:url var="editURL"
+																	value="/admin-New">
 
 																	<c:param name="action" value="delete" />
 																	<c:param name="email" value="${item.email}" />
@@ -128,7 +128,7 @@
 													<i class="fa fa-plus-circle bigger-110 purple"></i>
 											</span>
 											</a>
-											
+
 										</div>
 									</div>
 								</div>
@@ -144,6 +144,7 @@
 													<th>Category Name</th>
 													<th>Parent ID</th>
 													<th>Image</th>
+													<th>Status</th>
 													<th>Created at</th>
 													<th>Updated at</th>
 													<th>Manipulation</th>
@@ -158,25 +159,26 @@
 														<td>${item.name}</td>
 														<td>${item.parent_id}</td>
 														<td>${item.image}</td>
+														<td>${item.status}</td>
 														<td>${item.created_at}</td>
 														<td>${item.updated_at}</td>
 														<td><c:url var="editURL" value="/admin-CategoryNew">
-																	<c:param name="action" value="detail" />
-																	<c:param name="Categoryid" value="${item.id}" />
-																</c:url> <a class="btn btn-sm btn-primary btn-edit"
-																data-toggle="tooltip" title="Edit Category"
-																href='${editURL}'><i class="fa fa-pencil-square-o"
-																	aria-hidden="true"></i> </a> 
-																<c:url var="editURL" value="/admin-Category">
+																<c:param name="action" value="detail" />
+																<c:param name="categoryId" value="${item.id}" />
+															</c:url> <a class="btn btn-sm btn-primary btn-edit"
+															data-toggle="tooltip" title="Edit Category"
+															href='${editURL}'><i class="fa fa-pencil-square-o"
+																aria-hidden="true"></i> </a> <c:url var="editURL"
+																value="/admin-CategoryNew">
 
-																	<c:param name="action" value="delete" />
-																	<c:param name="Categoryid" value="${item.id}" />
-																</c:url> <a
-																class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-																data-toggle="tooltip" title="Delete Category"
-																href='${editURL}'><i
-																	class="fa fa-trash-o bigger-110 pink"
-																	aria-hidden="true"></i> </a></td>
+																<c:param name="action" value="delete" />
+																<c:param name="categoryId" value="${item.id}" />
+															</c:url> <a
+															class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+															data-toggle="tooltip" title="Delete Category"
+															href='${editURL}'><i
+																class="fa fa-trash-o bigger-110 pink" aria-hidden="true"></i>
+														</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -184,12 +186,92 @@
 										<ul class="pagination" id="pagination"></ul>
 										<input type="hidden" value="" id="page" name="page" /> <input
 											type="hidden" value="" id="maxPageItem" name="maxPageItem" />
-										
+
 									</div>
 								</div>
 							</div>
 						</c:if>
-						<%-- <!-- order -->
+
+						<!-- role -->
+
+						<c:if test="${role.listResult != null }">
+							<div class="widget-box table-filter">
+								<div class="table-btn-controls">
+									<div class="pull-right tableTools-container">
+										<div class="dt-buttons btn-overlap btn-group">
+											<a flag="info"
+												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
+												data-toggle="tooltip" title='Thêm Mới'
+												href='<c:url value="/admin-RoleNew"/>'> <span> <i
+													class="fa fa-plus-circle bigger-110 purple"></i>
+											</span>
+											</a>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="table-responsive">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th><input type="checkbox" id="checkAll"></th>
+													<th>Role ID</th>
+													<th>Role Code</th>
+													<th>Role Name</th>
+													<th>Role Status</th>
+													<th>Created at</th>
+													<th>Updated at</th>
+													<th>Manipulation</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="item" items="${role.listResult}">
+													<tr>
+														<td><input type="checkbox" id="checkbox_${item.id}"
+															value="${item.id}"></td>
+														<td>${item.id}</td>
+														<td>${item.code}</td>
+														<td>${item.name}</td>
+														<td>${item.status}</td>
+														<td>${item.created_at}</td>
+														<td>${item.updated_at}</td>
+														<td><c:url var="editURL" value="/admin-RoleNew">
+																<c:param name="action" value="detail" />
+																<c:param name="roleId" value="${item.id}" />
+															</c:url> <a class="btn btn-sm btn-primary btn-edit"
+															data-toggle="tooltip" title="Edit Category"
+															href='${editURL}'><i class="fa fa-pencil-square-o"
+																aria-hidden="true"></i> </a> <c:url var="editURL"
+																value="/admin-RoleNew">
+
+																<c:param name="action" value="delete" />
+																<c:param name="roleId" value="${item.id}" />
+															</c:url> <a
+															class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+															data-toggle="tooltip" title="Delete Category"
+															href='${editURL}'><i
+																class="fa fa-trash-o bigger-110 pink" aria-hidden="true"></i>
+														</a></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+										<ul class="pagination" id="pagination"></ul>
+										<input type="hidden" value="" id="page" name="page" /> <input
+											type="hidden" value="" id="maxPageItem" name="maxPageItem" />
+										<input type="hidden" value="" id="sortName" name="sortName" />
+										<input type="hidden" value="" id="sortBy" name="sortBy" /> <input
+											type="hidden" value="" id="type" name="type" />
+									</div>
+								</div>
+							</div>
+						</c:if>
+
+						<!-- order -->
 
 						<c:if test="${order.listResult != null }">
 							<div class="widget-box table-filter">
@@ -203,12 +285,7 @@
 													<i class="fa fa-plus-circle bigger-110 purple"></i>
 											</span>
 											</a>
-											<button id="btnDelete" type="button"
-												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-												data-toggle="tooltip" title='Xóa'>
-												<span> <i class="fa fa-trash-o bigger-110 pink"></i>
-												</span>
-											</button>
+
 										</div>
 									</div>
 								</div>
@@ -243,27 +320,23 @@
 														<td>${item.status}</td>
 														<td>${item.created_at}</td>
 														<td>${item.updated_at}</td>
-														<td><c:url var="editURL" value="/admin-User">
-																	<c:param name="type" value="edit" />
-																	<c:param name="action" value="edit" />
-																	<c:param name="id" value="${item.email}" />
-																</c:url> <a class="btn btn-sm btn-primary btn-edit"
-																data-toggle="tooltip" title="Cập nhật bài viết"
-																href='${editURL}'><i class="fa fa-pencil-square-o"
-																	aria-hidden="true"></i> </a> <a flag="info"
-																class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
-																data-toggle="tooltip" title='Thêm Mới'
-																href='<c:url value="/admin-new?type=edit&action=new"/>'>
-																	<span> <i
-																		class="fa fa-plus-circle bigger-110 purple"></i>
-																</span>
-															</a>
-																<button id="btnDelete" type="button"
-																	class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-																	data-toggle="tooltip" title='Xóa'>
-																	<span> <i class="fa fa-trash-o bigger-110 pink"></i>
-																	</span>
-																</button></td>
+														<td><c:url var="editURL" value="/admin-CategoryNew">
+																<c:param name="action" value="detail" />
+																<c:param name="Categoryid" value="${item.id}" />
+															</c:url> <a class="btn btn-sm btn-primary btn-edit"
+															data-toggle="tooltip" title="Edit Category"
+															href='${editURL}'><i class="fa fa-pencil-square-o"
+																aria-hidden="true"></i> </a> <c:url var="editURL"
+																value="/admin-Category">
+
+																<c:param name="action" value="delete" />
+																<c:param name="Categoryid" value="${item.id}" />
+															</c:url> <a
+															class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+															data-toggle="tooltip" title="Delete Category"
+															href='${editURL}'><i
+																class="fa fa-trash-o bigger-110 pink" aria-hidden="true"></i>
+														</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -278,91 +351,9 @@
 								</div>
 							</div>
 						</c:if>
-						<!-- role -->
 
-						<c:if test="${role.listResult != null }">
-							<div class="widget-box table-filter">
-								<div class="table-btn-controls">
-									<div class="pull-right tableTools-container">
-										<div class="dt-buttons btn-overlap btn-group">
-											<a flag="info"
-												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
-												data-toggle="tooltip" title='Thêm Mới'
-												href='<c:url value="/admin-new?type=edit"/>'> <span>
-													<i class="fa fa-plus-circle bigger-110 purple"></i>
-											</span>
-											</a>
-											<button id="btnDelete" type="button"
-												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-												data-toggle="tooltip" title='Xóa'>
-												<span> <i class="fa fa-trash-o bigger-110 pink"></i>
-												</span>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12">
-									<div class="table-responsive">
-										<table class="table table-bordered">
-											<thead>
-												<tr>
-													<th><input type="checkbox" id="checkAll"></th>
-													<th>ID</th>
-													<th>User Code</th>
-													<th>User Name</th>
-													<th>Created at</th>
-													<th>Updated at</th>
-													<th>Manipulation</th>
 
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="item" items="${role.listResult}">
-													<tr>
-														<td><input type="checkbox" id="checkbox_${item.id}"
-															value="${item.id}"></td>
-														<td>${item.id}</td>
-														<td>${item.code}</td>
-														<td>${item.name}</td>
-														<td>${item.created_at}</td>
-														<td>${item.updated_at}</td>
-														<td><c:url var="editURL" value="/admin-User">
-																	<c:param name="type" value="edit" />
-																	<c:param name="action" value="edit" />
-																	<c:param name="id" value="${item.email}" />
-																</c:url> <a class="btn btn-sm btn-primary btn-edit"
-																data-toggle="tooltip" title="Cập nhật bài viết"
-																href='${editURL}'><i class="fa fa-pencil-square-o"
-																	aria-hidden="true"></i> </a> <a flag="info"
-																class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
-																data-toggle="tooltip" title='Thêm Mới'
-																href='<c:url value="/admin-new?type=edit&action=new"/>'>
-																	<span> <i
-																		class="fa fa-plus-circle bigger-110 purple"></i>
-																</span>
-															</a>
-																<button id="btnDelete" type="button"
-																	class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-																	data-toggle="tooltip" title='Xóa'>
-																	<span> <i class="fa fa-trash-o bigger-110 pink"></i>
-																	</span>
-																</button></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-										<ul class="pagination" id="pagination"></ul>
-										<input type="hidden" value="" id="page" name="page" /> <input
-											type="hidden" value="" id="maxPageItem" name="maxPageItem" />
-										<input type="hidden" value="" id="sortName" name="sortName" />
-										<input type="hidden" value="" id="sortBy" name="sortBy" /> <input
-											type="hidden" value="" id="type" name="type" />
-									</div>
-								</div>
-							</div>
-						</c:if>
+
 						<!-- product -->
 
 						<c:if test="${product.listResult != null }">
@@ -373,16 +364,11 @@
 											<a flag="info"
 												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
 												data-toggle="tooltip" title='Thêm Mới Sản Phẩm'
-												href='<c:url value="/admin-new?type=edit"/>'> <span>
+												href='<c:url value="/admin-ProductNew"/>'> <span>
 													<i class="fa fa-plus-circle bigger-110 purple"></i>
 											</span>
 											</a>
-											<button id="btnDelete" type="button"
-												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-												data-toggle="tooltip" title='Xóa Sản Phẩm'>
-												<span> <i class="fa fa-trash-o bigger-110 pink"></i>
-												</span>
-											</button>
+
 										</div>
 									</div>
 								</div>
@@ -393,7 +379,7 @@
 										<table class="table table-bordered">
 											<thead>
 												<tr>
-													<th><input type="checkbox" id="checkAll"></th>
+													<!-- <th><input type="checkbox" id="checkAll"></th> -->
 													<th>ID</th>
 													<th>Product Name</th>
 													<th>Product Price</th>
@@ -405,6 +391,7 @@
 													<th>Product content</th>
 													<th>Product image</th>
 													<th>Category ID</th>
+													<th>Status</th>
 													<th>Created At</th>
 													<th>Updated at</th>
 													<th>Manipulation</th>
@@ -413,8 +400,8 @@
 											<tbody>
 												<c:forEach var="item" items="${product.listResult}">
 													<tr>
-														<td><input type="checkbox" id="checkbox_${item.id}"
-															value="${item.id}"></td>
+														<%-- 	<td><input type="checkbox" id="checkbox_${item.id}"
+															value="${item.id}"></td> --%>
 														<td>${item.id}</td>
 														<td>${item.name}</td>
 														<td>${item.price}</td>
@@ -426,29 +413,25 @@
 														<td>${item.content}</td>
 														<td>${item.image}</td>
 														<td>${item.categorie_id}</td>
+														<td>${item.status}</td>
 														<td>${item.created_at}</td>
 														<td>${item.updated_at}</td>
-														<td><c:url var="editURL" value="/admin-User">
-																	<c:param name="type" value="edit" />
-																	<c:param name="action" value="edit" />
-																	<c:param name="id" value="${item.email}" />
-																</c:url> <a class="btn btn-sm btn-primary btn-edit"
-																data-toggle="tooltip" title="Cập nhật bài viết"
-																href='${editURL}'><i class="fa fa-pencil-square-o"
-																	aria-hidden="true"></i> </a> <a flag="info"
-																class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
-																data-toggle="tooltip" title='Thêm Mới'
-																href='<c:url value="/admin-new?type=edit&action=new"/>'>
-																	<span> <i
-																		class="fa fa-plus-circle bigger-110 purple"></i>
-																</span>
-															</a>
-																<button id="btnDelete" type="button"
-																	class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-																	data-toggle="tooltip" title='Xóa'>
-																	<span> <i class="fa fa-trash-o bigger-110 pink"></i>
-																	</span>
-																</button></td>
+														<td><c:url var="editURL" value="/admin-ProductNew">
+																<c:param name="action" value="detail" />
+																<c:param name="productId" value="${item.id}" />
+															</c:url> <a class="btn btn-sm btn-primary btn-edit"
+															data-toggle="tooltip" title="Edit Category"
+															href='${editURL}'><i class="fa fa-pencil-square-o"
+																aria-hidden="true"></i> </a> <c:url var="editURL"
+																value="/admin-ProductNew">
+																<c:param name="action" value="delete" />
+																<c:param name="productId" value="${item.id}" />
+															</c:url> <a
+															class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+															data-toggle="tooltip" title="Delete Category"
+															href='${editURL}'><i
+																class="fa fa-trash-o bigger-110 pink" aria-hidden="true"></i>
+														</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -463,9 +446,6 @@
 								</div>
 							</div>
 						</c:if>
-
-
- --%>
 					</div>
 				</div>
 			</div>

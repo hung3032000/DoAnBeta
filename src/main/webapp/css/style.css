@@ -2783,14 +2783,14 @@ fieldset {
     margin: 0
 }
 .form-row input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 0 #f6f6f6 inset;
+    --webkit-box-shadow: 0 0 0 0 #f6f6f6 inset;
     background-color: #fff!important;
     transition: background-color 99999999s ease-in-out 0s;
     animation-name: onAutoFillStart;
     animation-delay: .5s
 }
 .form-row input:-webkit-autofill.error {
-    -webkit-text-fill-color: #e61717!important
+    --webkit-text-fill-color: #e61717!important
 }
 .form-row input:not(:-webkit-autofill) {
     animation-name: onAutoFillCancel
@@ -4735,11 +4735,7 @@ form.submitted .error-form {
 .swiper-container {
     overflow: hidden
 }
-.swiper-container .swiper-pagination {
-    position: absolute;
-    bottom: 16px;
-    z-index: 3
-}
+
 .swiper-container .swiper-pagination .swiper-pagination-bullet {
     border-radius: 0;
     background: 0 0;
@@ -4886,7 +4882,7 @@ header.header {
     transition: .4s;
     height: 64px;
     -webkit-font-smoothing: subpixel-antialiased;
-    -webkit-backface-visibility: hidden;
+    --webkit-backface-visibility: hidden;
     transform: translateZ(0);
     transition-duration: .4s;
     transition-property: left, right, transform
@@ -9695,15 +9691,15 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
     line-height: 0
 }
 .home-carousel-container .swiper-pagination {
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    margin-left: -5vw;
-    bottom: 14%;
-    width: 10vw;
-    height: 10vw;
-    font-size: 0;
-    line-height: 0
+    z-index: 2 ;
+    position: absolute ;
+    left: 50% !important;
+    margin-left: -5vw ;
+    bottom: 14% !important;
+    width: 10vw !important;
+    height: 10vw ;
+    font-size: 0 ;
+    line-height: 0 
 }
 @media (max-width:640px) {
     .home-carousel-container .swiper-pagination {
@@ -9715,7 +9711,7 @@ html[lang=ja] .grid-tile .thumb-caption .product-name {
 .home-carousel-container .swiper-pagination .swiper-pagination-bullet {
     width: 36%;
     height: 36%;
-    margin: 7%;
+    margin: 7% !important;
     padding: 0;
     display: inline-block;
     transition: all .2s ease-in-out
