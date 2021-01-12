@@ -11,7 +11,7 @@ public class RoleMapper implements RowMapper<RoleModel>{
 	public RoleModel mapRow(ResultSet resultSet) {
 		try {
 			RoleModel role = new RoleModel();
-			role.setId(resultSet.getLong("id"));
+			role.setRoleId(resultSet.getString("id"));
 			role.setCode(resultSet.getString("code"));
 			role.setName(resultSet.getString("name"));
 			role.setStatus(resultSet.getInt("rolestatus"));

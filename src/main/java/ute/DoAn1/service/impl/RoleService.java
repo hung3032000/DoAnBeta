@@ -22,4 +22,22 @@ public class RoleService implements IRoleService {
 		return roleDAO.findOne(id);
 	}
 
+	@Override
+	public RoleModel save(RoleModel roleModel) {
+		String newRole = roleDAO.save(roleModel);
+		return roleDAO.findOne(newRole);
+	}
+
+	@Override
+	public void update(RoleModel roleModel) {
+		roleDAO.update(roleModel);
+		
+	}
+
+	@Override
+	public void delete(RoleModel roleModel) {
+		roleDAO.delete(roleModel);
+		
+	}
+
 }

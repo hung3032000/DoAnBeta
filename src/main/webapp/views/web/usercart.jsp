@@ -64,7 +64,7 @@
 										<div class="product-image">
 
 											<img
-												src="${pageContext.request.contextPath}/${item.product.image}"
+												src="${pageContext.request.contextPath}/image/${item.product.image}"
 												alt="">
 										</div>
 										<ul class="product-infos">

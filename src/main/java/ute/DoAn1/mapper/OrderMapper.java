@@ -19,6 +19,7 @@ public class OrderMapper implements RowMapper<OrderModel> {
 			order.setCustomerId(resultSet.getLong("customer_id"));
 			order.setCreated_at(resultSet.getTimestamp("created_at"));
 			order.setUpdated_at(resultSet.getTimestamp("updated_at"));
+
 			try {
 				CustomerModel cus = new CustomerModel();
 				cus.setId(resultSet.getLong("id"));

@@ -22,7 +22,7 @@
 			<c:forEach var="item" items="${order.listResult}">
 					<li class="minicart-product" data-qty="Quantity: value=1, unit=">
 						<div class="minicart-product-image">
-							<img src="${pageContext.request.contextPath}/${item.product.image}" alt="Lỗi ảnh">
+							<img src="${pageContext.request.contextPath}/image/${item.product.image}" alt="Lỗi ảnh">
 						</div>
 						<div class="minicart-product-details">
 							<a class="minicart-product-name" href='<c:url value="/user-cart?product_id=${item.product.id }"/>'

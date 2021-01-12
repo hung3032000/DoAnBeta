@@ -185,7 +185,7 @@ update categories set parent_id='0' where id =8;
 insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','3','image/Collection-Land-Desktop.jpg',now());
 insert into categories(name,parent_id,image,created_at) values('Ready-to-wear','2','image/Collection-Land-Desktop.jpg',now());
 update categories set image='image/Full_WFW20show_Desktop.jpg' where id =7;
-update categories set parent_id =3 where id = 11;
+update orders set status = 1 where id = ?;
 -- select * from product_image;
 SELECT * FROM categories where parent_id =1 and id > 1;
 
@@ -211,17 +211,17 @@ update product set origin = 'VietNam6',shortdecription='6 Long-sleeved T-shirt i
 												light heather gray jersey with red Homieeeeee signature on the
 												chest, and black Schematics prints on the front and sleeves.' where id=1;
 update product set size = 'XL', color ='Grey', quantity =100 where id = 1;
-alter table role add column status int after name;
+alter table role add column status2 int after name;
 ALTER TABLE orders
 MODIFY COLUMN totalprice bigint;
 select count(*) from product where categorie_id = 5;
 update categories set image ='image/LandingPage-Desktop_Winter20.png' where id=5;
 select * from product where categorie_id =5 ;
 
-select * from order_items o join product p on o.product_id = p.id ;
+select * from order_items o join product p on o.product_id = p.id where o.id =3;
 select * from orders;
 
-
+SELECT SUM(totalprice) FROM orders where status = 1;
 
 
 
@@ -231,12 +231,12 @@ insert into users(title,fname,lname,email,password,status,role_id,created_at) va
 select * from users where email='a' and password=1 and status=1;
 select * from users;
 insert into users(title,fname,lname,email,password,status,role_id,created_at) values('Mr.','Phạm','Hoàng','abc','1',1,3,now());
-
-select * from role;
+update orders set status=0 where id >0;
+select * from role where id =3;
 update users set title= 'Mr.' ,fname= 'abc' ,lname= 'abc',password ='1',address = '', status = 0 ,updated_at = now() where email = 'asdhajks@gmail.com';
 insert into role values('1','ADMIN','ADMIN',now(),null);
 insert into role  values(3,'USER','USER',now(),null);
 select * from users u inner join role r on r.id=u.role_id ;
 
-
-
+ALTER TABLE role CHANGE `status` `rolestatus` int;
+SELECT * FROM users AS u INNER JOIN role AS r ON r.id = u.role_id WHERE email = ? AND password = ? AND status = ? and rolestatus =1

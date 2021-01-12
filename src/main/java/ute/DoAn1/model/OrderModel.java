@@ -6,6 +6,7 @@ public class OrderModel extends AbstractModel<OrderModel> {
 	private int status;
 	private String useremail;
 	private long customerId;
+	private long totalOrderPrice;
 	private CustomerModel customer = new CustomerModel();
 	
 
@@ -20,6 +21,12 @@ public class OrderModel extends AbstractModel<OrderModel> {
 	}
 	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
+	}
+	public long getTotalOrderPrice() {
+		return totalOrderPrice;
+	}
+	public void setTotalOrderPrice(long totalOrderPrice) {
+		this.totalOrderPrice = totalOrderPrice;
 	}
 	public long getTotalprice() {
 		return totalprice;

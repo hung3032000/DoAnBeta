@@ -37,7 +37,7 @@
 									<c:forEach var="item" items="${orderDetail.listResult}">
 										<tr height="40px" id="0" class="odd">
 											<td class="" style="max-width: 300px"><a
-												href="/products/hatred-wash-tee" title="">${item.product.name }</a>
+												href="#" title="">${item.product.name }</a>
 												<br> <span class="variant_acc">
 													${item.product.color } / ${item.product.size } </span></td>
 											<td class="sku align-center">${item.product.id }</td>
@@ -81,8 +81,8 @@
 									<span class="text_status">Status:</span> <span
 										class="status_pending">
 										
-										<c:if test="${ orderModel.status == 1}">pending</c:if> <c:if
-															test="${ orderModel.status == 0}">confirmed</c:if> <c:if
+										<c:if test="${ orderModel.status == 0}">pending</c:if> <c:if
+															test="${ orderModel.status == 1}">confirmed</c:if> <c:if
 															test="${ orderModel.status == -1}">canceled</c:if>
 										
 										
@@ -108,8 +108,8 @@
 								<div class="alert alert-info">
 									<span class="text_status">Status:</span> <span
 										class="status_not fulfilled">
-										<c:if test="${ orderModel.status == 1}">not fulfilled</c:if> <c:if
-															test="${ orderModel.status == 0}">fulfilled</c:if> <c:if
+										<c:if test="${ orderModel.status == 0}">not fulfilled</c:if> <c:if
+															test="${ orderModel.status == 1}">fulfilled</c:if> <c:if
 															test="${ orderModel.status == -1}">canceled</c:if></span>
 								</div>
 								<div class="address">

@@ -30,9 +30,11 @@
 									<h1 class="product-name" itemprop="name">${item.name}</h1>
 									<div class="product-price" itemprop="offers" itemscope=""
 										itemtype="http://schema.org/Offer">
-										<span class="price-standard"> ${item.price}$ </span> <span
-											class="money-saved"> (-50&nbsp;%) </span> <span
-											class="price-sales"> $295.00 </span>
+										<span class="price-sales"> ${item.price}$ </span>
+										 <!-- <span
+											class="money-saved"> (-50&nbsp;%) </span>
+											 <span
+											class="price-standard"> $295.00 </span> -->
 									</div>
 
 									<div class="product-description">
@@ -93,7 +95,7 @@
 											value="update">
 
 
-										<div id="product-variations" class="product-variations"
+										<!-- <div id="product-variations" class="product-variations"
 											tabindex="-1">
 											<h2 class="visually-hidden">Other options</h2>
 											<div class="tab-headers">
@@ -144,7 +146,7 @@
 													</span>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										<div class="error-message">
 											<i class="icon_Warning"></i> <span>Please select a
 												size</span>
@@ -166,10 +168,10 @@
 					</div>
 
 					<div class="product-block-images container">
-						<c:forEach var="image" items="${image.listResult}">
+						<c:forEach var="item" items="${image.listResult}">
 
 							<a href="" class="fullscreen full-mobile"> <img
-								src="${pageContext.request.contextPath}/${image.image}" alt="">
+								src="${pageContext.request.contextPath}/image/${item.image}" alt="">
 
 							</a>
 						</c:forEach>

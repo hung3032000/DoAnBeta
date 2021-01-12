@@ -35,4 +35,25 @@ public class OrderDAO extends AbstractDAO<OrderModel> implements IOrderDAO {
 		return query(sql, new OrderMapper());
 	}
 
+	@Override
+	public void confirm(OrderModel orderModel) {
+		String sql = "update orders set status = 1 where id = ?;";
+		this.update(sql,orderModel.getId());
+		
+	}
+
+	@Override
+	public void delete(OrderModel orderModel) {
+		String sql = "update orders set status = -1 where id = ?;";
+		this.update(sql,orderModel.getId());
+		
+	}
+
+	@Override
+	public Long totalOrderPrice() {
+		String sql = "SELECT SUM(totalprice) FROM orders where status = 1;";
+		
+		return queryCount(sql);
+	}
+
 }

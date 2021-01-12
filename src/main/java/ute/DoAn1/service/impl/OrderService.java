@@ -28,6 +28,20 @@ public class OrderService implements IOrderService {
 	public List<OrderModel> findAll() {
 		return orderDAO.findAll();
 	}
+	@Override
+	public void confirm(OrderModel orderModel) {
+		orderDAO.confirm(orderModel);
+		
+	}
+	@Override
+	public void delete(OrderModel orderModel) {
+		orderDAO.delete(orderModel);
+		
+	}
+	@Override
+	public Long totalOrderPrice() {	
+		return orderDAO.totalOrderPrice();
+	}
 
 
 

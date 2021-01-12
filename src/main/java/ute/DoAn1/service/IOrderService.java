@@ -9,4 +9,7 @@ public interface IOrderService {
 	OrderModel findOne(long order_id);
 	List<OrderModel> findAllE(String user_email);
 	List<OrderModel> findAll();
+	void confirm(OrderModel orderModel);
+	void delete(OrderModel orderModel);
+	Long totalOrderPrice();
 }

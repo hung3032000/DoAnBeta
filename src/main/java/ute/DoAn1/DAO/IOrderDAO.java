@@ -9,5 +9,7 @@ public interface IOrderDAO extends GenericDAO<OrderModel> {
 	OrderModel findOne(long orderId);
 	List<OrderModel> findAllE(String email);
 	List<OrderModel> findAll();
-	
+	void confirm(OrderModel orderModel);
+	void delete(OrderModel orderModel);
+	Long totalOrderPrice();
 }
