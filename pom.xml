@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>heroku.laptrinhweb</groupId>
-  <artifactId>DoAnBeta</artifactId>
-  <version>1.0</version>
-  <packaging>war</packaging>
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>heroku.laptrinhweb</groupId>
+	<artifactId>DoAnBeta</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	<properties>
 		<jsp.api.version>2.0</jsp.api.version>
 		<jstl.version>1.2</jstl.version>
 		<servlet.api.version>3.1.0</servlet.api.version>
@@ -99,11 +101,17 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<configuration>
+				<appName>demolan1</appName>
+				</configuration>
+				<version>3.0.3</version>
+			</plugin>
 		</plugins>
 	</build>
-  
-  
-  
-  
-  
+
 </project>
