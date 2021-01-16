@@ -56,7 +56,7 @@ public class CheckOutController extends HttpServlet {
 		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
-		// lấy thông tin
+		// láº¥y thÃ´ng tin
 		String title = request.getParameter("cus_title");
 		String fname = request.getParameter("cus_fname");
 		String lname = request.getParameter("cus_lname");
@@ -66,7 +66,7 @@ public class CheckOutController extends HttpServlet {
 		String userEmail = request.getParameter("user_email");
 		CartModel cart = (CartModel) SessionUtil.getInstance().getValue(request, "order");
 		List<OrderItemsModel> listOrderItems = cart.getListResult();
-		// thông tin của khách hàng
+		// thÃ´ng tin cá»§a khÃ¡ch hÃ ng
 
 		CustomerModel cus = FormUtil.toModel(CustomerModel.class, request);
 		cus.setUser_email(userEmail);
@@ -87,7 +87,7 @@ public class CheckOutController extends HttpServlet {
 		request.setAttribute("order2", order);
 		long order_id = order.getId();
 
-		// tạo 1 list orderItems thuộc order
+		// táº¡o 1 list orderItems thuá»™c order
 		for (OrderItemsModel item : listOrderItems) {
 			long product_id = item.getProduct().getId();
 			item.setOrderId(order_id);
@@ -97,6 +97,9 @@ public class CheckOutController extends HttpServlet {
 		}
 		
 		request.setAttribute("cart", cart);
+		//mail ngay ddaay
+		Iorder.sendMail(userEmail, "Mua Hàng Thành Công", "THANK YOU FOR YOUR PURCHASE!");
+		
 		SessionUtil.getInstance().removeValue(request, "order");
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/ordersuccess.jsp");
 		rd.forward(request, response);

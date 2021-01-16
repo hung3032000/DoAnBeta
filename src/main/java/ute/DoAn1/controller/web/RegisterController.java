@@ -35,7 +35,7 @@ public class RegisterController extends HttpServlet {
 	private ICategoriesService Icategory;
 
 	@Inject
-	UserService userService = new UserService();
+	private UserService userService;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse

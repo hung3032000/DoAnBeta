@@ -36,14 +36,28 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 
 	@Override
 	public void update(UserModel userModel) {
-		String sql = "update users set title= ? ,fname= ? ,lname= ?,password =?,address = ?, dayofbirth= ?,status = ? ,updated_at = now() where email = ?;";
-		this.update(sql,userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getPassWord(),userModel.getAddress(),userModel.getDateOfBirth(),userModel.getStatus(),userModel.getEmail());
+		String sql = "update users set title= ? ,fname= ? ,lname= ?,address = ?, dayofbirth= ?,status = ? ,updated_at = now() where email = ?;";
+		this.update(sql,userModel.getTitle(),userModel.getfName(),userModel.getlName(),userModel.getAddress(),userModel.getDateOfBirth(),userModel.getStatus(),userModel.getEmail());
 	}
 
 	@Override
 	public List<UserModel> findAll() {
 		String sql = "SELECT * FROM users;";
 		return query(sql, new UserMapper());
+	}
+
+	@Override
+	public void updatePass(UserModel userModel) {
+		String sql = "update users set password =?, updated_at = now() where email = ?;";
+		this.update(sql,userModel.getPassWord(),userModel.getEmail());
+
+	}
+
+	@Override
+	public void delete(String email) {
+		String sql = "update users set status = 0, updated_at = now() where email = ?;";
+		this.update(sql, email);
+
 	}
 
 }

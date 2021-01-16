@@ -66,11 +66,11 @@ public class UpdateUController extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/views/web/userinf.jsp");
 				rd.forward(request, response);
 			}
-		}else if(action != null && action.equals("show")) {
+		} else if (action != null && action.equals("show")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/userinf.jsp");
 			rd.forward(request, response);
-		} 
-		
+		}
+
 		else {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
@@ -87,6 +87,7 @@ public class UpdateUController extends HttpServlet {
 		String action = request.getParameter("action");
 		String email = request.getParameter("email");
 		if (action != null && action.equals("update")) {
+
 			UserModel model = FormUtil.toModel(UserModel.class, request);
 			String title = request.getParameter("cus_title").trim();
 			String fname = request.getParameter("cus_fname").trim();
@@ -106,6 +107,9 @@ public class UpdateUController extends HttpServlet {
 			response.sendRedirect(
 					request.getContextPath() + "/user-update?action=update&message=user_update&ready=success");
 			SessionUtil.getInstance().putValue(request, "USERMODEL", model);
+		} else if (action != null && action.equals("delete")) {
+			userService.delete(email);
+			response.sendRedirect(request.getContextPath() + "/trang-chu?action=logout");
 		}
 	}
 

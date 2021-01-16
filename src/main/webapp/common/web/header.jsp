@@ -129,10 +129,13 @@
 			</c:if>
 			<div class="minicart empty-cart"
 				<c:if test="${order.totalProduct != null}">id="minicartnotempty"</c:if>>
-				<a class="minicart-link empty-cart" href="#"
-					aria-label="View Your Cart"> <span class="icon_Bag"
-					title="View Your Cart"><c:if
-							test="${order.totalProduct != null}">${order.totalProduct}</c:if></span>
+				<a class="minicart-link " aria-controls="minicart-container"
+					role="button" aria-label="View Your Cart 1.0 Products">
+					<span class="icon_Bag" title="View Your Cart"></span> <span
+					class="visually-hidden">View Your Cart</span> <span
+					class="minicart-quantity js-minicart-qty"> <c:if
+							test="${order.totalProduct != null}">(${order.totalProduct})</c:if>
+				</span>
 				</a>
 				<c:if test="${order.totalProduct == null}">
 					<div class="minicart-content">

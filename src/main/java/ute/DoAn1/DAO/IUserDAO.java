@@ -11,4 +11,6 @@ public interface IUserDAO extends GenericDAO<UserModel>{
 	String save(UserModel userModel);
 	void update(UserModel userModel);
 	List<UserModel> findAll();
+	void updatePass(UserModel userModel);
+	void delete(String email);
 }

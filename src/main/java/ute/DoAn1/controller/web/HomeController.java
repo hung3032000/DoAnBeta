@@ -25,11 +25,13 @@ import ute.DoAn1.utils.SessionUtil;
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+
 	@Inject
 	private IUserService userService;
 
 	@Inject
 	private ICategoriesService Icategory;
+
 	/**
 	 * Default constructor.
 	 */
@@ -44,12 +46,10 @@ public class HomeController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//load categories
+		// load categories
 		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
 		category.setListResult(Icategory.findAllP());
 		request.setAttribute("category", category);
-		
-		
 		String action = request.getParameter("action");
 		if (action != null && action.equals("login")) {
 			String alert = request.getParameter("alert");
@@ -82,7 +82,7 @@ public class HomeController extends HttpServlet {
 			String email = request.getParameter("email").trim();
 			String password = request.getParameter("password").trim();
 			model = userService.findByUserEmailAndPasswordAndStatus(email, password, 1);
-		
+
 			if (model != null) {
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
 				if (model.getRole().getCode().equals("USER")) {
@@ -94,8 +94,7 @@ public class HomeController extends HttpServlet {
 				response.sendRedirect(
 						request.getContextPath() + "/login?action=login&message=username_password_invalid&alert=error");
 			}
-		}
-		else {
+		} else {
 			response.sendRedirect(request.getContextPath() + "/trang-chu");
 		}
 

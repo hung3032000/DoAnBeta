@@ -68,6 +68,36 @@ public class UserService implements IUserService{
 		 return userDAO.findAll(); 
 	}
 
+	@Override
+	public void updatePass(UserModel userModel) {
+		userDAO.updatePass(userModel);
+	}
+
+	@Override
+	public boolean checkPass(String passWord, String passWordU) {
+		if (passWord.equals(passWordU)) {
+			return true;
+		}
+		return false;
+	}
+
+
+
+	@Override
+	public boolean checkCPass(String passWordN, String passWordConf) {
+		if (passWordN.equals(passWordConf)) {
+			return true;
+		}
+		return false;
+	}
+
+
+
+	@Override
+	public void delete(String email) {
+		userDAO.delete(email);
+	}
+
 
 
 	

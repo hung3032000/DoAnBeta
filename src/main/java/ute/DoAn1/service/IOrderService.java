@@ -12,4 +12,5 @@ public interface IOrderService {
 	void confirm(OrderModel orderModel);
 	void delete(OrderModel orderModel);
 	Long totalOrderPrice();
+	public boolean sendMail(String to, String subject, String text);
 }
