@@ -59,19 +59,15 @@ public class ResetPassController extends HttpServlet {
 		if (userService.checkPass(passWord, passWordU)) {
 			if (userService.checkCPass(passWordN, passWordConf)) {
 				model.setEmail(email);
-
 				model.setPassWord(passWordN);
-
 				userService.updatePass(model);
-
 				response.sendRedirect(
 						request.getContextPath() + "/user-update?action=update&message=user_updatepass&ready=success");
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
-			}
-			else {
+			} else {
 				response.sendRedirect(
 						request.getContextPath() + "/user-update?action=update&message=user_wrongcpass&alert=error");
-		
+
 			}
 
 		} else {

@@ -22,7 +22,7 @@ import ute.DoAn1.utils.SessionUtil;
 /**
  * Servlet implementation class UpdateUController
  */
-@WebServlet(urlPatterns = { "/user-update", "/user-delete", "/user-uppass" })
+@WebServlet(urlPatterns = { "/user-update"})
 public class UpdateUController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Inject

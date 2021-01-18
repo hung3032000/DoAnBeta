@@ -10,7 +10,7 @@ public class OrderDAO extends AbstractDAO<OrderModel> implements IOrderDAO {
 
 	@Override
 	public Long save(OrderModel orderModel) {
-		String sql = "insert into orders(user_email,customer_id,totalprice,status,created_at) values (?,?,?,1,now());";
+		String sql = "insert into orders(user_email,customer_id,totalprice,status,created_at) values (?,?,?,0,now());";
 		return insert(sql, orderModel.getUseremail(), orderModel.getCustomerId(), orderModel.getTotalprice());
 	}
 

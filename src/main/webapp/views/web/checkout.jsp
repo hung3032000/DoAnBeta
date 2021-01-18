@@ -130,7 +130,7 @@
 															type="text"
 															id="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname"
 															name="cus_address"
-															value="${USERMODEL.address }" maxlength="13"
+															value="${USERMODEL.address }" maxlength="100"
 															data-dwname="address" autocomplete="family-name"
 															aria-required="true">
 													</div>

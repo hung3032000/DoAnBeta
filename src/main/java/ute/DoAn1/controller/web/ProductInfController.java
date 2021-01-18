@@ -22,7 +22,7 @@ import ute.DoAn1.utils.FormUtil;
  * Servlet implementation class ProductIn4Controller
  */
 @WebServlet(urlPatterns = { "/user-productin4" })
-public class ProductIn4Controller extends HttpServlet {
+public class ProductInfController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private ICategoriesService Icategory;
@@ -33,7 +33,7 @@ public class ProductIn4Controller extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductIn4Controller() {
+    public ProductInfController() {
         super();
     }
 

@@ -22,7 +22,7 @@ import ute.DoAn1.utils.SessionUtil;
  * Servlet implementation class OrderDetail
  */
 @WebServlet(urlPatterns = { "/user-orderdetail" })
-public class OrderDetail extends HttpServlet {
+public class OrderDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private ICategoriesService Icategory;
@@ -31,7 +31,7 @@ public class OrderDetail extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public OrderDetail() {
+	public OrderDetailController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

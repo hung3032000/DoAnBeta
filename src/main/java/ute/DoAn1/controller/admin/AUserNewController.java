@@ -120,7 +120,11 @@ public class AUserNewController extends HttpServlet {
 				rd.forward(request, response);
 			}
 		}
-
+		else if(action != null && action.equals("delete")) {
+			userService.delete(email);
+			RequestDispatcher rd = request.getRequestDispatcher("/views/admin/new/list.jsp");
+			rd.forward(request, response);
+		}
 		else {
 			RoleModel role = FormUtil.toModel(RoleModel.class, request);
 			role.setListResult(roleService.findAll());

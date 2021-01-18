@@ -41,14 +41,6 @@ public class AUserController extends HttpServlet {
 		user.setListResult(userService.findAll());
 		request.setAttribute(SystemConstant.USER, user);
 
-		/*
-		 * String action = request.getParameter("action"); String email =
-		 * request.getParameter("id"); if (action != null && action.equals("new")) {
-		 * System.out.println(action);
-		 * 
-		 * } else if (action != null && action.equals("edit")) {
-		 * System.out.println(action); System.out.println(email); } else {
-		 */
 		RequestDispatcher rd = request.getRequestDispatcher("/views/admin/new/list.jsp");
 		rd.forward(request, response);
 		/* } */
