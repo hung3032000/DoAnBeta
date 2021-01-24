@@ -63,10 +63,10 @@
 															<i class="icon_Wishlist"></i> <i
 															class="icon_Wishlist_Active"></i>
 													</span> <span class="visually-hidden">Add to your wishlist
-															GIVENCHY Schematics oversized T-shirt</span>
+															 Schematics oversized T-shirt</span>
 													</a>
 												</div>
-											</div>
+											</div> 
 										</div>
 										<div id="description-tab" class="long-description">
 											<div class="short-description">${item.shortdecription }</div>
