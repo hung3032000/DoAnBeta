@@ -68,14 +68,13 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right">Image</label>
 								<div class="col-sm-9">
-									<input
-										id='inputfile' type='file' name='inputfile'
+
+									<input id='inputfile' type='file' name='inputfile'
 										onChange='getoutput()'><br> <input type='hidden'
 										name='outputfile' id="outputfile"><br>
+
 								</div>
-
 							</div>
-
 							<br />
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right">Status</label>
@@ -141,7 +140,6 @@
 					+ inputfile.value.split('.')[1];
 		}
 		document.getElementById('outputfile').value = image;
-
 	</script>
 </body>
 </html>

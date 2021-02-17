@@ -34,8 +34,8 @@ public class ACategoryController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CategoriesMol());del category = FormUtil.toModel(CategoriesModel.class, request);
-		category.setListResult(Icategory.findAl
+		CategoriesModel category = FormUtil.toModel(CategoriesModel.class, request);
+		category.setListResult(Icategory.findAll());
 		request.setAttribute("category", category);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/admin/new/list.jsp");
 		rd.forward(request, response);

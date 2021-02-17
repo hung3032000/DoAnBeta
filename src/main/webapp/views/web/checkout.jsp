@@ -130,7 +130,7 @@
 															type="text"
 															id="dwfrm_singleshipping_shippingAddress_shippingAddressFields_lastname"
 															name="cus_address"
-															value="${USERMODEL.address }" maxlength="100"
+															value="${USERMODEL.address }" maxlength="13"
 															data-dwname="address" autocomplete="family-name"
 															aria-required="true">
 													</div>
@@ -187,7 +187,7 @@
 										data-quantity="1.0">
 										<div class="product-image">
 											<img
-												src="${pageContext.request.contextPath}/image/${item.product.image}"
+												src="${pageContext.request.contextPath}/${item.product.image}"
 												alt="">
 
 										</div>

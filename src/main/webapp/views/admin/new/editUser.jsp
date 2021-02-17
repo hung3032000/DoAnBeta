@@ -258,15 +258,15 @@ if (daySelected == null) {
 								
 										<c:if test="${empty model.email}">
 											<c:forEach var="item" items="${role.listResult}">
-												<option value="${item.roleId}">${item.name}</option>
+												<option value="${item.id}">${item.name}</option>
 											</c:forEach>
 										</c:if>
 										
 										<c:if test="${not empty model.email}">
 									
 											<c:forEach var="item" items="${role.listResult}">
-												<option value="${item.roleId}"
-													<c:if test="${item.roleId == model.roleId}">selected="selected"</c:if>>
+												<option value="${item.id}"
+													<c:if test="${item.id == model.roleId}">selected="selected"</c:if>>
 													${item.name}</option>
 											</c:forEach>
 										</c:if>

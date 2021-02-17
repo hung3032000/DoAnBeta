@@ -23,7 +23,7 @@
 							<a class="content" href="#">
 								<div class="primary">
 									<div class="primary">
-										<span style="color: #FFFFFF;">Holiday For Her</br></span>
+										<span style="color: #FFFFFF;">Đồ án cuối kì(Slide) </br></span>
 									</div>
 									<div class="cta-container">
 										<p class="form-button look-button">SHOP NOW</p>
@@ -36,14 +36,14 @@
 					<div aria-roledescription="slide" class="swiper-slide">
 						<div class="image-content">
 							<div class="background">
-								<img src="image/1700X85013.jpg"
+								<img src="image/Homepage_Carousel_Holiday_ForHer_Desktop.jpg"
 									alt="">
 
 							</div>
 							<a class="content" href="#">
 								<div class="primary">
 									<div class="primary">
-										<span style="color: #FFFFFF;"> New Year For Him</br></span>
+										<span style="color: #FFFFFF;">Đồ án cuối kì(Slide) </br></span>
 									</div>
 									<div class="cta-container">
 										<p class="form-button look-button">SHOP NOW</p>
@@ -55,13 +55,13 @@
 					<div aria-roledescription="slide" class="swiper-slide">
 						<div class="image-content">
 							<div class="background">
-								<img src="image/SPRING21-1700X850-18.jpg"
+								<img src="image/Homepage_Carousel_Holiday_ForHer_Desktop.jpg"
 									alt="">
 							</div>
 							<a class="content" href="#">
 								<div class="primary">
 									<div class="primary">
-										<span style="color: #FFFFFF;">New In Men </br></span>
+										<span style="color: #FFFFFF;">Đồ án cuối kì(Slide) </br></span>
 									</div>
 									<div class="cta-container">
 										<p class="form-button look-button">SHOP NOW</p>
@@ -74,13 +74,13 @@
 						<div class="image-content">
 							<div class="background">
 								<picture class=""> <img
-									src="image/Full_WFW20show_Desktop.jpg" alt="">
+									src="image/Homepage_Carousel_Holiday_ForHer_Desktop.jpg" alt="">
 								</picture>
 							</div>
 							<a class="content" href="#">
 								<div class="primary">
 									<div class="primary">
-										<span style="color: #FFFFFF;">Collection </br></span>
+										<span style="color: #FFFFFF;">Đồ án cuối kì(Slide) </br></span>
 									</div>
 									<div class="cta-container">
 										<p class="form-button look-button">SHOP NOW</p>
@@ -154,7 +154,7 @@
 				<div class="image-content col-xs-6">
 					<div class="background">
 						<picture class=""> <img
-							src="image/Home_Browse_FW20Antigona_W.jpg" alt=""> </picture>
+							src="image/AntigonaPouch_Browse_Men.jpg" alt=""> </picture>
 					</div>
 					<a class="content promotion-impression" href="#"
 						data-promotion-id="null" data-promotion-name="null"
@@ -232,7 +232,7 @@
 						<div 
 							class="grid-tile col-xs-5 col-sm-4 col-lg-4 double flatshot-3 category"
 							aria-roledescription="slide">
-							<a href="#"> <span class="text">
+							<a href="#men/shoes/boots-derbies/"> <span class="text">
 									Shop Boots &amp; Derbies </span> <picture class=""> <img
 									src="image/BH601ZH0NN001-01-01.jpg" alt="Boots &amp; Derbies"
 									srcset=""> </picture>
@@ -241,7 +241,7 @@
 						<div
 							class="grid-tile col-xs-5 col-sm-4 col-lg-4 double flatshot-3 category "
 							aria-roledescription="slide">
-							<a href="#"> <span class="text">
+							<a href="#men/ready-to-wear/sweatshirts/"> <span class="text">
 									Shop Sweatshirts </span> <picture class=""> <img
 									src="image/BMJ07G30AF004-01-01.jpg" alt="Sweatshirts"> </picture>
 							</a>
@@ -270,7 +270,8 @@
 				<a class="content" href="#">
 					<div class="primary">
 						<div class="primary">
-							<span style="color: #FFFFFF;">Fall 2021 By Homiee </br>
+							<span style="color: #FFFFFF;">CÁI WEB CỦA HƯNG SƯƠNG SƯƠNG
+								=)))))))))))) </br>
 							</span>
 						</div>
 						<div class="cta-container">

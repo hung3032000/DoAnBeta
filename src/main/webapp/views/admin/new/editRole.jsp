@@ -32,15 +32,15 @@
 							<div class="alert alert-${alert}">${messageResponse}</div>
 						</c:if>
 
-						<form action="${pageContext.request.contextPath}/admin-RoleNew"
+						<form action="${pageContext.request.contextPath}/admin-New"
 							method="POST" class="form-horizontal edit-account-form"
 							id="RegistrationForm" novalidate="novalidate">
 							
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right">Role ID</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="roleID" name="roleID"
-										value="${model.roleId}" />
+									<input type="text" class="form-control" id="fname" name="fname"
+										value="${model.id}" />
 								</div>
 							</div>
 							<br />
@@ -48,7 +48,7 @@
 								<label class="col-sm-3 control-label no-padding-right">Role
 									Code</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="roleCode" name="roleCode"
+									<input type="text" class="form-control" id="lname" name="lname"
 										value="${model.code}" />
 								</div>
 							</div>
@@ -57,7 +57,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right">Role Name</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="roleName" name="roleName"
+									<input type="text" class="form-control" id="lname" name="lname"
 										value="${model.name}" />
 								</div>
 							</div>
@@ -100,19 +100,19 @@
 
 							<div class="form-group">
 								<div class="col-sm-12">
-									<c:if test="${not empty model.roleId}">
+									<c:if test="${not empty model.id}">
 										<input type="submit"
 											class="btn btn-white btn-warning btn-bold" value="Edit role"
 											id="btnAddOrUpdateNew" name="action" />
 									</c:if>
-									<c:if test="${empty model.roleId}">
+									<c:if test="${empty model.id}">
 										<input type="submit"
 											class="btn btn-white btn-warning btn-bold" value="New role"
 											id="btnAddOrUpdateNew" name="action" />
 									</c:if>
 								</div>
 							</div>
-							<input type="hidden" value="${model.roleId}" id="id"
+							<input type="hidden" value="${model.id}" id="id"
 								name="roleId" />
 						</form>
 					</div>

@@ -10,7 +10,7 @@
 		} catch (e) {
 		}
 	</script>
-	<!-- <div class="sidebar-shortcuts">
+	<div class="sidebar-shortcuts">
 		<div class="sidebar-shortcuts-large">
 			<button class="btn btn-success">
 				<i class="ace-icon fa fa-signal"></i>
@@ -33,7 +33,7 @@
 
 			<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
 		</div>
-	</div> -->
+	</div>
 	<ul class="nav nav-list">
 		<li><a href="#" class="dropdown-toggle"> <i
 				class="menu-icon fa fa-list"></i> <span class="menu-text">Users
