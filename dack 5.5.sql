@@ -1,3 +1,7 @@
+-- use sys;
+-- drop database dack;
+create database dack;
+use dack;
 CREATE TABLE `product_image` (
   `id` bigint PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `image` varchar(255),
@@ -171,7 +175,7 @@ select count(*) from categories where parent_id = 2;
 SELECT * FROM categories where parent_id = 1 and id > 1 and status =1;
 -- category
 select * from categories;
-insert into categories(id,name,parent_id,status,created_at) values(1,'Parent',1,1,now());
+insert into categories(name,parent_id,created_at) values('Parent',1,now());
 insert into categories(name,parent_id,created_at) values('Men4',2,now());
 insert into categories(name,parent_id,created_at) values('Collection',1,now());
 insert into categories(name,parent_id,created_at) values('Women',1,now());
@@ -198,7 +202,7 @@ use dack;
 update role set status=1 where id >0;
 select * from product where id =1;
 insert into product (name, price,content,image,categorie_id,created_at) values('Medium Antigona Soft bag in
-														smooth leather','245000','New','BM710P3002055-02-02.jpg','20',date(now()));
+														smooth leather','245000','New','image/BM710P3002055-02-02.jpg','6',date(now()));
 update product set name='Món hàng 12',price='10',content='BigNew',image='image/BK507PK0ZY027-01-02.jpg',categorie_id='4',updated_at=now() where id=12;
 update product set categorie_id = 10 where id=4;
 select * from categories where parent_id ='1';
